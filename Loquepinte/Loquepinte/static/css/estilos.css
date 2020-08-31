@@ -1,0 +1,22 @@
+/*Se hace un degradado primero ponemos un atributo de css  la url  donde va la imagen
+luego  para que quede ien se hace un background size cover para que ocupe todo el ancho 
+y por ultimo un background posicion*/
+body, html{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+ background: linear-gradient(rgba(93,9,121 , .3),rgba(155,35,234, .7)), url(/static/img/Degradado.jpg);
+ background-size: cover;
+ background-position: center;
+ color: white;
+}
+.logo{
+    height: 200px;
+    margin-top: 15px;
+    
+}
+.espacio{
+    letter-spacing: 2px;
+}
