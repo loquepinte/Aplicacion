@@ -23,3 +23,4 @@ urlpatterns = [
     path('home/', home),
     path('principal/', principal),
 ]
+

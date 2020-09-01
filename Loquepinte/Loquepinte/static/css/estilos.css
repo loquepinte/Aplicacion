@@ -11,6 +11,11 @@ body{
  background-size: cover;
  background-position: center;
  color: white;
+ position: relative;
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
 }
 .logo{
     height: 200px;
@@ -19,4 +24,12 @@ body{
 }
 .espacio{
     letter-spacing: 2px;
+}
+
+header {
+    text-shadow: 8px 0 10px black;
+}
+
+footer {
+    background-image: url(/static/img/footer.png);
 }
