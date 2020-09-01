@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Loquepinte.views import home,principal
+from Loquepinte.views import home,principal,restaurante
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home),
     path('principal/', principal),
+    path('restaurante/', restaurante),
 ]
 

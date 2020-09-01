@@ -16,3 +16,11 @@ def principal(request):
     contexto = Context({"nombre_persona"})
     documento = plantilla.render(contexto)
     return HttpResponse(documento)
+
+def restaurante(request):
+    doc_externo=open("C:/Users/Luis/Desktop/Aplicacion/Loquepinte/Loquepinte/plantillas/restaurante.html")
+    plantilla = Template(doc_externo.read())
+    doc_externo.close()
+    contexto = Context({"nombre_persona"})
+    documento = plantilla.render(contexto)
+    return HttpResponse(documento)
