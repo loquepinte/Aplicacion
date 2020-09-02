@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Loquepinte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["C:/Users/Luis/Desktop/Aplicacion/Loquepinte/Loquepinte/plantillas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es-AR'
 
-TIME_ZONE = 'UTC-3'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -119,7 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST="smtp.gmail.com"
+EMAIL_USE_TLS= True # SEGURIDAD
+EMAIL_PORT = 587 # PUERTO DE SALIDA
+EMAIL_HOST_USER="informatorio2020@gmail.com"
+EMAIL_HOST_PASSWORD= "INFORMATORIO2020"
 STATICFILES_DIRS = [
     BASE_DIR / "Loquepinte/static",
 ]

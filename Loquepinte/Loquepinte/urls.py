@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Loquepinte.views import home,principal,restaurante
+from Loquepinte.views import home,principal,restaurante,contactar
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -23,5 +23,6 @@ urlpatterns = [
     path('home/', home),
     path('principal/', principal),
     path('restaurante/', restaurante),
+    path('contactar/', contactar),
 ]
 
