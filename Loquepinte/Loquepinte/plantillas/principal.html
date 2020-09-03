@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
+    <style>
+      .restaurante:hover {
+        transform: scale(1.1);
+      }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
             <a class="navbar-brand" href="../home/"><i class="fas fa-utensils"></i> LoQuePinte <i class="fas fa-utensils"></i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -44,32 +49,31 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
             </div>
-          </nav>
-          <div>         
+        </nav>        
     </header>
 
     <div class="my-4 text-center"> 
-      <img src="/static/img/logo3.png" alt="">
+      <img src="/static/img/logo3.png" id="logo">
       <h2 style="text-shadow: 5px 0 10px black;">Busca el restaurante que mas te guste!</h2>
     </div>
     <div class="row">
       <div class="col-sm-4 text-center py-4">
-        <a href="../restaurante/"><img src="/static/img/restaurant.png"></a>            
+        <a href="../restaurante/" target="_blank"><img src="/static/img/restaurant.png" class="restaurante"></a>            
       </div>
       <div class="col-sm-4 text-center py-4">
-        <a href=""><img src="/static/img/restaurant2.png"></a>
+        <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
       </div>
       <div class="col-sm-4 text-center py-4">
-        <a href=""><img src="/static/img/restaurant.png"></a>
+        <a href=""><img src="/static/img/restaurant.png" class="restaurante"></a>
       </div>
       <div class="col-sm-4 text-center py-4">
-        <a href=""><img src="/static/img/restaurant2.png"></a>
+        <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
       </div>
       <div class="col-sm-4 text-center py-4">
-        <a href=""><img src="/static/img/restaurant.png"></a>
+        <a href=""><img src="/static/img/restaurant.png" class="restaurante"></a>
       </div>
       <div class="col-sm-4 text-center py-4">
-        <a href=""><img src="/static/img/restaurant2.png"></a>
+        <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
@@ -99,6 +103,7 @@
           <img src="/static/img/restaurant.png">
       </div>
    </div>
+
 
   <div class="Comentario">
         <h1 class="px-3">Registra tu restaurante!</h1>
