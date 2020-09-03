@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Loquepinte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/Luis/Desktop/Aplicacion/Loquepinte/Loquepinte/plantillas"],
+        'DIRS': ["C:/Users/musimundo/Desktop/proyecto_app/Aplicacion/Loquepinte/Loquepinte/plantillas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

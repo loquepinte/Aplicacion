@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lo que pinte</title>
+   
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/starrr.js"></script>
 </head>
 <body>
     <header>
@@ -50,53 +56,96 @@
 
     <div class="my-4 text-center"> 
       <img src="/static/img/logo3.png" alt="">
-      <h2 style="text-shadow: 5px 0 10px black;">Busca el restaurante que mas te guste!</h2>
+      <h2 style="text-shadow: 5px 0 10px black;">Busca  restaurante que mas te guste!</h2>
     </div>
     <div class="row">
       <div class="col-sm-4 text-center py-4">
-        <a href="../restaurante/"><img src="/static/img/restaurant.png"></a>            
+        <a href="../restaurante/"><img src="/static/img/restaurant.png"></a>
+                    
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant2.png"></a>
+        <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant.png"></a>
+        <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant2.png"></a>
+        <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant.png"></a>
+        <hr>
+        <p class="color">calificar: <div  class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant2.png"></a>
+        <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
+          <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant2.png">
+        <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
+          <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant2.png">
+          <hr>
+        <p class="color">calificar:  <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
+          <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant2.png">
+          <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
+          <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant2.png">
+          <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
       <div class="col-sm-4 text-center py-4">
           <img src="/static/img/restaurant.png">
+          <hr>
+        <p class="color">calificar: <div class="Estrella"></div></p>
+        <hr>
       </div>
    </div>
 
@@ -177,7 +226,15 @@
           </div>
         </div>
     </footer>
+  <script>
+    $('.Estrella').starrr({
+      rating: 3,
+      change:function(e,valor){
+        alert( valor)
+      }
 
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
