@@ -13,6 +13,17 @@
 <body>
     <!--Container lo que hace es centrar el contenido-->
     <header class="container">
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li> <a href="#"> Usuario : {{user.username}}</a> </li>
+          <li>
+            <a href="{% url 'logout' %}">Cerrar Sesion</a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </nav>
         <!--Nos permite separar el contenido...... EL SM-12 ES PORQUE BOOTSTRAP SIEMPRE OCUPA 12 SI DESEAMOS QUE OCUPE TODO EL ANCHO POR ESO SI QUEREMOS LA MITAD PONEMOS 6-->
         <div class="row">
                 <div class="col-sm-12 my-4 text-center">    

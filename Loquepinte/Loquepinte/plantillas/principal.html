@@ -43,7 +43,18 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Comida Celiaca</a>
                   </div>
-                </li>
+                  
+                    
+                      {% if user.is_authenticated %}
+                      <li> <a href="#"> Usuario : {{user.username}}</a> </li>
+                      <li>
+                        <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                      </li>
+                      {% endif %}
+                    
+            
+                  
+                
               </ul>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
