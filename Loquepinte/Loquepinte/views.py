@@ -5,11 +5,11 @@ from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserForm
 from django.shortcuts import render , redirect # ademas del render coloco el redirect para redireccionar
-from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
+#from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
 def home(request):
     return render(request, "index.html")
-@login_required 
+#@login_required con esto hacemos que si o si debe estar registrado 
 def principal(request):
     return render(request, "principal.html")
 
@@ -40,7 +40,9 @@ def registro_usuario(request):
             password= formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password) # con esto se autenfica ahora se hace el login
             login(request,user)
-            return redirect(request, "restaurante.html")
-
-    
+            return render(request, "principal.html")
+        else:
+            return render(request, "registration/error_registro.html")
     return render(request, 'registration/registrar.html', data)
+def error(request):
+    return render(request, "registration/error_registro.html")

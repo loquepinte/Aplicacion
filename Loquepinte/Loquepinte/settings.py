@@ -26,6 +26,9 @@ SECRET_KEY = '%*$t&zcb93g+t1%f&f$-2sge+nqwu299m2&nj!3wzo1uvt@tqo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ALLOWED_HOSTS = []
 """ aca pongo donde se redirige"""
 LOGIN_REDIRECT_URL= "/home"
@@ -40,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms'
 ]
-
+# aca agregue crispy es para mejorar los formularios
+CRISPY_TEMPLATE_PACK= 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

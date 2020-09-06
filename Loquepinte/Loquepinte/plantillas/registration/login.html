@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-    <h2> Iniciar sesión </h2> 
-<form  method = "post">
-  {% csrf_token%}
-  {{form.as_p}}
-  <button  type = "submit"> Iniciar sesión </button > 
-</form >
+  {% if form.errors %}
+<div class="text-center">
+  <h3 style="color: red;"> <strong> Ingresaste mal tu usuario o contraseña por favor introduci de nuevo. </strong></h3>
+</div>
+  {% endif %}
+    <h2 class="text-center"> Iniciar sesión </h2> 
+    {% load crispy_forms_tags %} <!--Para que funcione el formulario de crispy-->
+<div class="container">    
+  <form  method = "POST">
+    {% csrf_token%}
+    {{form | crispy}}
+    <div class="text-center">
+    <button class="btn btn-dark " type = "submit"> Iniciar sesión </button > 
+    </div>
+  </form >
+</div>
 </body>
 </html>
