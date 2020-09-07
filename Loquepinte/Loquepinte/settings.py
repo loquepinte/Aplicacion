@@ -27,7 +27,9 @@ SECRET_KEY = '%*$t&zcb93g+t1%f&f$-2sge+nqwu299m2&nj!3wzo1uvt@tqo'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+""" aca pongo donde se redirige"""
+LOGIN_REDIRECT_URL= "/home"
+LOGOUT_REDIRECT_URL="/accounts/login"
 
 # Application definition
 
@@ -39,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# aca agregue crispy es para mejorar los formularios
+CRISPY_TEMPLATE_PACK= 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

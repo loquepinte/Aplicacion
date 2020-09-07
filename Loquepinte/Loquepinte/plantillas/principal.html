@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     {% load static %}
-    <meta charset="UTF-8">
+    <meta charset="UTF-3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lo que pinte</title>
     <link rel="icon" href="/static/img/icon.ico">
@@ -44,7 +44,18 @@
                   </div>
                 </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
+              <div>
+                {% if user.is_authenticated %}
+                    <a href="#"> Usuario : {{user.username}}</a> 
+                    <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                      {% else %}
+                    <a href="{% url 'login'  %}"><img src="../static/img/login/Boton1.png"></a>
+                    <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/Boton2.png"></a>
+                {% endif %}
+              </div>
+
+
+              <form class="form-inline my-2 my-lg-0 px-2">
                 <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
@@ -74,34 +85,7 @@
       </div>
       <div class="col-sm-4 text-center py-4">
         <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant2.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant2.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant2.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant2.png">
-      </div>
-      <div class="col-sm-4 text-center py-4">
-          <img src="/static/img/restaurant.png">
-      </div>
+      </div>      
    </div>
 
 
@@ -111,23 +95,23 @@
       <div class="form-row px-3">
         <div class="form-group col-sm-6">
           <label for="nombre">Nombre del restaurante</label>
-          <input type="text" class="form-control" name="txtNombre" placeholder="Ingrese el nombre">
+          <input type="text" required="" class="form-control" name="txtNombre" placeholder="Ingrese el nombre">
         </div> 
       </div>
       <div class="form-row px-3">
             <div class="form-group col-sm-3">
                 <label for="email">Email</label>
-                <input type="text" name="txtEmail" class="form-control" placeholder="Ingrese su email">
+                <input type="email" required="" name="txtEmail" class="form-control" placeholder="Ingrese su email">
             </div>
             <div class="form-group col-sm-3">
                 <label for="numero">Numero</label>
-                <input type="text" class="form-control" name="txtNumero" placeholder="Numero de contacto">
+                <input type="text" required="" class="form-control" name="txtNumero" placeholder="Numero de contacto">
             </div>
         </div>
       <div class="form-row px-3">
         <div class="form-group col-sm-4">
           <label for="Domicilio">Domicilio de tu restaurante</label>
-          <input type="text" class="form-control" name="txtDomicilio" placeholder="Ingrese su Domicilio">
+          <input type="text" required="" class="form-control" name="txtDomicilio" placeholder="Ingrese su Domicilio">
         </div> 
         <div class="form-group col-sm-2">
           <label for="Ciudad">Ciudad</label>
