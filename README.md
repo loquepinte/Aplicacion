@@ -31,4 +31,4 @@ Esta es una aplicación web creada por los estudiantes de la comisión 3 del inf
 
 • Marcelo Lugo
 
-# Lo que pinte
+# L☻ que pinte ®
