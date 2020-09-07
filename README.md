@@ -13,22 +13,22 @@ Esta es una aplicación web creada por los estudiantes de la comisión 3 del inf
 
 •Numero de contacto para envio a domicilio
 
-Staff del equipo:
+# Staff del equipo:
 
-•Lucas Sosa
+• Lucas Sosa
 
-•Luis Peralta
+• Luis Peralta
 
-•Marcos Billordo
+• Marcos Billordo
 
-•Milton Yaya
+• Milton Yaya
 
-•Gaby Romero
+• Gaby Romero
 
-•Godoysz
+• Godoysz
 
-•Lucas Silver
+• Lucas Silver
 
-•Marcelo Lugo
+• Marcelo Lugo
 
 # Lo que pinte
