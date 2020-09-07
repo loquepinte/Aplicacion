@@ -8,14 +8,14 @@ Esta es una aplicación web creada por los estudiantes de la comisión 3 del inf
 •Las promociones que ofrecen a sus clientes
 •Numero de contacto para envio a domicilio
 
-Staff del equipo:
-•Lucas Sosa
-•Luis Peralta
-•Marcos Billordo
-•Milton Yaya
-•Gaby Romero
-•Godoysz
-•Lucas Silver
-•Marcelo Lugo
+#Staff del equipo:
+#Lucas Sosa
+#Luis Peralta
+#Marcos Billordo
+#Milton Yaya
+#Gaby Romero
+#Godoysz
+#Lucas Silver
+#Marcelo Lugo
 
 # Lo que pinte
