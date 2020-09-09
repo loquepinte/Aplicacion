@@ -13,6 +13,16 @@
       .restaurante:hover {
         transform: scale(1.1);
       }
+      nav{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        text-shadow: none;
+      }
+      .Comentario{
+        background: linear-gradient(rgba(56, 0, 0, 0.3),rgba(56, 0, 0, 0.5));
+        border: 2px solid tomato;
+        border-radius: 10px;
+      }
     </style>
 </head>
 <body>
@@ -44,28 +54,27 @@
                   </div>
                 </li>
               </ul>
-              <div>
+              <!-- registro/login -->
+              <div class="px-4">
                 {% if user.is_authenticated %}
                     <a href="#"> Usuario : {{user.username}}</a> 
-                    <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                    <a href="{% url 'logout' %}"><img src="../static/img/login/BotonOut.png"></a>
                       {% else %}
-                    <a href="{% url 'login'  %}"><img src="../static/img/login/Boton1.png"></a>
-                    <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/Boton2.png"></a>
+                    <a href="{% url 'login'  %}"><img src="../static/img/login/BotonLogin.png"></a>
+                    <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/BotonRegistro.png"></a>
                 {% endif %}
               </div>
-
-
-              <form class="form-inline my-2 my-lg-0 px-2">
+              <form class="form-inline my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                <button class="btn btn-outline-success my-2 my-sm-0 px-4" type="submit">Buscar</button>
               </form>
             </div>
         </nav>        
     </header>
 
     <div class="my-4 text-center"> 
-      <img src="/static/img/logo3.png" id="logo">
-      <h2 style="text-shadow: 5px 0 10px black;">Busca el restaurante que mas te guste!</h2>
+      <img src="/static/img/logo2.png" id="logo">
+      <h2 style="text-shadow: 5px 0 10px black;"><i>~Busca el restaurante que mas te guste!</i></h2>
     </div>
     <div class="row">
       <div class="col-sm-4 text-center py-4">

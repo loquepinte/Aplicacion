@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     {% load static %}
-    <meta charset="UTF-8">
+    <meta charset="UTF-3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lo que pinte </title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <style>
+      header{
+        text-shadow: 3px 0 2px black;
+      }
+      .staff{
+        position: relative;
+        filter: opacity(.5);
+      }
+      
+      .staff:hover{
+        transform: scale(1.1);       
+        filter: opacity(1);
+
+      }
+      .btn {
+        box-shadow: 0px 0px 5px 2px #000000;
+      }
+      
+    </style>
 </head>
 <body>
     <!--Container lo que hace es centrar el contenido-->
@@ -32,18 +51,34 @@
                         </button>
                     </a>                                                               
                 </div>
-                <div class="col-sm-4 text-center my-4">
-                    <img src="/static/img/avatar2.png" class="img-fluid">  
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="/static/img/avatar1.png" class="img-fluid">  
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="/static/img/avatar2.png" class="img-fluid">  
-                </div>
+                
                     
         </div>    
     </header>
+
+    <div class="row">
+      <div class="col-sm-4 text-center my-4">
+        <a href="#"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>
+        <div class="info">
+          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-facebook px-2"></i>
+        </div>        
+      </div>
+      <div class="col-sm-4 text-center">
+        <a href="#"><img src="/static/img/avatar1.png" class="staff img-fluid"></a> 
+        <div class="info">
+          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-facebook px-2"></i>
+        </div>  
+      </div>
+      <div class="col-sm-4 text-center">
+        <a href="#"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>  
+        <div class="info">
+          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-facebook px-2"></i>
+        </div>  
+      </div>
+    </div>
 
 
     <footer style>

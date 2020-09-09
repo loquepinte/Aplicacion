@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms'
 ]
 # aca agregue crispy es para mejorar los formularios
 CRISPY_TEMPLATE_PACK= 'bootstrap4'

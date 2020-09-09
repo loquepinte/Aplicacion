@@ -1,5 +1,5 @@
 
 function valor(){
-    alert("Gracias por tu comentario!")
+    alert("No puedes comentar aun :(")
   }
 

@@ -28,9 +28,10 @@ body{
     letter-spacing: 2px;
 }
 
-header {
+/* header {
     text-shadow: 3px 0 2px black;
-}
+} */
+
 
 footer {
     background-image: url(/static/img/footer.png);
