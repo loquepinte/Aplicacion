@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form  action=" " method="POST">{% csrf_token %}     
+    <div class="form-row px-3">
+            <div class="form-group col-sm-3">
+                <label for=" ">Nombre Usuario</label>
+                <input type="text" class="form-control" name="txt_Usuario" placeholder="Nombre de Usuario">
+            </div>
+        </div>
+    <div class="form-row px-3">
+        <div class="form-group col-sm-4">
+        <label for="">Nombre del restaurant</label>
+        <input type="text" class="form-control" name="txt_Restaurant" placeholder="Nombre de restaurant">
+        </div> 
+    <div class="form-group col-sm-6">
+        <label for="comentario">Comentario</label>
+        <textarea class="form-control" name="txt_Comentario" cols="10" rows="4"></textarea>
+    </div>
+        <input type="submit" class="btn btn-primary col-sm-12 py-4" value="Enviar">
+    </div>
+   </div>
+</form>
+</body>
+</html>

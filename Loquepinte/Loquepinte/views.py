@@ -3,8 +3,9 @@ from django.template import Template, Context
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserForm
-from django.shortcuts import render , redirect # ademas del render coloco el redirect para redireccionar
+from modulos.Comentarios.models import Comment, Restaurant, Comentario
+from .forms import CustomUserForm , CommentForm
+from django.shortcuts import render , redirect , get_object_or_404 # ademas del render coloco el redirect para redireccionar
 #from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
 def home(request):
@@ -46,3 +47,14 @@ def registro_usuario(request):
     return render(request, 'registration/registrar.html', data)
 def error(request):
     return render(request, "registration/error_registro.html")
+
+def comentario(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_Usuario"]
+        nombre_Restaurant = request.POST["txt_Restaurant"]
+        texto=request.POST["txt_Comentario"]
+        comentario= Comentario(usuario=nombre_Usuario,Nombre_restaurant=nombre_Restaurant,mensaje=texto)
+        comentario.save()
+        return render(request, "principal.html")
+    return render(request, "comentario.html")
+    

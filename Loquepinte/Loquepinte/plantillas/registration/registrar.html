@@ -13,6 +13,8 @@
         {% load crispy_forms_tags %}
         <form action="" method="POST">
             {% csrf_token%}
+            {{form_password1.errors}}
+            {{form_password2.errors}}
             {{form | crispy }}
             <div class="text-center">
                 <input type="reset" value="Limpiar" class="btn btn-success">
