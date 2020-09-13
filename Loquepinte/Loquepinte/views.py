@@ -8,6 +8,7 @@ from .forms import CustomUserForm , CommentForm
 from django.shortcuts import render , redirect , get_object_or_404 # ademas del render coloco el redirect para redireccionar
 #from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
+
 def home(request):
     return render(request, "index.html")
 #@login_required con esto hacemos que si o si debe estar registrado 
@@ -55,6 +56,12 @@ def comentario(request):
         texto=request.POST["txt_Comentario"]
         comentario= Comentario(usuario=nombre_Usuario,Nombre_restaurant=nombre_Restaurant,mensaje=texto)
         comentario.save()
-        return render(request, "principal.html")
-    return render(request, "comentario.html")
-    
+        return redirect("../comentarios/")
+    return render(request, "comentario.html")    
+def comentarios(request):
+    comentario= Comentario.objects.all()
+    print(comentario)
+    contexto={
+        'comentario':comentario,
+    }  
+    return render(request, "comentarios.html",contexto)

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include  # aca tambien agreger ver despues si esto no es que me tira
 #from django.contrib.auth.decorators import login_required
-from Loquepinte.views import home,principal,restaurante,contactar, registro_usuario , error, comentario  
+from Loquepinte.views import home,principal,restaurante,contactar, registro_usuario , error, comentario, comentarios  
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.conf.urls import url
@@ -32,6 +32,7 @@ urlpatterns = [
     path('registrar/',registro_usuario,name = 'registro_usuario'),
     path('error/', error, name= 'error'),
     path('comentario/',comentario, name='comentario'),
+    path('comentarios/',comentarios, name='comentarios'),    
  # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 
         name='password_change_done'),
