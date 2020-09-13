@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from modulos.Comentarios.models import Comment, Restaurant, Comentario
 from .forms import CustomUserForm , CommentForm
 from django.shortcuts import render , redirect , get_object_or_404 # ademas del render coloco el redirect para redireccionar
-#from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
+from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
 
 def home(request):
@@ -48,7 +48,7 @@ def registro_usuario(request):
     return render(request, 'registration/registrar.html', data)
 def error(request):
     return render(request, "registration/error_registro.html")
-
+@login_required 
 def comentario(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_Usuario"]
@@ -59,7 +59,7 @@ def comentario(request):
         return redirect("../comentarios/")
     return render(request, "comentario.html")    
 def comentarios(request):
-    comentario= Comentario.objects.all()
+    comentario= Comentario.objects.all().order_by('-id')
     print(comentario)
     contexto={
         'comentario':comentario,
