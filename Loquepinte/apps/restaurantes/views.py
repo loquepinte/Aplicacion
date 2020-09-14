@@ -16,7 +16,12 @@ def principal(request):
     return render(request, "restaurantes/principal.html")
 
 def restaurante(request):
-    return render(request, "restaurantes/restaurante.html")
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':comentarios,
+    } 
+    return render(request, "restaurantes/restaurante.html", contexto)
 
 def contactar(request):
     if request.method == 'POST':
@@ -57,6 +62,7 @@ def registro_usuario(request):
 def error(request):
     return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/error_registro.html")
 
+
 @login_required 
 def comentario(request):
     if request.method == 'POST':
@@ -68,11 +74,16 @@ def comentario(request):
         comentario.save()
         return redirect("../comentarios/")
     return render(request, "comentario.html")    
+
+
 def comentarios(request):
     comentario= Comentario.objects.all().order_by('-id')
-    # print(comentario)
     contexto={
         'comentario':comentario,
     }  
     return render(request, "comentarios.html",contexto)
+
+
+    
+
 

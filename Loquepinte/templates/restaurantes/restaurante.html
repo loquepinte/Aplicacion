@@ -3,322 +3,270 @@
 <html lang="es-AR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lo que pinte</title>
-  <link rel="icon" href="/static/img/icon.ico">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/static/css/estilos.css">
-  <style>
-    body {
-      background: linear-gradient(rgba(93, 9, 121, .3), rgba(155, 35, 234, .7)), url(/static/img/bg2.jpg);
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-
-    .horarios {
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 2px solid tomato;
-      border-radius: 10px;
-    }
-
-    .cuentacon {
-      background-color: rgba(0, 0, 0, 0.2);
-      border: 2px solid tomato;
-      border-radius: 10px;
-      text-shadow: 2px 0 2px black;
-    }
-
-    #comentario {
-      background-color: rgba(56, 0, 0, 0.3);
-      border: 2px solid tomato;
-      border-radius: 10px;
-    }
-
-    label {
-      color: grey;
-      font-size: 50px;
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-
-    .clasificacion {
-      direction: rtl;
-      /* right to left */
-      unicode-bidi: bidi-override;
-    }
-
-    label:hover,
-    label:hover~label {
-      color: orange;
-    }
-
-    input[type="radio"]:checked~label {
-      color: orange;
-    }
-
-    nav {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 20px;
-      text-shadow: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo que pinte</title>
+    <link rel="icon" href="/static/img/icon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/restaurante.css">
 </head>
 
 <body>
-  <!-- BARRA DE NAVEGACION -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
-      <a class="navbar-brand" href="../"><i class="fas fa-utensils"></i> LoQuePinte <i
-          class="fas fa-utensils"></i></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- BARRA DE NAVEGACION -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+            <a class="navbar-brand" href="../"><i class="fas fa-utensils"></i> LoQuePinte <i
+                    class="fas fa-utensils"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="../">Inicio<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../principal/">Restaurantes</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Bon Apetite</a>
-          </li>
-        </ul>
-        <!-- registro/login -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../">Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../principal/">Restaurantes</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Bon Apetite</a>
+                    </li>
+                </ul>
+                <!-- registro/login -->
+                <div class="login px-4">
+                    {% if user.is_authenticated %}
+                    <a href="#"><i>{{user.username}}</i></a>
+                    <a href="{% url 'logout' %}"><img src="../static/img/login/BotonOut.png"></a>
+                    {% else %}
+                    <a href="{% url 'login'  %}"><img src="../static/img/login/BotonLogin.png"></a>
+                    <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/BotonRegistro.png"></a>
+                    {% endif %}
+                </div>
+                <form class="form-inline my-2 my-lg-0 px-2">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Comida" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
         <div>
-          {% if user.is_authenticated %}
-          <a href="#"> Usuario : {{user.username}}</a>
-          <a href="{% url 'logout' %}"><img src="../static/img/login/BotonOut.png"></a>
-          {% else %}
-          <a href="{% url 'login'  %}"><img src="../static/img/login/BotonLogin.png"></a>
-          <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/BotonRegistro.png"></a>
-          {% endif %}
+    </header>
+
+    <!-- FILA 1 -->
+    <div class="row">
+        <!-- NOMBRE Y DIRECCION -->
+        <div class="col-sm-6 py-4 d-flex flex-column text-center">
+            <h1 style="font-size: 48pt;">El Viejo Café</h1>
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Carlos Pellegrini 101</h4>
+            <h6>Resistencia - Chaco</h6>
+            <h2>Acerca de:</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex enim corrupti repellendus repellat est vel
+                magni
+                quam animi eius iusto dolores odio tenetur, reiciendis itaque error autem obcaecati dolorum nam!</p>
         </div>
-        <form class="form-inline my-2 my-lg-0 px-2">
-          <input class="form-control mr-sm-2" type="search" placeholder="Comida" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </div>
-    </nav>
-    <div>
-  </header>
-
-  <!-- FILA 1 -->
-  <div class="row">
-    <!-- NOMBRE Y DIRECCION -->
-    <div class="col-sm-6 py-4 d-flex flex-column text-center">
-      <h1 style="font-size: 48pt;">Bon Apetite</h1>
-      <i class="fas fa-map-marker-alt"></i>
-      <h4>Av. Alberdi 101</h4>
-      <h6>Resistencia - Chaco</h6>
-      <h2>Acerca de:</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex enim corrupti repellendus repellat est vel magni
-        quam animi eius iusto dolores odio tenetur, reiciendis itaque error autem obcaecati dolorum nam!</p>
-    </div>
-    <!-- IMAGENES DEL RESTAURANTE -->
-    <div class="col-sm-6 d-flex flex-column">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active text-center">
-            <img src="../static/img/restaurante_1/imagen1.png">
-          </div>
-          <div class="carousel-item text-center">
-            <img src="../static/img/restaurante_1/imagen2.png">
-          </div>
-          <div class="carousel-item text-center">
-            <img src="../static/img/restaurante_1/imagen3.png">
-          </div>
+        <!-- IMAGENES DEL RESTAURANTE -->
+        <div class="carrusel col-sm-6 py-4 d-flex flex-column">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        <img src="../static/img/restaurante_1/imagen1.png">
+                    </div>
+                    <div class="carousel-item text-center">
+                        <img src="../static/img/restaurante_1/imagen2.png">
+                    </div>
+                    <div class="carousel-item text-center">
+                        <img src="../static/img/restaurante_1/imagen3.png">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
     </div>
-  </div>
 
-  <!-- FILA 2 -->
-  <!-- CONTACTO / HORARIOS Y MENU -->
-  <div class="row">
-    <div class="col-sm-6 d-flex flex-column px-4">
-      <ul class="nav nav-pills" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="Promo-tab" data-toggle="pill" href="#Promo" role="tab" aria-controls="Promo"
-            aria-selected="true">Promociones</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="Comida-tab" data-toggle="pill" href="#Comida" role="tab" aria-controls="Comida"
-            aria-selected="false">Comida</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="Bebidas-tab" data-toggle="pill" href="#Bebidas" role="tab" aria-controls="Bebidas"
-            aria-selected="false">Bebidas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="Postres-tab" data-toggle="pill" href="#Postres" role="tab" aria-controls="Postres"
-            aria-selected="false">Postres</a>
-        </li>
-      </ul>
-      <!-- MENU COMIDA / BEBIDAS / POSTRES -->
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="Promo" role="tabpanel" aria-labelledby="Promo-tab">
-          <table class="table table-striped table-dark">
-            <h1 class="text-center">Menu</h1>
-            <thead>
-              <th>
-                <h3>Promociones</h3>
-              </th>
-              <th>
-                <h3>Precios</h3>
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <h6>1 Papas fritas + 2 Hamburguesas</h6> <img src="../static/img/restaurante_1/promo/promo1.png"><img
-                    src="../static/img/restaurante_1/promo/fries.png">
-                </td>
-                <td>
-                  <h3>$150</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>4 Hamburguesas</h6> <img src="../static/img/restaurante_1/promo/promo1.png">
-                </td>
-                <td>
-                  <h3>$550</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>3 Pizzas</h6> <img src="../static/img/restaurante_1/promo/pizza.png">
-                </td>
-                <td>
-                  <h3>$750</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>Hamburpizza</h6> <img src="../static/img/restaurante_1/promo/burger_pizza.png">
-                </td>
-                <td>
-                  <h3>$650</h3>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <!-- FILA 2 -->
+    <!-- CONTACTO / HORARIOS Y MENU -->
+    <div class="row">
+        <div class="col-sm-6 d-flex flex-column px-4">
+            <ul class="nav nav-pills" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="Promo-tab" data-toggle="pill" href="#Promo" role="tab"
+                        aria-controls="Promo" aria-selected="true">Promociones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Comida-tab" data-toggle="pill" href="#Comida" role="tab"
+                        aria-controls="Comida" aria-selected="false">Comida</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Bebidas-tab" data-toggle="pill" href="#Bebidas" role="tab"
+                        aria-controls="Bebidas" aria-selected="false">Bebidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Postres-tab" data-toggle="pill" href="#Postres" role="tab"
+                        aria-controls="Postres" aria-selected="false">Postres</a>
+                </li>
+            </ul>
+            <!-- MENU COMIDA / BEBIDAS / POSTRES -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Promo" role="tabpanel" aria-labelledby="Promo-tab">
+                    <table class="table table-striped table-dark">
+                        <h1 class="text-center">Menu</h1>
+                        <thead>
+                            <th>
+                                <h3>Promociones</h3>
+                            </th>
+                            <th>
+                                <h3>Precios</h3>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6>1 Papas fritas + 2 Hamburguesas</h6> <img
+                                        src="../static/img/restaurante_1/promo/promo1.png"><img
+                                        src="../static/img/restaurante_1/promo/fries.png">
+                                </td>
+                                <td>
+                                    <h3>$150</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>4 Hamburguesas</h6> <img src="../static/img/restaurante_1/promo/promo1.png">
+                                </td>
+                                <td>
+                                    <h3>$550</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>3 Pizzas</h6> <img src="../static/img/restaurante_1/promo/pizza.png">
+                                </td>
+                                <td>
+                                    <h3>$750</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Hamburpizza</h6> <img src="../static/img/restaurante_1/promo/burger_pizza.png">
+                                </td>
+                                <td>
+                                    <h3>$650</h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">
+                    <table class="table table-striped table-dark">
+                        <h1 class="text-center">Menu</h1>
+                        <thead>
+                            <th>
+                                <h3>Promociones</h3>
+                            </th>
+                            <th>
+                                <h3>Precios</h3>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6>1 Cerveza heineken</h6> <img
+                                        src="../static/img/restaurante_1/promo/promo1.png"><img
+                                        src="../static/img/restaurante_1/promo/fries.png">
+                                </td>
+                                <td>
+                                    <h3>$150</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>1 fernet</h6> <img src="../static/img/restaurante_1/promo/promo1.png">
+                                </td>
+                                <td>
+                                    <h3>$550</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>2 vinos</h6> <img src="../static/img/restaurante_1/promo/pizza.png">
+                                </td>
+                                <td>
+                                    <h3>$750</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>1 champange</h6> <img src="../static/img/restaurante_1/promo/burger_pizza.png">
+                                </td>
+                                <td>
+                                    <h3>$650</h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- CARACTERISTICAS DEL RESTAURANTE -->
+        <div class="col-sm-3 d-flex flex-column py-4 px-4">
+            <div class="cuentacon text-center">
+                <h1 style="color: salmon;">Cuenta con</h1>
+                <h3 style="color: rgb(156, 107, 107);">-Mesas <i class="fas fa-chair"></i></h3>
+                <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
+                    class="far fa-grin-stars"></i>
+                <h3 style="color: rgb(31, 154, 255);">-Musica <i class="fas fa-music"></i></h3>
+                <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
+                    class="far fa-grin-stars"></i>
+                <h3 style="color: lightseagreen;">-Patio al aire libre <i class="fas fa-shoe-prints"></i></h3>
+                <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
+                    class="far fa-grin-stars"></i>
+                <h3 style="color: mediumpurple;">-Mozos <i class="fas fa-user-tie"></i></h3>
+                <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
+                    class="far fa-grin-stars"></i>
+                <h3 style="color: moccasin;">-Baño <i class="fas fa-restroom"></i></h3>
+                <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
+                    class="far fa-grin-stars"></i>
+            </div>
         </div>
 
-        <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">
-          <table class="table table-striped table-dark">
-            <h1 class="text-center">Menu</h1>
-            <thead>
-              <th>
-                <h3>Promociones</h3>
-              </th>
-              <th>
-                <h3>Precios</h3>
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <h6>1 Cerveza heineken</h6> <img src="../static/img/restaurante_1/promo/promo1.png"><img
-                    src="../static/img/restaurante_1/promo/fries.png">
-                </td>
-                <td>
-                  <h3>$150</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>1 fernet</h6> <img src="../static/img/restaurante_1/promo/promo1.png">
-                </td>
-                <td>
-                  <h3>$550</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>2 vinos</h6> <img src="../static/img/restaurante_1/promo/pizza.png">
-                </td>
-                <td>
-                  <h3>$750</h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h6>1 champange</h6> <img src="../static/img/restaurante_1/promo/burger_pizza.png">
-                </td>
-                <td>
-                  <h3>$650</h3>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-sm-2 text-center py-4 px-4 d-flex flex-column">
+            <div class="horarios">
+                <h3>Contacto:</h3><img src="../static/img/whatsapp.ico">
+                <p><i class="fas fa-mobile-alt px-2"></i>362-4459399</p>
+                <!-- HORARIOS DE ATENCION -->
+                <h3>Horarios de Atencion:</h3>
+                <p><i class="far fa-clock"></i> Lunes: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Martes: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Miercoles: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Jueves: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Viernes: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Sabado: 06-14hs</p>
+                <p><i class="far fa-clock"></i> Domingo: CLOSED</p>
+
+                <!-- DELIVERY DISPONIBLE -->
+                <img src="../static/img/delivery.png">
+                <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i
+                        class="fas fa-check-circle" style="color: lightgreen;"></i></h3>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- CARACTERISTICAS DEL RESTAURANTE -->
-    <div class="col-sm-3 d-flex flex-column py-4 px-4">
-      <div class="cuentacon text-center">
-        <h1 style="color: salmon;">Cuenta con</h1>
-        <h3 style="color: rgb(156, 107, 107);">-Mesas <i class="fas fa-chair"></i></h3>
-        <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
-          class="far fa-grin-stars"></i>
-        <h3 style="color: rgb(31, 154, 255);">-Musica <i class="fas fa-music"></i></h3>
-        <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
-          class="far fa-grin-stars"></i>
-        <h3 style="color: lightseagreen;">-Patio al aire libre <i class="fas fa-shoe-prints"></i></h3>
-        <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
-          class="far fa-grin-stars"></i>
-        <h3 style="color: mediumpurple;">-Mozos <i class="fas fa-user-tie"></i></h3>
-        <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
-          class="far fa-grin-stars"></i>
-        <h3 style="color: moccasin;">-Baño <i class="fas fa-restroom"></i></h3>
-        <i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i class="far fa-grin-stars"></i><i
-          class="far fa-grin-stars"></i>
-      </div>
     </div>
 
-    <div class="col-sm-2 text-center py-4 px-4 d-flex flex-column">
-      <div class="horarios">
-        <h3>Contacto:</h3><img src="../static/img/whatsapp.ico">
-        <p><i class="fas fa-mobile-alt px-2"></i>362-4102030</p>
-        <!-- HORARIOS DE ATENCION -->
-        <h3>Horarios de Atencion:</h3>
-        <p><i class="far fa-clock"></i> Lunes: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Martes: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Miercoles: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Jueves: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Viernes: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Sabado: 10-20hs</p>
-        <p><i class="far fa-clock"></i> Domingo: CLOSED</p>
-
-        <!-- DELIVERY DISPONIBLE -->
-        <img src="../static/img/delivery.png">
-        <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i
-            class="fas fa-check-circle" style="color: lightgreen;"></i></h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- FILA 3 -->
-  <!-- COMENTARIOS DE CLIENTES -->
-  <div class="row" id="comentario">
+    <!-- FILA 3 -->
+    <!-- COMENTARIOS DE CLIENTES -->
+    <!-- <div class="row" id="comentario">
     <div class="col-sm-12 text-center">
       <h1>¿Que te parecio este restaurante?</h1>
       <p>Deja tu comentario:</p>
@@ -345,55 +293,103 @@
         <input type="submit" class="btn btn-warning col-sm-3 py-4" value="Enviar" onclick="valor()">
       </div>
     </div>
-  </div>
-  <script src="../static/js/ajuste.js"></script>
+  </div> -->
+    <div class="row" id="comentario">
+        <div class="col-sm-6">
+            <div class="container">
+                <div class="class text-center">
+                    <h1><b>Ultimos comentarios</b></h1>
+                </div>
+                {% if comentario %}
+                    {% for coment in comentario %}
+                    <hr>
+                    <div class="comment" style="border: 2px solid black;">
+                        <strong><ins>{{ coment.usuario }}</ins></strong> <br>
+                        <strong>{{ coment.Nombre_restaurant }}</strong>
+                        <div class="comentario5">
+                            <p><i>{{ coment.mensaje|linebreaks }}</i></p>
+                        </div>
 
-  <!-- PIE DE PAGINA -->
-  <footer style>
-    <div class="row">
-      <div class="col-sm-4 d-flex flex-column py-4">
-        <a href="http://www.facebook.com"><i class="fab fa-facebook px-2"></i>Facebook</a>
-        <a href="http://www.twitter.com"><i class="fab fa-twitter-square px-2"></i>Twitter</a>
-        <a href="http://www.instagram.com"><i class="fab fa-instagram-square px-2"></i>Instagram</a>
-      </div>
-
-      <div class="col-sm-4 text-center">
-        <address>
-          <h3>Contacto</h3>
-          <!-- aca utilizo iconos de bootstrap -->
-          <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-phone" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
-              <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-            </svg>+5493624112233</p>
-          <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
-            </svg> loquepinteinfo@gmail.com</p>
-
-        </address>
-      </div>
-      <div class="col-sm-4 d-flex flex-column align-items-end py-4 px-4">
-        <a href="http://www.google.com"><i class="fas fa-bullhorn px-2"></i>Nosotros</a>
-        <a href="http://www.google.com"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
-        <a href="http://www.google.com"><i class="fas fa-cocktail px-2"></i>Tu restaurante</a>
-      </div>
+                    </div>
+                    <hr>                    
+                    {% endfor %}
+                {% else %}
+                    <p>No hay comentarios aquí :(</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"></a>
+        </div>
     </div>
-  </footer>
 
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
+    <!-- api google maps -->
+    <div class="row">
+        <div class="mapa col-sm-12 text-center">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d372.1562452237483!2d-58.983934108320604!3d-27.451607147504777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9e59402ff74ed1cd!2sEl%20Viejo%20Caf%C3%A9!5e0!3m2!1ses!2sar!4v1600089875393!5m2!1ses!2sar"
+                width="600" height="450" frameborder="0" style="border:1;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+    </div>
+    <!-- PIE DE PAGINA -->
+    <footer style>
+        <div class="row">
+            <div class="col-sm-4 d-flex flex-column py-4">
+                <a href="http://www.facebook.com"><i class="fab fa-facebook px-2"></i>Facebook</a>
+                <a href="http://www.twitter.com"><i class="fab fa-twitter-square px-2"></i>Twitter</a>
+                <a href="http://www.instagram.com"><i class="fab fa-instagram-square px-2"></i>Instagram</a>
+            </div>
 
+            <div class="col-sm-4 text-center">
+                <address>
+                    <h3>Contacto</h3>
+                    <!-- aca utilizo iconos de bootstrap -->
+                    <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-phone" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                            <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                        </svg>+5493624112233</p>
+                    <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
+                        </svg> loquepinteinfo@gmail.com</p>
+
+                </address>
+            </div>
+            <div class="col-sm-4 d-flex flex-column align-items-end py-4 px-4">
+                <a href="http://www.google.com"><i class="fas fa-bullhorn px-2"></i>Nosotros</a>
+                <a href="http://www.google.com"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
+                <a href="http://www.google.com"><i class="fas fa-cocktail px-2"></i>Tu restaurante</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <!-- el carousel interval es para aumentar o disminur la velocidad de movimiento -->
+    <script>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+            $("[data-toggle='popover']").popover();
+            $('.carousel').carousel({
+                interval: 3000
+            });
+        });
+    </script>
+    <script src="../static/js/ajuste.js"></script>
 </body>
 
 </html>

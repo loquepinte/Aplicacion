@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(rgba(93, 9, 121, .3), rgba(155, 35, 234, .7)), url(/static/img/bg2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+.horarios {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid tomato;
+    border-radius: 10px;
+  }
+
+.cuentacon {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid tomato;
+    border-radius: 10px;
+    text-shadow: 2px 0 2px black;
+  }
+
+#comentario {
+    background-color: rgba(56, 0, 0, 0.3);
+    border: 2px solid tomato;
+    border-radius: 10px;
+  }
+
+label {
+    color: grey;
+    font-size: 50px;
+  }
+
+input[type="radio"] {
+    display: none;
+  }
+
+.clasificacion {
+    direction: rtl;
+    /* right to left */
+    unicode-bidi: bidi-override;
+  }
+
+label:hover,
+label:hover~label {
+    color: orange;
+  }
+
+input[type="radio"]:checked~label {
+    color: orange;
+  }
+
+nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-shadow: none;
+  }
+
+.login {
+    color: white;
+  }
+.carrusel img{
+    height: 350px;
+}

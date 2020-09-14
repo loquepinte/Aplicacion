@@ -11,42 +11,7 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
-    <style>
-        .restau:hover .calificar {
-            visibility: visible;
-            margin-top: 0px;
-        }
-
-        .restaurante:hover {
-            transform: scale(1.1);
-        }
-
-        nav {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 20px;
-            text-shadow: none;
-        }
-
-        .Comentario {
-            background: linear-gradient(rgba(56, 0, 0, 0.3), rgba(56, 0, 0, 0.5));
-            border: 2px solid tomato;
-            border-radius: 10px;
-        }
-
-        .calificar {
-            visibility: hidden;
-            margin-top: -100px;
-            transition: margin 1s;
-            border-radius: 20%;
-            box-shadow: 2px 2px 7px black;
-        }
-
-        .calificar a {
-            text-decoration: none;
-            color: white;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/principal.css">
 </head>
 
 <body>
@@ -82,9 +47,9 @@
                     </li>
                 </ul>
                 <!-- registro/login -->
-                <div class="px-4">
+                <div class="login px-4">
                     {% if user.is_authenticated %}
-                    <a href="#"> Usuario : {{user.username}}</a>
+                    <a href="#"><i>{{user.username}}</i></a>
                     <a href="{% url 'logout' %}"><img src="../static/img/login/BotonOut.png"></a>
                     {% else %}
                     <a href="{% url 'login'  %}"><img src="../static/img/login/BotonLogin.png"></a>
@@ -105,48 +70,81 @@
     </div>
     <div class="row">
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../restaurante/" target="_blank"><img src="/static/img/restaurant.png" class="restaurante"
+            <a href="../restaurante/" target="_blank"><img src="/static/img/viejoCafe.png" class="restaurante"
                     data-toggle="tooltip" data-placenment="top" title="Cuenta con delivery!"></a>
+            <!-- Boton para calificar el restaurante -->
             <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
             <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
             <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip" data-placenment="top"
-                title="Cuenta con delivery!"></a>
+            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
-            </div>
-        </div>
-        <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
-            <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
-            </div>
-        </div>
-        <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip" data-placenment="top"
-                title="Cuenta con delivery!"></a>
-            <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
             <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
             <div>
-                <button class="calificar btn btn-warning py-3 px-3"><a
-                        href="/comentario"><b>★★★Calificar</b></a></button>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2">★</label>
+                    <label for="radio3" class="star3">★</label>
+                    <label for="radio4" class="star4">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5" style="color: orange;">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
+            <div>
+                <form>
+                    <p class="clasificacion">
+                        <label for="radio1" class="star1">★</label>
+                        <label for="radio2" class="star2">★</label>
+                        <label for="radio3" class="star3">★</label>
+                        <label for="radio4" class="star4">★</label>
+                        <label for="radio5" class="star5">★</label>
+                    </p>
+                </form>
             </div>
         </div>
     </div>
