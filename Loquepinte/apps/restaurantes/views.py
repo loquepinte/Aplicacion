@@ -32,9 +32,9 @@ def contactar(request):
         email_desde=settings.EMAIL_HOST_USER
         email_para=["informatorio2020@gmail.com"]
         send_mail(nombre,Datos,email_desde,email_para,fail_silently=False)
-        return render(request, "C:/Users/Luis/Desktop/LoquepinteConEntorno/Loquepinte/templates/contacto_exitoso.html")
+        return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/contacto_exitoso.html")
 
-    return render(request, "C:/Users/Luis/Desktop/LoquepinteConEntorno/Loquepinte/templates/restaurantes/principal.html")
+    return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/restaurantes/principal.html")
 
 def registro_usuario(request):
     data = {
@@ -51,11 +51,11 @@ def registro_usuario(request):
             login(request, user)
             return render(request, "principal.html")
         else:
-            return render(request, "C:/Users/Luis/Desktop/LoquepinteConEntorno/Loquepinte/templates/registration/error_registro.html")
-    return render(request, 'C:/Users/Luis/Desktop/LoquepinteConEntorno/Loquepinte/templates/registration/registrar.html', data)
+            return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/error_registro.html")
+    return render(request, 'C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/registrar.html', data)
 
 def error(request):
-    return render(request, "C:/Users/Luis/Desktop/LoquepinteConEntorno/Loquepinte/templates/registration/error_registro.html")
+    return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/error_registro.html")
 
 @login_required 
 def comentario(request):

@@ -28,11 +28,13 @@
 </head>
 
 <body>
-  {% if form.errors %}
-  <div class="text-center">
-    <h3 style="color: red;"> <strong> Ingresaste mal tu usuario o contraseña por favor introducilo de nuevo. </strong>
-    </h3>
-  </div>
+  {% if form.errors %} 
+    <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+      <h3 style="color: red;"> <strong> Ingresaste mal tu usuario o contraseña por favor introducilo de nuevo. </strong></h3>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   {% endif %}
 
   <div class="row">
@@ -46,6 +48,7 @@
           {% csrf_token%}
           {{form | crispy}}
           <div class="text-center py-4">
+            <a href="/password_reset"><p>Olvidaste tu contraseña? Haz click aqui!</p></a>
             <button class="btn btn-success py-4" type="submit"><b>Iniciar sesión</b></button>
             <h5 class="py-2">*No tienes cuenta?</h5>
             <button class="btn btn-dark py-4"><b><a href="/registrar">Registrarse</a></b></button>
@@ -55,6 +58,11 @@
       </div>
     </div>
   </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>

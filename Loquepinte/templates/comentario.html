@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Comentario</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(211, 180, 3, 0.3), rgba(182, 182, 182, 0.7)), url(/static/img/30.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        form {
+            margin-top: 50px;
+            background: linear-gradient(rgba(14, 98, 119, 0.2), rgba(253, 212, 77, 0.2));
+            color: white;
+            text-shadow: 5px 2px 4px grey;
+            font-family: 'Roboto Condensed', sans-serif;
+            box-shadow: 8px 8px 25px black;
+        }
+        .btn{
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <form action=" " method="POST">{% csrf_token %}
+    <!-- <form action=" " method="POST">{% csrf_token %}
         <div class="form-row px-3">
             <div class="form-group col-sm-3">
                 <label for=" ">Nombre Usuario</label>
@@ -26,7 +49,30 @@
             </div>
             <input type="submit" class="btn btn-primary col-sm-12 py-4" value="Enviar">
         </div>
-    </form>
+    </form> -->
+
+    <div class="container" id="contacto_form">       
+        <form action=" " method="POST">{% csrf_token %}
+            <div class="form-group text-center">
+                <label for="comentario"><h1>Dejame tu comentario</h1></label>
+                <textarea class="form-control" name="txt_Comentario" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar">
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
