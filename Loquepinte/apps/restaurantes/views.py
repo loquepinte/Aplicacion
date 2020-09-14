@@ -61,7 +61,8 @@ def error(request):
 def comentario(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_Usuario"]
-        nombre_Restaurant = request.POST["txt_Restaurant"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=1)
         texto=request.POST["txt_Comentario"]
         comentario= Comentario(usuario=nombre_Usuario,Nombre_restaurant=nombre_Restaurant,mensaje=texto)
         comentario.save()
@@ -69,7 +70,7 @@ def comentario(request):
     return render(request, "comentario.html")    
 def comentarios(request):
     comentario= Comentario.objects.all().order_by('-id')
-    print(comentario)
+    # print(comentario)
     contexto={
         'comentario':comentario,
     }  

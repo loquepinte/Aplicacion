@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="es-AR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,27 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Comentario</title>
-    <style>
-        body {
-            background: linear-gradient(rgba(211, 180, 3, 0.3), rgba(182, 182, 182, 0.7)), url(/static/img/30.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        form {
-            margin-top: 50px;
-            background: linear-gradient(rgba(14, 98, 119, 0.2), rgba(253, 212, 77, 0.2));
-            color: white;
-            text-shadow: 5px 2px 4px grey;
-            font-family: 'Roboto Condensed', sans-serif;
-            box-shadow: 8px 8px 25px black;
-        }
-        .btn{
-            font-size: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/comentario.css">
 </head>
 
 <body>
@@ -51,9 +32,17 @@
         </div>
     </form> -->
 
-    <div class="container" id="contacto_form">       
+    <div class="container">       
         <form action=" " method="POST">{% csrf_token %}
             <div class="form-group text-center">
+                <div class="row">
+                    <div class="col-sm-10 py-2">
+                        <h5><b>Bienvenido!</b></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" class="usuario form-control" name="txt_Usuario" placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                    </div>
+                </div>                                
                 <label for="comentario"><h1>Dejame tu comentario</h1></label>
                 <textarea class="form-control" name="txt_Comentario" cols="30" rows="10"></textarea>
             </div>

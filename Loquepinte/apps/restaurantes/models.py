@@ -17,6 +17,10 @@ class Restaurant(models.Model):
     Nombre= models.CharField(max_length=400)
     Direccion= models.CharField(max_length=200)
     Telefono= models.IntegerField()
+
+    def __str__(self):
+        # Esta funcion devuelve en forma de texto al realizar una consulta en el shell
+        return "%s" % (self.Nombre)
 # EL METODO RELATED_NAME NOS PERMITE ACCEDER AL ODELO CON EL METODO POST
 class Comment(models.Model):
     Id=models.CharField(max_length=5, primary_key=True)
