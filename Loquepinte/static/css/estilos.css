@@ -34,12 +34,15 @@ body{
 
 
 footer {
-    background-image: url(/static/img/footer.png);
+    margin: 8px;
+    background: linear-gradient(rgba(238, 34, 119, 0.3),rgba(71, 9, 40, 0.3)), url(/static/img/footer.png);
+    border: 1px solid rgb(255, 238, 0);
+    border-radius: 40px;
 }
-
+/* 
 .Comentario {
     padding-left: 30%;
-}
+} */
 
 .starrr {
     display: inline-block; }
@@ -52,3 +55,29 @@ footer {
 .color{
     color: white;
 }  
+
+/* del footer */
+#red1 {
+    transition: 1s;
+    opacity: 0.5;
+}
+
+#red1:hover {
+    opacity: 1;
+}
+#red2 {
+    transition: 1s;
+    opacity: 0.5;
+}
+
+#red2:hover {
+    transform: scale(1.5);
+    opacity: 1;
+}
+#red3 {
+    opacity: 0.5;
+}
+
+#red3:hover {
+    opacity: 1;
+}

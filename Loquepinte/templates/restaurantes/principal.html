@@ -12,13 +12,65 @@
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
     <link rel="stylesheet" href="/static/css/principal.css">
+    <style>
+        .BotonLogin {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonLogin:hover {
+            background: #e62097;
+        }
+
+        .BotonRegistro {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonRegistro:hover {
+            background: #e62097;
+        }
+
+        .BotonLogout {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonLogout:hover {
+            background: #e62097;
+        }
+
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
-            <a class="navbar-brand" href="../"><i class="fas fa-utensils"></i> LoQuePinte <i
-                    class="fas fa-utensils"></i></a>
+            <a class="navbar-brand" href="../"><img src="/static/img/logo3icon.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -49,16 +101,17 @@
                 <!-- registro/login -->
                 <div class="login px-4">
                     {% if user.is_authenticated %}
-                    <a href="#"><i>{{user.username}}</i></a>
-                    <a href="{% url 'logout' %}"><img src="../static/img/login/BotonOut.png"></a>
+                    <a href="{% url 'logout' %}"><button class="BotonLogout">Cerrar Sesión</button></a>
+                    <a href="#"><i><button type="button" class="btn btn-outline-warning"
+                                disabled="true">{{user.username}}</button></i></a>
                     {% else %}
-                    <a href="{% url 'login'  %}"><img src="../static/img/login/BotonLogin.png"></a>
-                    <a href="{% url 'registro_usuario'  %}"><img src="../static/img/login/BotonRegistro.png"></a>
+                    <a href="{% url 'login'  %}"><button class="BotonLogin">Ingresar</button></a>
+                    <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
                     {% endif %}
                 </div>
                 <form class="form-inline my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0 px-4" type="submit">Buscar</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0 px-4" type="submit">Buscar</button>
                 </form>
             </div>
         </nav>
@@ -70,33 +123,20 @@
     </div>
     <div class="row">
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../restaurante/" target="_blank"><img src="/static/img/viejoCafe.png" class="restaurante"
-                    data-toggle="tooltip" data-placenment="top" title="Cuenta con delivery!"></a>
+            <a href="../restaurante/" target="_blank"><img src="/static/img/viejoCafe.png" class="restaurante"></a>
             <!-- Boton para calificar el restaurante -->
             <div>
                 <p class="clasificacion">
                     <label for="radio1" class="star1" style="color: orange;">★</label>
                     <label for="radio2" class="star2" style="color: orange;">★</label>
                     <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
                     <label for="radio5" class="star5">★</label>
                 </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
-            <div>
-                <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4">★</label>
-                    <label for="radio5" class="star5">★</label>
-                </p>
-            </div>
-        </div>
-        <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip"
+            <a href=""><img src="/static/img/elSurtidor.png" class="restaurante" data-toggle="tooltip"
                     data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
@@ -109,19 +149,7 @@
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
-            <div>
-                <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2">★</label>
-                    <label for="radio3" class="star3">★</label>
-                    <label for="radio4" class="star4">★</label>
-                    <label for="radio5" class="star5">★</label>
-                </p>
-            </div>
-        </div>
-        <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant.png" class="restaurante" data-toggle="tooltip"
+            <a href=""><img src="/static/img/elPatron.png" class="restaurante" data-toggle="tooltip"
                     data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
@@ -129,19 +157,44 @@
                     <label for="radio2" class="star2" style="color: orange;">★</label>
                     <label for="radio3" class="star3" style="color: orange;">★</label>
                     <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
                 </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href=""><img src="/static/img/restaurant2.png" class="restaurante"></a>
+            <a href=""><img src="/static/img/laChimenea.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href=""><img src="/static/img/nanasDeCebollas.png" class="restaurante"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href=""><img src="/static/img/sanJose.png" class="restaurante"></a>
             <div>
                 <form>
                     <p class="clasificacion">
-                        <label for="radio1" class="star1">★</label>
-                        <label for="radio2" class="star2">★</label>
-                        <label for="radio3" class="star3">★</label>
-                        <label for="radio4" class="star4">★</label>
+                        <label for="radio1" class="star1" style="color: orange;">★</label>
+                        <label for="radio2" class="star2" style="color: orange;">★</label>
+                        <label for="radio3" class="star3" style="color: orange;">★</label>
+                        <label for="radio4" class="star4" style="color: orange;">★</label>
                         <label for="radio5" class="star5">★</label>
                     </p>
                 </form>
@@ -149,9 +202,9 @@
         </div>
     </div>
 
-    <div class="Comentario">
-        <h1 class="px-3">Registra tu restaurante!</h1>
-        <form action="/contactar/" method="POST">{% csrf_token %}
+    <div class="container">
+        <form action="/contactar/" method="POST" class="Comentario">{% csrf_token %}
+            <h1 class="px-3">Registra tu restaurante!</h1>
             <div class="form-row px-3">
                 <div class="form-group col-sm-6">
                     <label for="nombre">Nombre del restaurante</label>
@@ -174,7 +227,7 @@
                 <div class="form-group col-sm-4">
                     <label for="Domicilio">Domicilio de tu restaurante</label>
                     <input type="text" required="" class="form-control" name="txtDomicilio"
-                        placeholder="Ingrese su Domicilio">
+                        placeholder="Ingrese la ubicación">
                 </div>
                 <div class="form-group col-sm-2">
                     <label for="Ciudad">Ciudad</label>
@@ -186,7 +239,7 @@
                 </div>
             </div>
             <div class="form-group col-sm-6">
-                <label for="comentario">Comentario adicional</label>
+                <label for="comentario">Comentario adicional - <i>*Puedes incluir tu menú</i></label>
                 <textarea class="form-control" name="txtComentario" cols="10" rows="4"></textarea>
             </div>
             <div class="form-group col-sm-6">
@@ -198,42 +251,8 @@
             </div>
         </form>
     </div>
-
-
-    <footer style>
-        <div class="row">
-            <div class="col-sm-4 d-flex flex-column py-4">
-                <a href="http://www.facebook.com"><i class="fab fa-facebook px-2"></i>Facebook</a>
-                <a href="http://www.twitter.com"><i class="fab fa-twitter-square px-2"></i>Twitter</a>
-                <a href="http://www.instagram.com"><i class="fab fa-instagram-square px-2"></i>Instagram</a>
-            </div>
-
-            <div class="col-sm-4 text-center">
-                <address>
-                    <h3>Contacto</h3>
-                    <!-- aca utilizo iconos de bootstrap -->
-                    <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-phone" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
-                            <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                        </svg>+5493624112233</p>
-                    <p><svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z" />
-                        </svg> informatorio2020@gmail.com</p>
-
-                </address>
-            </div>
-
-            <div class="col-sm-4 d-flex flex-column align-items-end py-4 px-4">
-                <a href="http://www.google.com"><i class="fas fa-bullhorn px-2"></i>Nosotros</a>
-                <a href="http://www.google.com"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
-                <a href="http://www.google.com"><i class="fas fa-cocktail px-2"></i>Tu restaurante</a>
-            </div>
-        </div>
-    </footer>
+    <!-- PIE DE PAGINA -->
+    {% include "footer.html" %}
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

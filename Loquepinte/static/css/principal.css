@@ -1,4 +1,5 @@
 
+
 .restau:hover .calificar {
     visibility: visible;
     margin-top: 0px;
@@ -21,22 +22,10 @@ nav {
 .Comentario {
     background: linear-gradient(rgba(56, 0, 0, 0.3), rgba(56, 0, 0, 0.5));
     border: 2px solid tomato;
-    border-radius: 10px;
+    border-radius: 40px;
+    padding: 5px;
 }
 
-.calificar {
-    visibility: hidden;
-    margin-top: -100px;
-    transition: margin 1s;
-    border-radius: 20%;
-    box-shadow: 2px 2px 7px black;
-}
-
-.calificar a {
-    text-decoration: none;
-    color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
 
 .tooltip-inner {
     background-color: rgb(13, 153, 13);
@@ -58,3 +47,6 @@ nav {
    visibility: visible;
    margin-top: -5px;
 }
+
+/* starts */
+

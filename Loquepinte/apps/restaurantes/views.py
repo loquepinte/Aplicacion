@@ -3,8 +3,8 @@ from django.template import Template, Context
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUserForm , Comment, Restaurant, Comentario
-from django.shortcuts import render , redirect , get_object_or_404 # ademas del render coloco el redirect para redireccionar
+from .models import CustomUserForm, Comment, Restaurant, Comentario
+from django.shortcuts import render, redirect, get_object_or_404 # ademas del render coloco el redirect para redireccionar
 from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
 
@@ -16,10 +16,13 @@ def principal(request):
     return render(request, "restaurantes/principal.html")
 
 def restaurante(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
     comentarios = Comentario.objects.all().order_by('-id')
     
     contexto={
-        'comentario':comentarios,
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
     } 
     return render(request, "restaurantes/restaurante.html", contexto)
 
@@ -72,7 +75,7 @@ def comentario(request):
         texto=request.POST["txt_Comentario"]
         comentario= Comentario(usuario=nombre_Usuario,Nombre_restaurant=nombre_Restaurant,mensaje=texto)
         comentario.save()
-        return redirect("../comentarios/")
+        return redirect("../restaurante/")
     return render(request, "comentario.html")    
 
 

@@ -1,7 +1,7 @@
 from django.db import models
 # Create your models here.
 from django import forms
-import datetime
+from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm # esto son los formularios que nos da django
 from django.contrib.auth.models import User
 
@@ -42,3 +42,8 @@ class Comentario(models.Model):
     usuario=models.CharField(max_length=50)
     Nombre_restaurant=models.CharField(max_length=100)
     mensaje=models.TextField()
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()

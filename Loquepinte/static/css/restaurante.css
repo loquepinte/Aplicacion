@@ -19,10 +19,23 @@ body {
   }
 
 #comentario {
+    margin-top: 20px;
     background-color: rgba(56, 0, 0, 0.3);
     border: 2px solid tomato;
     border-radius: 10px;
   }
+
+
+.mapa{
+  border: 2px solid tomato;
+  border-radius: 10px;
+}
+.comment{
+  padding: 5px;
+  padding-left: 15px;
+  background: linear-gradient(rgba(168, 74, 74, 0.4), rgba(206, 133, 133, 0.4));
+  border-radius: 20px;
+}
 
 label {
     color: grey;
@@ -60,3 +73,49 @@ nav {
 .carrusel img{
     height: 350px;
 }
+
+#imgComentarios1 {
+  margin-top: 20px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+}
+
+
+
+#imgComentarios2 {
+  margin-top: 30px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+
+#imgComentarios3 {
+  margin-top: 30px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.7s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes aparecer {
+  from {
+      background-color: rgba(217, 28, 113, 0.9);
+  }
+
+  to {
+      background-color: rgba(225, 255, 52, 0.9);
+  }
+}
+
+.modal-content {
+  background-color: rgba(128, 31, 74, 0.9);
+  box-shadow: 0px 0px 15px #cdff7c;
+  border-radius: 20px;
+}
+
