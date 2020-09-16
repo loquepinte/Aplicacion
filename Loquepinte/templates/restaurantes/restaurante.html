@@ -357,10 +357,11 @@
                 <hr>
                 <div class="comment" style="border: 2px solid black;">
                     <p align="right">{{ coment.Nombre_restaurant }} - {{ coment.fecha }}</p>
-                    <div><strong><ins>{{ coment.usuario }}</ins></strong></div>                                      
+                    <div><strong><ins>{{ coment.usuario }}</ins></strong></div>
                     <div class="comentario5">
                         <p><i>{{ coment.mensaje|linebreaks }}</i></p>
                     </div>
+                    <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
                 </div>
                 <hr>
                 {% endfor %}
@@ -368,7 +369,8 @@
                 <p>No hay comentarios aquí :(</p>
                 {% endif %}
                 <div class="class text-center">
-                    <p><a href="" data-toggle="modal" data-target="#comentariosModal"><b>Click para ver todos los comentarios</b></a></p>
+                    <p><a href="" data-toggle="modal" data-target="#comentariosModal"><b>Click para ver todos los
+                                comentarios</b></a></p>
                 </div>
             </div>
         </div>
@@ -425,7 +427,7 @@
     <!-- para comentarios -->
     <div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content1">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Comentarios:</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -437,10 +439,14 @@
                         {% for comentario in comentarios %}
                         <hr>
                         <div class="comment" style="border: 2px solid black;">
-                            <strong><p align="right">{{ comentario.Nombre_restaurant }}</p><ins>{{ comentario.usuario }}</ins></strong>
+                            <strong>
+                                <p align="right">{{ comentario.Nombre_restaurant }}</p>
+                                <ins>{{ comentario.usuario }}</ins>
+                            </strong>
                             <div class="comentario">
                                 <p><i>{{ comentario.mensaje|linebreaks }}</i></p>
                             </div>
+                            <p>Valoración: <b class="estrellaColor">{{comentario.valoracion}}</b></p>
                             <p align="right">{{ comentario.fecha }}</p>
                         </div>
                         <hr>

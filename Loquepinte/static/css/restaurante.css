@@ -26,15 +26,24 @@ body {
   }
 
 
-.mapa{
+iframe {
   border: 2px solid tomato;
-  border-radius: 10px;
+  border-radius: 40px;
+  opacity: 0.7;
+}
+
+iframe:hover{
+  opacity: 1;
 }
 .comment{
   padding: 5px;
   padding-left: 15px;
   background: linear-gradient(rgba(168, 74, 74, 0.4), rgba(206, 133, 133, 0.4));
   border-radius: 20px;
+}
+
+.comment:hover{
+  background: linear-gradient(rgba(212, 96, 96, 0.8), rgba(194, 127, 127, 0.8));
 }
 
 label {
@@ -113,9 +122,13 @@ nav {
   }
 }
 
-.modal-content {
+.modal-content1 {
   background-color: rgba(128, 31, 74, 0.9);
   box-shadow: 0px 0px 15px #cdff7c;
   border-radius: 20px;
 }
 
+.estrellaColor{
+  color: orange;
+  font-size: 20px;
+}

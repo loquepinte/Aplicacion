@@ -73,7 +73,12 @@ def comentario(request):
         # nombre_Restaurant = request.POST["txt_Restaurant"]
         nombre_Restaurant = Restaurant.objects.get(Id=1)
         texto=request.POST["txt_Comentario"]
-        comentario= Comentario(usuario=nombre_Usuario,Nombre_restaurant=nombre_Restaurant,mensaje=texto)
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = Comentario(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
         comentario.save()
         return redirect("../restaurante/")
     return render(request, "comentario.html")    
@@ -87,6 +92,5 @@ def comentarios(request):
     return render(request, "comentarios.html",contexto)
 
 
-    
 
 

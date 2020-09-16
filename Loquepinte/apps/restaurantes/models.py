@@ -42,6 +42,7 @@ class Comentario(models.Model):
     usuario=models.CharField(max_length=50)
     Nombre_restaurant=models.CharField(max_length=100)
     mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
     fecha = models.DateTimeField(default=timezone.now)
 
     def publish(self):
