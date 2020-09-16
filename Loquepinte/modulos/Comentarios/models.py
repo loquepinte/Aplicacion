@@ -25,5 +25,6 @@ class Comment(models.Model):
 
 class Comentario(models.Model):
     usuario=models.CharField(max_length=50)
+    fecha_comentario=models.DateTimeField(blank=True,auto_now_add=True)
     Nombre_restaurant=models.CharField(max_length=100)
     mensaje=models.TextField()

@@ -60,7 +60,7 @@ def comentario(request):
     return render(request, "comentario.html")    
 def comentarios(request):
     comentario= Comentario.objects.all().order_by('-id')
-    print(comentario)
+    print(comentarios)
     contexto={
         'comentario':comentario,
     }  
