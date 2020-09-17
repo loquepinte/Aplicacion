@@ -26,9 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#4qv6_*p836%j+apa*8@mu(vxi6*#qid$a!w(@($4!@gi_=3yg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','Loquepinte.pythonanywhere.com']
 
 """ aca pongo donde se redirige"""
 LOGIN_REDIRECT_URL= "/principal/"
