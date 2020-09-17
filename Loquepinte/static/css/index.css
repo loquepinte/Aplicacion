@@ -1,5 +1,6 @@
 header{
     text-shadow: 3px 0 2px black;
+    
 }
 .staff{
     position: relative;
@@ -17,11 +18,12 @@ header{
 }
 
 #ingresar {
-    transition: background-color 1s linear;
+    transition: 0.5s linear;
 }
 
 #ingresar:hover {
     background-color: rgb(255, 208, 0);
+    transform: scale(1.05);
 }
 
 
