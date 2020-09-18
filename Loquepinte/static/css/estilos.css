@@ -112,3 +112,60 @@ iframe {
 iframe:hover{
     opacity: 1;
 }
+
+.BotonLogin {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonLogin:hover {
+    background: #e62097;
+}
+  
+.BotonRegistro {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonRegistro:hover {
+    background: #e62097;
+}
+  
+.BotonLogout {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonLogout:hover {
+    background: #e62097;
+}
+  
+nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-shadow: none;
+}
