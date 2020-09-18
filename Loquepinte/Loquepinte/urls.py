@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 # aca importamos las vistas creadas de la app
 from apps.restaurantes import views
-
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -25,6 +24,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('principal/', views.principal, name='principal'),
     path('restaurante/', views.restaurante, name='restaurante'),
+    path('el_patron/', views.el_patron, name='el_patron'),
+    path('el_surtidor/', views.el_surtidor, name='el_surtidor'),
+    path('la_chimenea/', views.la_chimenea, name='la_chimenea'),
+    path('nanas/', views.nanas, name='nanas'),
+    path('san_jose/', views.san_jose, name='san_jose'),
     path('contactar/', views.contactar, name='contactar'),
     path('accounts/', include('django.contrib.auth.urls' )), # esto trae la ruta del login, la del log out, etc
     path('registrar/', views.registro_usuario, name='registro_usuario'),

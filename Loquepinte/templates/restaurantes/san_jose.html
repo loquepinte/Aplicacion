@@ -1,0 +1,157 @@
+{% extends 'restaurantes/restaurante.html' %}
+{% block title %}
+San Jose
+{% endblock %}
+
+{% block content %}
+<a class="nav-link" href="#">San Jose</a>
+{% endblock %}
+
+{% block content1 %}
+<div class="row">
+    <!-- NOMBRE Y DIRECCION -->
+    <div class="col-sm-6 py-4 d-flex flex-column text-center">
+        <h1 style="font-size: 48pt;">San Jose</h1>
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Julio Argentino Roca 15</h4>
+        <h6>Resistencia - Chaco</h6>
+        <h2>Acerca de:</h2>
+        <p>Este es un clásico restaurante,confitería y bar de la ciudad de Resistencia Ubicado en el centro, enfrente de
+            la plaza principal, muy conocido por sus chipasitos!, ¿lo acompañarías con un café?.
+        </p>
+    </div>
+    <!-- IMAGENES DEL RESTAURANTE -->
+    <div class="carrusel col-sm-6 py-4 d-flex flex-column">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <img src="../static/img/restaurante_1/imagen1.png"">
+                    </div>
+                    <div class=" carousel-item text-center">
+                    <img src="../static/img/restaurante_1/imagen2.png">
+                </div>
+                <div class="carousel-item text-center">
+                    <img src="../static/img/restaurante_1/imagen3.png">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content4 %}
+<p><i class="fas fa-mobile-alt px-2"></i>362-4429909</p>
+<!-- HORARIOS DE ATENCION -->
+<h3>Horarios de Atencion:</h3>
+<p>⏰ <b>Lunes:</b> 06hs–02hs</p>
+<p>⏰ <b>Martes:</b> 06hs–02hs</p>
+<p>⏰ <b>Miercoles:</b> 06hs–02hs</p>
+<p>⏰ <b>Jueves:</b> 06hs–02hs</p>
+<p>⏰ <b>Viernes:</b> 06hs–02hs</p>
+<p>⏰ <b>Sabado:</b> 06hs–02hs</p>
+<p>⏰ <b>Domingo:</b> 06hs–02hs</p>
+
+<!-- DELIVERY DISPONIBLE -->
+<img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+    title="📞 Pegame un llamado pibe!">
+<h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i class="fas fa-check-circle"
+        style="color: lightgreen;"></i></h3>
+{% endblock %}
+
+{% block content2 %}
+<div class="row" id="comentario">
+    <div class="col-sm-6">
+        <div class="container">
+            <div class="class text-center">
+                <h1><b>Ultimos comentarios</b></h1>
+            </div>
+            {% if comentario %}
+            {% for coment in comentario %}
+            <hr>
+            <div class="comment" style="border: 2px solid black;">
+                <p align="right">{{ coment.Nombre_restaurant }} - {{ coment.fecha }}</p>
+                <div><strong><ins>{{ coment.usuario }}</ins></strong></div>
+                <div class="comentario5">
+                    <p><i>{{ coment.mensaje|linebreaks }}</i></p>
+                </div>
+                <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
+            </div>
+            <hr>
+            {% endfor %}
+            {% else %}
+            <p>No hay comentarios aquí :(</p>
+            {% endif %}
+            <div class="class text-center">
+                <p><a href="" data-toggle="modal" data-target="#comentariosModal"><b>Click para ver todos los
+                            comentarios</b></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+        <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                id="imgComentarios1"></a>
+        <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                id="imgComentarios2"></a>
+        <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                id="imgComentarios3"></a>
+    </div>
+</div>
+<!-- api google maps -->
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="mapa col-sm-6 d-flex py-2">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.560575403449!2d-58.989741284399315!3d-27.45180222251547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450cf49a19089d%3A0xfde76e098079e907!2sSan%20Jos%C3%A9%20La%20Plaza!5e0!3m2!1ses!2sar!4v1600388144218!5m2!1ses!2sar"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+</div>
+{% endblock %}
+
+{% block content3 %}
+<div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content1">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Comentarios:</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    {% for comentario in comentarios %}
+                    <hr>
+                    <div class="comment" style="border: 2px solid black;">
+                        <strong>
+                            <p align="right">{{ comentario.Nombre_restaurant }}</p>
+                            <ins>{{ comentario.usuario }}</ins>
+                        </strong>
+                        <div class="comentario">
+                            <p><i>{{ comentario.mensaje|linebreaks }}</i></p>
+                        </div>
+                        <p>Valoración: <b class="estrellaColor">{{comentario.valoracion}}</b></p>
+                        <p align="right">{{ comentario.fecha }}</p>
+                    </div>
+                    <hr>
+                    {% empty %}
+                    <p>No hay comentarios aquí :(</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

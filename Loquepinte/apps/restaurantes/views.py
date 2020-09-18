@@ -25,6 +25,56 @@ def restaurante(request):
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
     } 
     return render(request, "restaurantes/restaurante.html", contexto)
+def el_patron(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/el_patron.html", contexto)
+def el_surtidor(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/el_surtidor.html", contexto)
+def la_chimenea(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/la_chimenea.html", contexto)
+def nanas(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/nanas.html", contexto)
+def san_jose(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
+    comentarios = Comentario.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/san_jose.html", contexto)
 
 def contactar(request):
     if request.method == 'POST':
@@ -40,9 +90,9 @@ def contactar(request):
         email_desde=settings.EMAIL_HOST_USER
         email_para=["informatorio2020@gmail.com"]
         send_mail(nombre,Datos,email_desde,email_para,fail_silently=False)
-        return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/contacto_exitoso.html")
+        return render(request, "contacto_exitoso.html")
 
-    return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/restaurantes/principal.html")
+    return render(request, "restaurantes/principal.html")
 
 def registro_usuario(request):
     data = {
@@ -59,11 +109,11 @@ def registro_usuario(request):
             login(request, user)
             return render(request, "principal.html")
         else:
-            return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/error_registro.html")
-    return render(request, 'C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/registrar.html', data)
+            return render(request, "registration/error_registro.html")
+    return render(request, 'registration/registrar.html', data)
 
 def error(request):
-    return render(request, "C:/Users/Luis/Desktop/Aplicacion/Loquepinte/templates/registration/error_registro.html")
+    return render(request, "registration/error_registro.html")
 
 
 @login_required 
