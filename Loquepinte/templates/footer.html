@@ -5,10 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .modal-content {
+        #NosModal {
             background-color: rgba(96, 163, 51, 0.9);
             box-shadow: 0px 0px 15px #cdff7c;
             border-radius: 20px;            
+        }
+        #resModal{
+            background-color: rgba(163, 51, 94, 0.9);
+            box-shadow: 0px 0px 15px #cdff7c;
+            border-radius: 20px;    
+        }
+        #listaRes a{
+            color: rgb(158, 158, 158);
+            text-align: center;
+            transition: 2s;
+        }
+        #listaRes:hover a{            
+            color: rgb(255, 255, 255);
         }
         footer{
             bottom: 0px;
@@ -40,9 +53,9 @@
             </div>
             <div class="col-sm-4 text-center">
                 <h3>Aceca de</h3>
-                <a href="http://www.google.com" data-toggle="modal" data-target="#sobreNosModal"><i
+                <a href="#" data-toggle="modal" data-target="#sobreNosModal"><i
                         class="fas fa-bullhorn px-2"></i>Nosotros</a>
-                <a href="http://www.google.com"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
+                <a href="#" data-toggle="modal" data-target="#RestaurantesModal"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
                 <a href="{% url 'login'  %}"><i class="fas fa-cocktail px-2"></i>Tu restaurante</a>
                 <p style="opacity: 0.3;">© LoQuePinte. Todos los derechos reservados.</p>
             </div>
@@ -52,7 +65,7 @@
     <!-- sobre nosotros -->
     <div class="modal fade" id="sobreNosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" id="NosModal">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Sobre Nosotros:</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -94,6 +107,34 @@
         </div>
     </div>
     <!--FIN DEL Modal -->
+    <!-- restaurantes lista -->
+    <div class="modal fade" id="RestaurantesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="resModal">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Restaurantes Registrados:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="listaRes">
+                    <div class="container">
+                        <ol>
+                        <li><a href="../restaurante/"><h5>El Viejo Café</h5></a></li>
+                        <li><a href="../el_surtidor/"><h5>El Surtidor</h5></a></li>
+                        <li><a href="../el_patron/"><h5>El patrón del lomo</h5></a></li>
+                        <li><a href="../la_chimenea/"><h5>La Chimenea</h5></a></li>
+                        <li><a href="../nanas/"><h5>Nanas de Cebollas</h5></a></li>
+                        <li><a href="../san_jose/"><h5>San Jose</h5></a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -142,17 +142,73 @@
                         </a>
                     </div>
                 </div>
-                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">
-                    <img src="/static/img/restaurante_1/MenuComida1.png" class="img-fluid">
+
+                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">                    
+                    <div id="control2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/MenuComida1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/MenuComida2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="tab-pane fade show" id="Bebidas" role="tabpanel" aria-labelledby="Bebidas-tab">
-                    <img src="/static/img/restaurante_1/menuBebidas1.png" class="img-fluid">
+                    <div id="control3" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/menuBebidas1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/menuBebidas2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control3" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control3" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="tab-pane fade show" id="Postres" role="tabpanel" aria-labelledby="Postres-tab">
-                    <img src="/static/img/restaurante_1/menuPostres1.png" class="img-fluid">
+                    <div id="control4" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/menuPostres1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/menuPostres2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control4" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control4" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center" id="menuComplet"><a href=""><button class="btn btn-info">Menú Completo</button></a></div>
+            <div class="text-center" id="menuComplet"><a href="" data-toggle="modal" data-target="#menuModal"><button
+                        class="btn btn-primary">Menú Completo</button></a>
+            </div>
 
         </div>
         <!-- CARACTERISTICAS DEL RESTAURANTE -->
@@ -340,6 +396,287 @@
         </div>
     </div>
     {% endblock %}
+
+    <!--MODAL para Menu -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content1">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Menú Completo:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <ul>
+                            <h3>Hamburguesas 🍔</h3>
+                            <li><u>Hamburguesa Común de carne Pan Redondo</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$165</b></li>
+                            <li><u>Hamburguesa común de pollo Pan redondo</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$170</b></li>
+                            <li><u>Hamburguesa especial de carne Pan Redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón y queso.</i><br>
+                                <b>$220</b></li>
+                            <li><u>Hamburguesa especial de pollo pan redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón y queso.</i><br>
+                                <b>$220</b></li>
+                            <li><u>Hamburguesa completa de carne Pan redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
+                                <b>$230</b></li>
+                            <li><u>Hamburguesa completa de pollo Pan Redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
+                                <b>$245</b></li>
+
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Lomitos 🥩</h3>
+                            <li><u>Lomito común pan hamburguesa</u><br>
+                                <i>Lechuga, tomate y mayonesa, en pan redondo.</i><br>
+                                <b>$242</b></li>
+                            <li><u>Lomito común pan baguette entero</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$483</b></li>
+                            <li><u>Lomito común pan árabe</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$460</b></li>
+                            <li><u>Lomito común pan ciabatta entero</u><br>
+                                <i>Lechuga, tomate Y mayonesa.</i><br>
+                                <b>$483</b></li>
+                            <li><u>Lomito común pan baguette medio</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$242</b></li>
+                            <li><u>Lomito común pan ciabatta medio</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$242</b></li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Pizzas 🍕</h3>
+                            <li><u>Pizza mozzarella económica</u><br>
+                                <i>Salsa, mozzarella y aceitunas.</i><br>
+                                <b>$450</b></li>
+                            <li><u>Pizza mozzarella tradicional</u><br>
+                                <i>Salsa, doble mozzarella y aceitunas.</i><br>
+                                <b>$470</b></li>
+                            <li><u>Pizza mozzarella con anchoas</u><br>
+                                <i>Salsa, mozzarella, anchoas, aceitunas y orégano.</i><br>
+                                <b>$830</b></li>
+                            <li><u>Pizza calabresa</u><br>
+                                <i>Salsa, mozzarella, cebolla, longaniza, aceitunas y orégano.</i><br>
+                                <b>$600</b></li>
+                            <li><u>Pizza provolone</u><br>
+                                <i>Mozzarella, provolone, aceitunas y orégano.</i><br>
+                                <b>$620</b></li>
+                            <li><u>Pizza con palmitos</u><br>
+                                <i>Mozzarella, palmitos, huevo, salsa golf y aceitunas.</i><br>
+                                <b>$670</b></li>
+                            <li><u>Pizza correntina</u><br>
+                                <i>Mozzarella, huevo picado, salsa, aceitunas y orégano.</i><br>
+                                <b>$510</b></li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Papas fritas 🍟</h3>
+                            <li><u>Papas</u><br>
+                                <i>gratinadas</i><br>
+                                <b>$230</b>
+                            </li>
+                            <li><u>Papas</u><br>
+                                <i>(porción grande)</i><br>
+                                <b>$175</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Empanadas 🌮</h3>
+                            <li><u>Docena de empanadas</u><br>
+                                <i>carne, jamón y queso, pollo, humita, verdura, cebolla y queso, picada a cuchillo
+                                </i><br>
+                                <b>$460</b>
+                            </li>
+                            <li><u>1/2 docena de empanadas</u><br>
+                                <b>$253</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Sándwiches 🥪</h3>
+                            <li><u>Sándwich Carlitos</u><br>
+                                <i>Mayonesa, queso y jamón.</i><br>
+                                <b>$210</b>
+                            </li>
+                            <li><u>Sándwich simple</u><br>
+                                <i>Mayonesa y jamón o queso.</i><br>
+                                <b>$150</b>
+                            </li>
+                            <li><u>Sándwich triple de tomate y queso</u><br>
+                                <i>Mayonesa, queso y tomate.</i><br>
+                                <b>$230</b>
+                            </li>
+                            <li><u>Sándwich triple de verdura</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga y tomate.</i><br>
+                                <b>$322</b>
+                            </li>
+                            <li><u>Sándwich psicodélico</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate, palmitos y huevo.</i><br>
+                                <b>$575</b>
+                            </li>
+                            <li><u>Sándwich triple de lomo</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate y lomito.</i><br>
+                                <b>$690</b>
+                            </li>
+                            <li><u>Sándwich triple de pollo</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate y pollo.</i><br>
+                                <b>$520</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Especialidades 🍝</h3>
+                            <li><u>Sorrentinos de mozzarella y nueces 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Sorrentinos de mozzarella y nueces 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Sorrentinos de mix de verduras 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Ñoquis de papa</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Canelones de verdura 2 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Parrilla 🥓</h3>
+                            <li><u>Arroz con estofado Arroz con estofado.</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Patamuslo con guarnicion</u><br>
+                                <i>Patamuslo al horno, a la mostaza.</i><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Ravioles con estofado</u><br>
+                                <i>Ravioles con salsa roja.</i><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Milanesa a Caballo</u><br>
+                                <i>Milanesa de Carne o pollo con huevos a la plancha y guarnición.</i><br>
+                                <b>$325</b>
+                            </li>
+                            <li><u>Pollo a la parrilla</u><br>
+                                <i>Podes pedirlo con chimi de mostaza de la casa.</i><br>
+                                <b>$550</b>
+                            </li>
+                            <li><u>Parrillada completa</u><br>
+                                <i>500gr de asado, un cuarto de pollo, 1 morcilla, 1 chorizo, 1 riñon, 1 chinchulin. 1
+                                    tripa gorda, 1 pan.</i><br>
+                                <b>$920</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Bebidas 🍹</h3>
+                            <h5>Gaseosas 🥤</h5>
+                            <li><u>Gaseosa línea Pepsi 1.5 L</u><br>
+                                <b>$200</b>
+                            </li>
+                            <li><u>Gaseosa línea CocaCola 1.5 L</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Gaseosa línea Cabalgata 2.25L </u><br>
+                                <b>$150</b>
+                            </li>
+                            <h5>Cervezas 🍻</h5>
+                            <li><u>Cerveza corona 710ml</u><br>
+                                <b>$240</b>
+                            </li>
+                            <li><u>Quilmes</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Heineken</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Stella Artois</u><br>
+                                <b>$320</b>
+                            </li>
+                            <h5>Aguas Saborizadas 🧃</h5>
+                            <li><u>Levite 375 ml</u><br>
+                                <b>$100</b>
+                            </li>
+                            <li><u>Levite 1.5L</u><br>
+                                <b>$150</b>
+                            </li>
+                            <li><u>Levite 2.25L</u><br>
+                                <b>$250</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Postres 🍨</h3>
+                            <li><u>Promo - Helado 2 Kg</u><br>
+                                <i>Consultar Sabores</i><br>
+                                <b>$1090</b>
+                            </li>
+                            <li><u>Promo - Helado 1 Kg + helado 1/4 Kg</u><br>
+                                <i>Consultar Sabores</i><br>
+                                <b>$730</b>
+                            </li>
+                            <li><u>Helado 1/4 Kg</u><br>
+                                <b>$180</b>
+                            </li>
+                            <li><u>Helado 1/2 Kg</u><br>
+                                <b>$320</b>
+                            </li>
+                            <li><u>Helado 1 Kg</u><br>
+                                <b>$590</b>
+                            </li>
+                            <li><u>Cucurucho semi dulce</u><br>
+                                <b>$2</b>
+                            </li>
+                            <li><u>Bombones helados caja (6 unidades)</u><br>
+                                <b>$750</b>
+                            </li>
+                            <li><u>Palitos helados de agua</u><br>
+                                <b>$30</b>
+                            </li>
+                            <li><u>Palito de crema</u><br>
+                                <b>$35</b>
+                            </li>
+                            <li><u>Palitos bombón</u><br>
+                                <b>$40</b>
+                            </li>
+                            <li><u>Flan</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Chocotorta</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Postre Helado Aloha</u><br>
+                                <b>$410</b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--FIN DEL Modal -->
 </body>
 
