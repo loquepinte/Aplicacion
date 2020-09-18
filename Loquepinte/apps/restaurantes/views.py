@@ -135,7 +135,7 @@ def comentario(request):
         comentario.save()
         return redirect("../restaurante/")
     return render(request, "comentario.html")    
-
+@login_required
 def comentarioSurtidor(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_UsuarioSur"]
@@ -151,7 +151,7 @@ def comentarioSurtidor(request):
         comentario.save()
         return redirect("../el_surtidor/")
     return render(request, "comentarioSurtidor.html")
- 
+@login_required
 def comentarioLomo(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_UsuarioLomo"]
@@ -167,7 +167,7 @@ def comentarioLomo(request):
         comentario.save()
         return redirect("../el_patron/")
     return render(request, "comentarioLomo.html")    
-
+@login_required
 def comentarioChimenea(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_UsuarioChi"]
@@ -183,7 +183,7 @@ def comentarioChimenea(request):
         comentario.save()
         return redirect("../la_chimenea/")
     return render(request, "comentarioChimenea.html") 
-
+@login_required
 def comentarioNanas(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_UsuarioNanas"]
@@ -199,7 +199,7 @@ def comentarioNanas(request):
         comentario.save()
         return redirect("../nanas/")
     return render(request, "comentarioNanas.html")    
-    
+@login_required   
 def comentarioJose(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_UsuarioJo"]
