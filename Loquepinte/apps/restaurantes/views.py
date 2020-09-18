@@ -3,7 +3,7 @@ from django.template import Template, Context
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
-from .models import CustomUserForm, Comment, Restaurant, Comentario
+from .models import CustomUserForm, Comment, Restaurant, Comentario,ComentarioSurtidor,ComentarioLomo,ComentarioChimenea,ComentarioNanas,ComentarioJose
 from django.shortcuts import render, redirect, get_object_or_404 # ademas del render coloco el redirect para redireccionar
 from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
@@ -25,31 +25,34 @@ def restaurante(request):
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
     } 
     return render(request, "restaurantes/restaurante.html", contexto)
-def el_patron(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
-    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
-    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
-    comentarios = Comentario.objects.all().order_by('-id')
-    
-    contexto={
-        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
-    } 
-    return render(request, "restaurantes/el_patron.html", contexto)
+
 def el_surtidor(request):
     '''Este función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
-    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
-    comentarios = Comentario.objects.all().order_by('-id')
+    Ultimoscomentarios = ComentarioSurtidor.objects.all().order_by('-id')[:3]
+    comentarios = ComentarioSurtidor.objects.all().order_by('-id')
     
     contexto={
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
     } 
     return render(request, "restaurantes/el_surtidor.html", contexto)
+
+def el_patron(request):
+    '''Este función retorna la lista de comentarios de nuestra base de datos
+    y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
+    Ultimoscomentarios = ComentarioLomo.objects.all().order_by('-id')[:3]
+    comentarios = ComentarioLomo.objects.all().order_by('-id')
+    
+    contexto={
+        'comentario':Ultimoscomentarios, 'comentarios':comentarios,
+    } 
+    return render(request, "restaurantes/el_patron.html", contexto)
+
 def la_chimenea(request):
     '''Este función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
-    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
-    comentarios = Comentario.objects.all().order_by('-id')
+    Ultimoscomentarios = ComentarioChimenea.objects.all().order_by('-id')[:3]
+    comentarios = ComentarioChimenea.objects.all().order_by('-id')
     
     contexto={
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
@@ -58,8 +61,8 @@ def la_chimenea(request):
 def nanas(request):
     '''Este función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
-    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
-    comentarios = Comentario.objects.all().order_by('-id')
+    Ultimoscomentarios = ComentarioNanas.objects.all().order_by('-id')[:3]
+    comentarios = ComentarioNanas.objects.all().order_by('-id')
     
     contexto={
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
@@ -68,8 +71,8 @@ def nanas(request):
 def san_jose(request):
     '''Este función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
-    Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
-    comentarios = Comentario.objects.all().order_by('-id')
+    Ultimoscomentarios = ComentarioJose.objects.all().order_by('-id')[:3]
+    comentarios = ComentarioJose.objects.all().order_by('-id')
     
     contexto={
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
@@ -116,7 +119,7 @@ def error(request):
     return render(request, "registration/error_registro.html")
 
 
-@login_required 
+@login_required
 def comentario(request):
     if request.method == 'POST':
         nombre_Usuario = request.POST["txt_Usuario"]
@@ -133,13 +136,93 @@ def comentario(request):
         return redirect("../restaurante/")
     return render(request, "comentario.html")    
 
+def comentarioSurtidor(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_UsuarioSur"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=2)
+        texto=request.POST["txt_ComentarioSur"]
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = ComentarioSurtidor(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
+        comentario.save()
+        return redirect("../el_surtidor/")
+    return render(request, "comentarioSurtidor.html")
+ 
+def comentarioLomo(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_UsuarioLomo"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=3)
+        texto=request.POST["txt_ComentarioLomo"]
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = ComentarioLomo(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
+        comentario.save()
+        return redirect("../el_patron/")
+    return render(request, "comentarioLomo.html")    
 
-def comentarios(request):
-    comentario= Comentario.objects.all().order_by('-id')
-    contexto={
-        'comentario':comentario,
-    }  
-    return render(request, "comentarios.html",contexto)
+def comentarioChimenea(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_UsuarioChi"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=4)
+        texto=request.POST["txt_ComentarioChi"]
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = ComentarioChimenea(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
+        comentario.save()
+        return redirect("../la_chimenea/")
+    return render(request, "comentarioChimenea.html") 
+
+def comentarioNanas(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_UsuarioNanas"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=5)
+        texto=request.POST["txt_ComentarioNanas"]
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = ComentarioNanas(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
+        comentario.save()
+        return redirect("../nanas/")
+    return render(request, "comentarioNanas.html")    
+    
+def comentarioJose(request):
+    if request.method == 'POST':
+        nombre_Usuario = request.POST["txt_UsuarioJo"]
+        # nombre_Restaurant = request.POST["txt_Restaurant"]
+        nombre_Restaurant = Restaurant.objects.get(Id=6)
+        texto=request.POST["txt_ComentarioJo"]
+        calificacion = "★"
+        try:            
+            calificacion = request.POST["estrellas"]
+        except:
+            None
+        comentario = ComentarioJose(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
+        comentario.save()
+        return redirect("../san_jose/")
+    return render(request, "comentarioJose.html")    
+
+
+# def comentarios(request):
+#     comentario= Comentario.objects.all().order_by('-id')
+#     contexto={
+#         'comentario':comentario,
+#     }  
+#     return render(request, "comentarios.html",contexto)
 
 
 

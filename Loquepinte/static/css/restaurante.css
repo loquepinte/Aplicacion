@@ -233,7 +233,7 @@ nav {
 }
 #check2 {
   animation-name: brillo1;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
 }
 @keyframes brillo1 {
@@ -242,7 +242,7 @@ nav {
     opacity: 0.5;
   }
   to {
-    filter: brightness(120%);
+    filter: brightness(120%) hue-rotate(360deg);
     opacity: 1;
   }
 }
@@ -252,4 +252,15 @@ nav {
   font-family: 'Gabriola', 'Arial';
   font-variant: small-caps;
   background: linear-gradient(rgba(168, 74, 74, 0.5), rgba(206, 133, 133, 0.5));
+}
+
+#myTab{
+  border: 2px solid tomato;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#menuComplet{
+  border: 2px solid tomato;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
 }

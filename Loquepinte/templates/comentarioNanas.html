@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Comentario</title>
+    <link rel="stylesheet" href="../static/css/comentario.css">
+    <style>
+        .stars {
+            color: grey;
+            font-size: 50px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .clasificacion {
+            direction: rtl;
+            /* right to left */
+            unicode-bidi: bidi-override;
+        }
+
+        .stars:hover,
+        .stars:hover~.stars {
+            color: orange;
+        }
+
+        input[type="radio"]:checked~label {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action=" " method="POST">{% csrf_token %}
+        <div class="form-row px-3">
+            <div class="form-group col-sm-3">
+                <label for=" ">Nombre Usuario</label>
+                <input type="text" class="form-control" name="txt_Usuario" placeholder="Nombre de Usuario">
+            </div>
+        </div>
+        <div class="form-row px-3">
+            <div class="form-group col-sm-4">
+                <label for="">Nombre del restaurant</label>
+                <input type="text" class="form-control" name="txt_Restaurant" placeholder="Nombre de restaurant">
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="comentario">Comentario</label>
+                <textarea class="form-control" name="txt_Comentario" cols="10" rows="4"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary col-sm-12 py-4" value="Enviar">
+        </div>
+    </form> -->
+
+    <div class="container">
+        <form action=" " method="POST">{% csrf_token %}
+            <div class="form-group text-center">
+                <div class="row">
+                    <div class="col-sm-10 py-2">
+                        <h5><b>Bienvenido!</b></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" class="usuario form-control" name="txt_UsuarioNanas"
+                            placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                    </div>
+                </div>
+                <label for="comentario">
+                    <h1>Dejame tu comentario</h1>
+                </label>
+                <textarea class="form-control" name="txt_ComentarioNanas" cols="30" rows="10"></textarea>
+                                
+            </div>
+            <div class="form-group text-center">
+                <h6><b>Calificación:</b></h6>
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="estrellas" value="★★★★★">
+                    <label for="radio1" class="stars">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="★★★★">
+                    <label for="radio2" class="stars">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="★★★">
+                    <label for="radio3" class="stars">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="★★">
+                    <label for="radio4" class="stars">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="★">
+                    <label for="radio5" class="stars">★</label>
+                </p>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar">
+        </form>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

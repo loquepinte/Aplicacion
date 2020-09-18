@@ -48,3 +48,53 @@ class Comentario(models.Model):
     def publish(self):
         self.fecha = timezone.now()
         self.save()
+class ComentarioSurtidor(models.Model):
+    usuario=models.CharField(max_length=50)
+    Nombre_restaurant=models.CharField(max_length=100)
+    mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()
+class ComentarioLomo(models.Model):
+    usuario=models.CharField(max_length=50)
+    Nombre_restaurant=models.CharField(max_length=100)
+    mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()
+class ComentarioChimenea(models.Model):
+    usuario=models.CharField(max_length=50)
+    Nombre_restaurant=models.CharField(max_length=100)
+    mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()
+class ComentarioNanas(models.Model):
+    usuario=models.CharField(max_length=50)
+    Nombre_restaurant=models.CharField(max_length=100)
+    mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()
+class ComentarioJose(models.Model):
+    usuario=models.CharField(max_length=50)
+    Nombre_restaurant=models.CharField(max_length=100)
+    mensaje=models.TextField()
+    valoracion=models.CharField(max_length=10,blank=True, null=True)
+    fecha = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.fecha = timezone.now()
+        self.save()
