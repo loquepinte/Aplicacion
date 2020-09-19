@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="icon" href="/static/img/icon.ico">
+    <style>
+        footer{
+            position: fixed;            
+        }
+    </style>
+    <title>Exito!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex flex-column py-4">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Enviaste con exito!</h4>
+                <p>Muy pronto el equipo de Loquepinte estará mostrando tu restaurante!.<br>
+                    Recuerda que mientras más información nos brindes mejor para que todos los ciudadanos puedan conocerte!
+                </p>
+                <a href="../principal/"><button class="btn btn-primary">Volver</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- PIE DE PAGINA -->
+    {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo que pinte</title>
+    <link rel="icon" href="/static/img/icon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/principal.css">
+    <style>
+        .BotonLogin {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonLogin:hover {
+            background: #e62097;
+        }
+
+        .BotonRegistro {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonRegistro:hover {
+            background: #e62097;
+        }
+
+        .BotonLogout {
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 2px 1px 5px #666666;
+            text-shadow: 2px 2px 4px #666666;
+            border: solid #d91c71 0px;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+        }
+
+        .BotonLogout:hover {
+            background: #e62097;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+            <a class="navbar-brand" href="../"><img src="/static/img/logo3icon.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../">Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Restaurantes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tipos de Comida
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Comida Tipica</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Comida Vegana</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Comida Celiaca</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- registro/login -->
+                <div class="login px-4">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><button class="BotonLogout">Cerrar Sesión</button></a>
+                    <a href="#"><i><button type="button" class="btn btn-outline-warning"
+                                disabled="true">{{user.username}}</button></i></a>
+                    {% else %}
+                    <a href="{% url 'login'  %}"><button class="BotonLogin">Ingresar</button></a>
+                    <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
+                    {% endif %}
+                </div>
+                <form class="form-inline my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
+                    <button class="btn btn-outline-info my-2 my-sm-0 px-4" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div class="my-4 text-center">
+        <img src="/static/img/logo2.png" id="logo">
+        <h2 style="text-shadow: 5px 0 10px black;"><i>~Busca el restaurante que más te guste!</i></h2>
+    </div>
+    <div class="row">
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../restaurante/"><img src="/static/img/viejoCafe.png" class="restaurante"></a>
+            <!-- Boton para calificar el restaurante -->
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../el_surtidor/"><img src="/static/img/elSurtidor.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../el_patron/"><img src="/static/img/elPatron.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../la_chimenea/"><img src="/static/img/laChimenea.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../nanas/"><img src="/static/img/nanasDeCebollas.png" class="restaurante"></a>
+            <div>
+                <p class="clasificacion">
+                    <label for="radio1" class="star1" style="color: orange;">★</label>
+                    <label for="radio2" class="star2" style="color: orange;">★</label>
+                    <label for="radio3" class="star3" style="color: orange;">★</label>
+                    <label for="radio4" class="star4" style="color: orange;">★</label>
+                    <label for="radio5" class="star5">★</label>
+                </p>
+            </div>
+        </div>
+        <div class="restau col-sm-4 text-center py-4">
+            <a href="../san_jose/"><img src="/static/img/sanJose.png" class="restaurante"></a>
+            <div>
+                <form>
+                    <p class="clasificacion">
+                        <label for="radio1" class="star1" style="color: orange;">★</label>
+                        <label for="radio2" class="star2" style="color: orange;">★</label>
+                        <label for="radio3" class="star3" style="color: orange;">★</label>
+                        <label for="radio4" class="star4" style="color: orange;">★</label>
+                        <label for="radio5" class="star5">★</label>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="/contactar/" method="POST" class="Comentario">{% csrf_token %}
+            <h1 class="px-3">Registra tu restaurante!</h1>
+            <div class="form-row px-3">
+                <div class="form-group col-sm-6">
+                    <label for="nombre">Nombre del restaurante</label>
+                    <input type="text" required="" class="form-control" name="txtNombre"
+                        placeholder="Ingrese el nombre">
+                </div>
+            </div>
+            <div class="form-row px-3">
+                <div class="form-group col-sm-3">
+                    <label for="email">Email</label>
+                    <input type="email" required="" name="txtEmail" class="form-control" placeholder="Ingrese su email">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="numero">Numero</label>
+                    <input type="text" required="" class="form-control" name="txtNumero"
+                        placeholder="Numero de contacto">
+                </div>
+            </div>
+            <div class="form-row px-3">
+                <div class="form-group col-sm-4">
+                    <label for="Domicilio">Domicilio de tu restaurante</label>
+                    <input type="text" required="" class="form-control" name="txtDomicilio"
+                        placeholder="Ingrese la ubicación">
+                </div>
+                <div class="form-group col-sm-2">
+                    <label for="Ciudad">Ciudad</label>
+                    <select name="ciudad" id="ciudad" class="form-control">
+                        <option>Resistencia</option>
+                        <option>Barranqueras</option>
+                        <option>Fontana</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="comentario">Comentario adicional - <i>*Puedes incluir tu menú</i></label>
+                <textarea class="form-control" name="txtComentario" cols="10" rows="4"></textarea>
+            </div>
+            <div class="form-group col-sm-6">
+                <div class="form-group form-check px-4">
+                    <input type="checkbox" class="form-check-input" name="txt_llamar">
+                    <label class="form-check-label" for="exampleCheck1">Quiero que me llamen</label>
+                </div>
+                <input type="submit" class="btn btn-primary col-sm-12 py-4" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <!-- PIE DE PAGINA -->
+    {% include "footer.html" %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
+</body>
+
+</html>

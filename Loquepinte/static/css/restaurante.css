@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+body {
+    background: linear-gradient(rgba(93, 9, 121, .3), rgba(155, 35, 234, .7)), url(/static/img/bg2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+.horarios {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid tomato;
+    border-radius: 10px;
+  }
+
+.cuentacon {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid tomato;
+    border-radius: 10px;
+    text-shadow: 2px 0 2px black;
+  }
+
+#comentario {
+    margin-top: 20px;
+    background-color: rgba(56, 0, 0, 0.3);
+    border: 2px solid tomato;
+    border-radius: 10px;
+  }
+
+
+.comment{
+  padding: 5px;
+  padding-left: 15px;
+  background: linear-gradient(rgba(168, 74, 74, 0.4), rgba(206, 133, 133, 0.4));
+  border-radius: 20px;
+}
+
+.comment:hover{
+  background: linear-gradient(rgba(212, 96, 96, 0.8), rgba(194, 127, 127, 0.8));
+}
+
+label {
+    color: grey;
+    font-size: 50px;
+  }
+
+input[type="radio"] {
+    display: none;
+  }
+
+.clasificacion {
+    direction: rtl;
+    /* right to left */
+    unicode-bidi: bidi-override;
+  }
+
+label:hover,
+label:hover~label {
+    color: orange;
+  }
+
+input[type="radio"]:checked~label {
+    color: orange;
+  }
+
+
+
+.login {
+    color: white;
+  }
+.carrusel img{
+    height: 350px;
+}
+
+#imgComentarios1 {
+  margin-top: 20px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+}
+
+
+
+#imgComentarios2 {
+  margin-top: 30px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+
+#imgComentarios3 {
+  margin-top: 30px;
+  border-radius: 20px;
+  animation-name: aparecer;
+  animation-duration: 0.7s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes aparecer {
+  from {
+      background-color: rgba(217, 28, 113, 0.9);
+  }
+
+  to {
+      background-color: rgba(225, 255, 52, 0.9);
+  }
+}
+
+.modal-content1 {
+  background-color: rgba(128, 31, 74, 0.9);
+  box-shadow: 0px 0px 15px #cdff7c;
+  border-radius: 20px;
+}
+
+.estrellaColor{
+  color: orange;
+  font-size: 20px;
+}
+
+
+#Mesas {
+  animation-name: aparecer2;
+  animation-duration: 0.5s;
+}
+#Music {
+  animation-name: aparecer2;
+  animation-duration: 0.5s;
+  animation-delay: 0.3s;
+}
+#Patio {
+  animation-name: aparecer2;
+  animation-duration: 0.5s;
+  animation-delay: 0.6s;
+}
+#Mozo {
+  animation-name: aparecer2;
+  animation-duration: 0.5s;
+  animation-delay: 0.9s;
+}
+#Baños {
+  animation-name: aparecer2;
+  animation-duration: 0.5s;
+  animation-delay: 1.2s;
+}
+
+@keyframes aparecer2 {
+  from {
+    filter: brightness(100%);
+    visibility: hidden;
+    margin-left: -300px;
+    transform:rotateY(360deg) ;
+  }
+
+  to {
+    filter: brightness(200%);
+    visibility: visible;
+    margin-left: 0px;
+  }
+}
+
+#check1 {
+  animation-name: brillo1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+#check2 {
+  animation-name: brillo1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes brillo1 {
+  from {
+    filter: brightness(100%);
+    opacity: 0.5;
+  }
+  to {
+    filter: brightness(120%) hue-rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.titleContamos {
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-family: 'Gabriola', 'Arial';
+  font-variant: small-caps;
+  background: linear-gradient(rgba(168, 74, 74, 0.5), rgba(206, 133, 133, 0.5));
+}
+
+#myTab{
+  border: 2px solid tomato;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#menuComplet{
+  border: 2px solid tomato;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}

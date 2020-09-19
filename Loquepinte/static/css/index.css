@@ -1,0 +1,29 @@
+header{
+    text-shadow: 3px 0 2px black;
+    
+}
+.staff{
+    position: relative;
+    transition: 0.5s;
+    filter: opacity(.5);
+}
+  
+.staff:hover{
+    transform: scale(1.1);       
+    filter: opacity(1);
+
+}
+.btn {
+    box-shadow: 0px 0px 5px 2px #000000;
+}
+
+#ingresar {
+    transition: 0.5s linear;
+}
+
+#ingresar:hover {
+    background-color: rgb(255, 208, 0);
+    transform: scale(1.05);
+}
+
+

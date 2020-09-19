@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo que pinte </title>
+    <link rel="icon" href="/static/img/icon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    <!--Container lo que hace es centrar el contenido-->
+    <header class="container text-center">
+        <!--Nos permite separar el contenido...... EL SM-12 ES PORQUE BOOTSTRAP SIEMPRE OCUPA 12 SI DESEAMOS QUE OCUPE TODO EL ANCHO POR ESO SI QUEREMOS LA MITAD PONEMOS 6-->
+        <div class="row">
+            <div class="col-sm-12 my-4" id="title">
+                <!--La clase es para ajusta la imagen y pongo un clickeable dentro de la imagen para asi cuando alguien presione lo redirija-->
+                <h1 class="display-3 font-weight-bold" id="tituloIndex"><i class="fas fa-hamburger"></i> LO QUE PINTE <i
+                        class="fas fa-hamburger"></i></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="/static/img/home2.png" class="img-fluid" id="imgPrimera">
+            </div>
+        </div>
+        <!--Con esto me permitio al aliniar poner el boton en el centro-->
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="espacio">~Esta es una página creada por los chicos del informatorio, es una guía de los
+                    diferentes restaurantes de la ciudad de Resistencia.</h3>
+                <!--creo el bbotton y con la clase btn tbtn-light cra el boton y si queremos que sea transparente btn-ouline-lighr-->
+                <a href="../principal/">
+                    <button class="btn btn-outline-warning my-4" style="width: 300px; height: 120px;" id="ingresar">
+                        <h3>Ingresa al sitio</h3>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-sm-4 text-center my-4">
+            <a href="https://www.linkedin.com/in/marcos-billordo-gonzalez-9a2a77198/"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>
+        </div>
+        <div class="col-sm-4 text-center">
+            <a href="https://www.linkedin.com/in/luisalejandroperalta/"><img src="/static/img/avatar1.png" class="staff img-fluid"></a>
+        </div>
+        <div class="col-sm-4 text-center">
+            <a href="#"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>
+        </div>
+    </div>
+    <!-- PIE DE PAGINA -->
+    {% include "footer.html" %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

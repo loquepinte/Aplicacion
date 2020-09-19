@@ -1,0 +1,683 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Lo que pinte{% endblock %}</title>
+    <link rel="icon" href="/static/img/icon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+    <link rel="stylesheet" href="/static/css/restaurante.css">
+</head>
+
+<body>
+    <!-- BARRA DE NAVEGACION -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+            <a class="navbar-brand" href="../"><img src="/static/img/logo3icon.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../">Inicio<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../principal/">Restaurantes</a>
+                    </li>
+                    <li class="nav-item active">
+                        {% block content %}<a class="nav-link" href="#">El viejo Café</a>{% endblock %}
+                    </li>
+                </ul>
+                <!-- registro/login -->
+                <div class="login px-4">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><button class="BotonLogout">Cerrar Sesión</button></a>
+                    <a href="#"><i><button type="button" class="btn btn-outline-warning"
+                                disabled="true">{{user.username}}</button></i></a>
+                    {% else %}
+                    <a href="{% url 'login'  %}"><button class="BotonLogin">Ingresar</button></a>
+                    <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
+                    {% endif %}
+                </div>
+                <form class="form-inline my-2 my-lg-0 px-2">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Comida" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+        <div>
+    </header>
+
+    <!-- FILA 1 -->
+    {% block content1 %}
+    <div class="row">
+        <!-- NOMBRE Y DIRECCION -->
+        <div class="col-sm-6 py-4 d-flex flex-column text-center">
+            <h1 style="font-size: 48pt;">El Viejo Café</h1>
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Carlos Pellegrini 101</h4>
+            <h6>Resistencia - Chaco</h6>
+            <h2>Acerca de:</h2>
+            <p>Este es un icónico restaurante y bar de la ciudad de Resistencia Ubicado en el centro
+                a 1 cuadra de la plaza principal, muy conocido por la historia
+                del perro fernando, que cuenta la leyenda que iba todos los días a tomarse un café!.
+            </p>
+        </div>
+        <!-- IMAGENES DEL RESTAURANTE -->
+        <div class="carrusel col-sm-6 py-4 d-flex flex-column">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        <img src="../static/img/restaurante_1/imagen1.png"">
+                    </div>
+                    <div class=" carousel-item text-center">
+                        <img src="../static/img/restaurante_1/imagen2.png">
+                    </div>
+                    <div class="carousel-item text-center">
+                        <img src="../static/img/restaurante_1/imagen3.png">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- FILA 2 -->
+    <!-- CONTACTO / HORARIOS Y MENU -->
+    <div class="row">
+        <div class="col-sm-6 d-flex flex-column px-4" id="menusTab">
+            <ul class="nav nav-pills" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="Promo-tab" data-toggle="pill" href="#Promo" role="tab"
+                        aria-controls="Promo" aria-selected="true">Promociones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Comida-tab" data-toggle="pill" href="#Comida" role="tab"
+                        aria-controls="Comida" aria-selected="false">Comida</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Bebidas-tab" data-toggle="pill" href="#Bebidas" role="tab"
+                        aria-controls="Bebidas" aria-selected="false">Bebidas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Postres-tab" data-toggle="pill" href="#Postres" role="tab"
+                        aria-controls="Postres" aria-selected="false">Postres</a>
+                </li>
+            </ul>
+            <!-- MENU COMIDA / BEBIDAS / POSTRES -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Promo" role="tabpanel" aria-labelledby="Promo-tab">
+                    <div id="control1" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/menuPromo1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/menuPromo2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">                    
+                    <div id="control2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/MenuComida1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/MenuComida2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade show" id="Bebidas" role="tabpanel" aria-labelledby="Bebidas-tab">
+                    <div id="control3" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/menuBebidas1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/menuBebidas2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control3" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control3" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade show" id="Postres" role="tabpanel" aria-labelledby="Postres-tab">
+                    <div id="control4" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/static/img/restaurante_1/menuPostres1.png" class="img-fluid">
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/static/img/restaurante_1/menuPostres2.png" class="img-fluid">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#control4" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#control4" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" id="menuComplet"><a href="" data-toggle="modal" data-target="#menuModal"><button
+                        class="btn btn-primary">Menú Completo</button></a>
+            </div>
+
+        </div>
+        <!-- CARACTERISTICAS DEL RESTAURANTE -->
+        <div class="col-sm-3 d-flex flex-column py-4 px-4">
+            <div class="cuentacon text-center">
+                <h1 class="titleContamos">Contamos con:</h1>
+                <img src="../static/img/check.png" class="img-fluid" id="check1">
+                <img src="../static/img/restaurante_1/caract/Mesas.png" class="img-fluid" id="Mesas">
+                <img src="../static/img/restaurante_1/caract/Music.png" class="img-fluid" id="Music">
+                <img src="../static/img/restaurante_1/caract/Patio.png" class="img-fluid" id="Patio">
+                <img src="../static/img/restaurante_1/caract/Mozo.png" class="img-fluid" id="Mozo">
+                <img src="../static/img/restaurante_1/caract/Baños.png" class="img-fluid" id="Baños">
+                <img src="../static/img/check.png" class="img-fluid" id="check2">
+            </div>
+        </div>
+
+        <div class="col-sm-2 text-center py-4 px-4 d-flex flex-column">
+            <div class="horarios">
+                <h3>Contacto:</h3><img src="../static/img/whatsapp.ico">
+                {% block content4 %}
+                <p><i class="fas fa-mobile-alt px-2"></i>362-4459399</p>
+                <!-- HORARIOS DE ATENCION -->
+                <h3>Horarios de Atencion:</h3>
+                <p>⏰ <b>Lunes:</b> 06-14hs</p>
+                <p>⏰ <b>Martes:</b> 06-14hs</p>
+                <p>⏰ <b>Miercoles:</b> 06-14hs</p>
+                <p>⏰ <b>Jueves:</b> 06-14hs</p>
+                <p>⏰ <b>Viernes:</b> 06-14hs</p>
+                <p>⏰ <b>Sabado:</b> 06-14hs</p>
+                <p>⏰ <b>Domingo:</b> 06-14hs</p>
+
+                <!-- DELIVERY DISPONIBLE -->
+                <img src="../static/img/deliveryNot.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+                    title="📞 Pegame un llamado pibe!">
+                <h3><i>No cuenta con delivery</i>🙁</h3>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- FILA 3 -->
+    <!-- COMENTARIOS DE CLIENTES -->
+    <!-- <div class="row" id="comentario">
+    <div class="col-sm-12 text-center">
+      <h1>¿Que te parecio este restaurante?</h1>
+      <p>Deja tu comentario:</p>
+      <form>
+        <textarea name="comentario" cols="80" rows="5"></textarea>
+      </form>
+      <div>
+        <form>
+          <p class="clasificacion">
+            <input id="radio1" type="radio" name="estrellas" value="5">
+            <label for="radio1">★</label>
+            <input id="radio2" type="radio" name="estrellas" value="4">
+            <label for="radio2">★</label>
+            <input id="radio3" type="radio" name="estrellas" value="3">
+            <label for="radio3">★</label>
+            <input id="radio4" type="radio" name="estrellas" value="2">
+            <label for="radio4">★</label>
+            <input id="radio5" type="radio" name="estrellas" value="1">
+            <label for="radio5">★</label>
+          </p>
+        </form>
+      </div>
+      <div class="py-4">
+        <input type="submit" class="btn btn-warning col-sm-3 py-4" value="Enviar" onclick="valor()">
+      </div>
+    </div>
+  </div> -->
+    {% block content2 %}
+    <div class="row" id="comentario">
+        <div class="col-sm-6">
+            <div class="container">
+                <div class="class text-center">
+                    <h1><b>Ultimos comentarios</b></h1>
+                </div>
+                {% if comentario %}
+                {% for coment in comentario %}
+                <hr>
+                <div class="comment" style="border: 2px solid black;">
+                    <p align="right">{{ coment.Nombre_restaurant }} - {{ coment.fecha }}</p>
+                    <div><strong><ins>{{ coment.usuario }}</ins></strong></div>
+                    <div class="comentario5">
+                        <p><i>{{ coment.mensaje|linebreaks }}</i></p>
+                    </div>
+                    <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
+                </div>
+                <hr>
+                {% endfor %}
+                {% else %}
+                <p>No hay comentarios aquí :(</p>
+                {% endif %}
+                <div class="class text-center">
+                    <p><a href="" data-toggle="modal" data-target="#comentariosModal"><b>Click para ver todos los
+                                comentarios</b></a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                    id="imgComentarios1"></a>
+            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                    id="imgComentarios2"></a>
+            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
+                    id="imgComentarios3"></a>
+        </div>
+    </div>
+    <!-- api google maps -->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="mapa col-sm-6 d-flex py-2">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d372.1562452237483!2d-58.983934108320604!3d-27.451607147504777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9e59402ff74ed1cd!2sEl%20Viejo%20Caf%C3%A9!5e0!3m2!1ses!2sar!4v1600089875393!5m2!1ses!2sar"
+                width="600" height="450" frameborder="0" style="border:1;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+    </div>
+    {% endblock %}
+    <!-- PIE DE PAGINA -->
+    {% include "footer.html" %}
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <!-- el carousel interval es para aumentar o disminur la velocidad de movimiento -->
+    <script>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+            $("[data-toggle='popover']").popover();
+            $('.carousel').carousel({
+                interval: 4000
+            });
+        });
+    </script>
+    <script src="../static/js/ajuste.js"></script>
+
+
+    <!-- Modal -->
+    <!-- para comentarios -->
+    {% block content3 %}
+    <div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content1">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Comentarios:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        {% for comentario in comentarios %}
+                        <hr>
+                        <div class="comment" style="border: 2px solid black;">
+                            <strong>
+                                <p align="right">{{ comentario.Nombre_restaurant }}</p>
+                                <ins>{{ comentario.usuario }}</ins>
+                            </strong>
+                            <div class="comentario">
+                                <p><i>{{ comentario.mensaje|linebreaks }}</i></p>
+                            </div>
+                            <p>Valoración: <b class="estrellaColor">{{comentario.valoracion}}</b></p>
+                            <p align="right">{{ comentario.fecha }}</p>
+                        </div>
+                        <hr>
+                        {% empty %}
+                        <p>No hay comentarios aquí :(</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!--MODAL para Menu -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content1">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Menú Completo:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <ul>
+                            <h3>Hamburguesas 🍔</h3>
+                            <li><u>Hamburguesa Común de carne Pan Redondo</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$165</b></li>
+                            <li><u>Hamburguesa común de pollo Pan redondo</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$170</b></li>
+                            <li><u>Hamburguesa especial de carne Pan Redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón y queso.</i><br>
+                                <b>$220</b></li>
+                            <li><u>Hamburguesa especial de pollo pan redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón y queso.</i><br>
+                                <b>$220</b></li>
+                            <li><u>Hamburguesa completa de carne Pan redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
+                                <b>$230</b></li>
+                            <li><u>Hamburguesa completa de pollo Pan Redondo</u><br>
+                                <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
+                                <b>$245</b></li>
+
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Lomitos 🥩</h3>
+                            <li><u>Lomito común pan hamburguesa</u><br>
+                                <i>Lechuga, tomate y mayonesa, en pan redondo.</i><br>
+                                <b>$242</b></li>
+                            <li><u>Lomito común pan baguette entero</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$483</b></li>
+                            <li><u>Lomito común pan árabe</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$460</b></li>
+                            <li><u>Lomito común pan ciabatta entero</u><br>
+                                <i>Lechuga, tomate Y mayonesa.</i><br>
+                                <b>$483</b></li>
+                            <li><u>Lomito común pan baguette medio</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$242</b></li>
+                            <li><u>Lomito común pan ciabatta medio</u><br>
+                                <i>Lechuga, tomate y mayonesa.</i><br>
+                                <b>$242</b></li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Pizzas 🍕</h3>
+                            <li><u>Pizza mozzarella económica</u><br>
+                                <i>Salsa, mozzarella y aceitunas.</i><br>
+                                <b>$450</b></li>
+                            <li><u>Pizza mozzarella tradicional</u><br>
+                                <i>Salsa, doble mozzarella y aceitunas.</i><br>
+                                <b>$470</b></li>
+                            <li><u>Pizza mozzarella con anchoas</u><br>
+                                <i>Salsa, mozzarella, anchoas, aceitunas y orégano.</i><br>
+                                <b>$830</b></li>
+                            <li><u>Pizza calabresa</u><br>
+                                <i>Salsa, mozzarella, cebolla, longaniza, aceitunas y orégano.</i><br>
+                                <b>$600</b></li>
+                            <li><u>Pizza provolone</u><br>
+                                <i>Mozzarella, provolone, aceitunas y orégano.</i><br>
+                                <b>$620</b></li>
+                            <li><u>Pizza con palmitos</u><br>
+                                <i>Mozzarella, palmitos, huevo, salsa golf y aceitunas.</i><br>
+                                <b>$670</b></li>
+                            <li><u>Pizza correntina</u><br>
+                                <i>Mozzarella, huevo picado, salsa, aceitunas y orégano.</i><br>
+                                <b>$510</b></li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Papas fritas 🍟</h3>
+                            <li><u>Papas</u><br>
+                                <i>gratinadas</i><br>
+                                <b>$230</b>
+                            </li>
+                            <li><u>Papas</u><br>
+                                <i>(porción grande)</i><br>
+                                <b>$175</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Empanadas 🌮</h3>
+                            <li><u>Docena de empanadas</u><br>
+                                <i>carne, jamón y queso, pollo, humita, verdura, cebolla y queso, picada a cuchillo
+                                </i><br>
+                                <b>$460</b>
+                            </li>
+                            <li><u>1/2 docena de empanadas</u><br>
+                                <b>$253</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Sándwiches 🥪</h3>
+                            <li><u>Sándwich Carlitos</u><br>
+                                <i>Mayonesa, queso y jamón.</i><br>
+                                <b>$210</b>
+                            </li>
+                            <li><u>Sándwich simple</u><br>
+                                <i>Mayonesa y jamón o queso.</i><br>
+                                <b>$150</b>
+                            </li>
+                            <li><u>Sándwich triple de tomate y queso</u><br>
+                                <i>Mayonesa, queso y tomate.</i><br>
+                                <b>$230</b>
+                            </li>
+                            <li><u>Sándwich triple de verdura</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga y tomate.</i><br>
+                                <b>$322</b>
+                            </li>
+                            <li><u>Sándwich psicodélico</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate, palmitos y huevo.</i><br>
+                                <b>$575</b>
+                            </li>
+                            <li><u>Sándwich triple de lomo</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate y lomito.</i><br>
+                                <b>$690</b>
+                            </li>
+                            <li><u>Sándwich triple de pollo</u><br>
+                                <i>Mayonesa, queso, jamón, lechuga, tomate y pollo.</i><br>
+                                <b>$520</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Especialidades 🍝</h3>
+                            <li><u>Sorrentinos de mozzarella y nueces 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Sorrentinos de mozzarella y nueces 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Sorrentinos de mix de verduras 7 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Ñoquis de papa</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Canelones de verdura 2 unidades grandes</u><br>
+                                <i>Servidos con salsa a la crema.</i><br>
+                                <b>$300</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Parrilla 🥓</h3>
+                            <li><u>Arroz con estofado Arroz con estofado.</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Patamuslo con guarnicion</u><br>
+                                <i>Patamuslo al horno, a la mostaza.</i><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Ravioles con estofado</u><br>
+                                <i>Ravioles con salsa roja.</i><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Milanesa a Caballo</u><br>
+                                <i>Milanesa de Carne o pollo con huevos a la plancha y guarnición.</i><br>
+                                <b>$325</b>
+                            </li>
+                            <li><u>Pollo a la parrilla</u><br>
+                                <i>Podes pedirlo con chimi de mostaza de la casa.</i><br>
+                                <b>$550</b>
+                            </li>
+                            <li><u>Parrillada completa</u><br>
+                                <i>500gr de asado, un cuarto de pollo, 1 morcilla, 1 chorizo, 1 riñon, 1 chinchulin. 1
+                                    tripa gorda, 1 pan.</i><br>
+                                <b>$920</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Bebidas 🍹</h3>
+                            <h5>Gaseosas 🥤</h5>
+                            <li><u>Gaseosa línea Pepsi 1.5 L</u><br>
+                                <b>$200</b>
+                            </li>
+                            <li><u>Gaseosa línea CocaCola 1.5 L</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Gaseosa línea Cabalgata 2.25L </u><br>
+                                <b>$150</b>
+                            </li>
+                            <h5>Cervezas 🍻</h5>
+                            <li><u>Cerveza corona 710ml</u><br>
+                                <b>$240</b>
+                            </li>
+                            <li><u>Quilmes</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Heineken</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Stella Artois</u><br>
+                                <b>$320</b>
+                            </li>
+                            <h5>Aguas Saborizadas 🧃</h5>
+                            <li><u>Levite 375 ml</u><br>
+                                <b>$100</b>
+                            </li>
+                            <li><u>Levite 1.5L</u><br>
+                                <b>$150</b>
+                            </li>
+                            <li><u>Levite 2.25L</u><br>
+                                <b>$250</b>
+                            </li>
+                        </ul><hr size="2px" color="white" />
+
+                        <ul>
+                            <h3>Postres 🍨</h3>
+                            <li><u>Promo - Helado 2 Kg</u><br>
+                                <i>Consultar Sabores</i><br>
+                                <b>$1090</b>
+                            </li>
+                            <li><u>Promo - Helado 1 Kg + helado 1/4 Kg</u><br>
+                                <i>Consultar Sabores</i><br>
+                                <b>$730</b>
+                            </li>
+                            <li><u>Helado 1/4 Kg</u><br>
+                                <b>$180</b>
+                            </li>
+                            <li><u>Helado 1/2 Kg</u><br>
+                                <b>$320</b>
+                            </li>
+                            <li><u>Helado 1 Kg</u><br>
+                                <b>$590</b>
+                            </li>
+                            <li><u>Cucurucho semi dulce</u><br>
+                                <b>$2</b>
+                            </li>
+                            <li><u>Bombones helados caja (6 unidades)</u><br>
+                                <b>$750</b>
+                            </li>
+                            <li><u>Palitos helados de agua</u><br>
+                                <b>$30</b>
+                            </li>
+                            <li><u>Palito de crema</u><br>
+                                <b>$35</b>
+                            </li>
+                            <li><u>Palitos bombón</u><br>
+                                <b>$40</b>
+                            </li>
+                            <li><u>Flan</u><br>
+                                <b>$260</b>
+                            </li>
+                            <li><u>Chocotorta</u><br>
+                                <b>$300</b>
+                            </li>
+                            <li><u>Postre Helado Aloha</u><br>
+                                <b>$410</b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--FIN DEL Modal -->
+</body>
+
+</html>

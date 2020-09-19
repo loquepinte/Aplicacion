@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #NosModal {
+            background-color: rgba(96, 163, 51, 0.9);
+            box-shadow: 0px 0px 15px #cdff7c;
+            border-radius: 20px;            
+        }
+        #resModal{
+            background-color: rgba(163, 51, 94, 0.9);
+            box-shadow: 0px 0px 15px #cdff7c;
+            border-radius: 20px;    
+        }
+        #listaRes a{
+            color: rgb(158, 158, 158);
+            text-align: center;
+            transition: 2s;
+        }
+        #listaRes:hover a{            
+            color: rgb(255, 255, 255);
+        }
+        footer{
+            bottom: 0px;
+            width:99%;            
+        }
+    </style>
+</head>
+
+<body>
+    <footer>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <h3>Visita nuestras redes:</h3>
+                <span class="redes">
+                    <a href="https://www.facebook.com" target="_blank" class="px-4" id="red1"><img
+                            src="/static/img/footer/facebook.png"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="px-4" id="red2"><img
+                            src="/static/img/footer/twitter.png"></a>
+                    <a href="https://www.instagram.com" target="_blank" class="px-4" id="red3"><img
+                            src="/static/img/footer/instagram.png"></a>
+                </span>
+            </div>
+            <div class="col-sm-4 text-center">
+                <address>
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-mobile"></i> +5493624747305</p>
+                    <p><i class="far fa-paper-plane"></i> informatorio2020@gmail.com</p>
+                </address>
+            </div>
+            <div class="col-sm-4 text-center">
+                <h3>Aceca de</h3>
+                <a href="#" data-toggle="modal" data-target="#sobreNosModal"><i
+                        class="fas fa-bullhorn px-2"></i>Nosotros</a>
+                <a href="#" data-toggle="modal" data-target="#RestaurantesModal"><i class="fas fa-utensils px-2"></i>Restaurantes</a>
+                <a href="{% url 'login'  %}"><i class="fas fa-cocktail px-2"></i>Tu restaurante</a>
+                <p style="opacity: 0.3;">© LoQuePinte. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <!-- sobre nosotros -->
+    <div class="modal fade" id="sobreNosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="NosModal">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Sobre Nosotros:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h3>Lo que pinte 🍔 - aplicación web</h3>
+                        <p>~Esta es una aplicación web creada por los estudiantes de la comisión 3 del informatorio
+                            2020. "Lo que pinte": es una página web creada especialmente para mostrar información a
+                            cerca
+                            de restaurantes de la ciudad de Resistencia, en la provincia de Chaco. Impulsando así el
+                            crecimiento y conocimiento de este sector, motivando el comercio, a raíz de la situación
+                            actual que se está viviendo en el plan de la emergencia sanitaria. En esta página podrás ver
+                            toda la información que necesitas sobre diferentes restaurantes, como, por ejemplo:<br>
+                            •<b>Los horarios de atencion al publico</b> ⌚<br>
+                            •<b>El menu de comidas/bebidas que ofrecen</b> 🌭🍹<br>
+                            •<b>La dirección donde estan ubicados</b> 🏘<br>
+                            •<b>Las promociones que ofrecen a sus clientes</b> 💯<br>
+                            •<b>Numero de contacto para envio a domicilio</b> 📞🏍<br>
+
+                            <br><strong>Staff del equipo:</strong><br>
+                            • <i>Luis Peralta 😃<br>
+                                • Marcos Billordo 😄<br>
+                                • Milton Yaya 😁<br>
+                                • Gaby Romero 😆<br>
+                                • Godoysz 😅<br>
+                                • Lucas Sosa 😀<br>
+                                • Lucas Silver 😉<br>
+                                • Marcelo Lugo</i> 🙂
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN DEL Modal -->
+    <!-- restaurantes lista -->
+    <div class="modal fade" id="RestaurantesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="resModal">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Restaurantes Registrados:</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="listaRes">
+                    <div class="container">
+                        <ol>
+                        <li><a href="../restaurante/"><h5>El Viejo Café</h5></a></li>
+                        <li><a href="../el_surtidor/"><h5>El Surtidor</h5></a></li>
+                        <li><a href="../el_patron/"><h5>El patrón del lomo</h5></a></li>
+                        <li><a href="../la_chimenea/"><h5>La Chimenea</h5></a></li>
+                        <li><a href="../nanas/"><h5>Nanas de Cebollas</h5></a></li>
+                        <li><a href="../san_jose/"><h5>San Jose</h5></a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

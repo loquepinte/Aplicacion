@@ -1,0 +1,171 @@
+/*Se hace un degradado primero ponemos un atributo de css  la url  donde va la imagen
+luego  para que quede ien se hace un background size cover para que ocupe todo el ancho 
+y por ultimo un background posicion*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+body, html{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+ background: linear-gradient(rgba(93,9,121 , .3),rgba(155,35,234, .7)), url(/static/img/Degradado.jpg);
+ animation-name: cambioBG;
+ animation-duration: 1s;
+ animation-iteration-count: infinite;
+ color: white;
+ position: relative;
+ background-position: center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+}
+
+
+.logo{
+    height: 200px;
+    margin-top: 15px;  
+}
+
+
+.espacio{
+    letter-spacing: 2px;
+}
+
+/* header {
+    text-shadow: 3px 0 2px black;
+} */
+
+
+footer {
+    margin: 8px;
+    background: linear-gradient(rgba(238, 34, 119, 0.3),rgba(71, 9, 40, 0.3)), url(/static/img/footer.png);
+    border: 1px solid rgb(255, 238, 0);
+    border-radius: 40px;
+}
+
+/* 
+.Comentario {
+    padding-left: 30%;
+} */
+
+.starrr {
+    display: inline-block; }
+    .starrr a {
+      font-size: 16px;
+      padding: 0 1px;
+      cursor: pointer;
+      color: #FFD119;
+      text-decoration: none; }
+.color{
+    color: white;
+}  
+
+/* del footer */
+#red1 {
+    transition: 1s;
+    opacity: 0.5;
+}
+
+#red1:hover {
+    opacity: 1;
+}
+#red2 {
+    transition: 1s;
+    opacity: 0.5;
+}
+
+#red2:hover {
+    transform: scale(1.5);
+    opacity: 1;
+}
+#red3 {
+    opacity: 0.5;
+}
+
+#red3:hover {
+    opacity: 1;
+}
+
+header {
+    animation-name: movimiento;
+    animation-duration: 0.5s;
+}
+
+
+@keyframes movimiento {
+    from {
+        padding: 300px;
+    }
+    to {
+        padding: 0px;
+    }
+}
+
+/* del mapa de cada restaurante:*/
+iframe {
+    border: 2px solid tomato;
+    border-radius: 40px;
+    opacity: 0.7;
+}
+  
+iframe:hover{
+    opacity: 1;
+}
+
+.BotonLogin {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonLogin:hover {
+    background: #e62097;
+}
+  
+.BotonRegistro {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonRegistro:hover {
+    background: #e62097;
+}
+  
+.BotonLogout {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 1px 5px #666666;
+    text-shadow: 2px 2px 4px #666666;
+    border: solid #d91c71 0px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
+    background: -moz-linear-gradient(top, #fc3f94, #fc0574);
+}
+  
+.BotonLogout:hover {
+    background: #e62097;
+}
+  
+nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-shadow: none;
+}

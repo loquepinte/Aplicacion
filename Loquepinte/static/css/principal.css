@@ -1,0 +1,52 @@
+
+
+.restau:hover .calificar {
+    visibility: visible;
+    margin-top: 0px;
+}
+
+.restaurante:hover {
+    transform: scale(1.1) rotateZ(360deg);
+    border-radius: 100%;
+}
+
+.restaurante{
+    transition: 0.5s ease-in-out;
+}
+nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.Comentario {
+    background: linear-gradient(rgba(56, 0, 0, 0.3), rgba(56, 0, 0, 0.5));
+    border: 2px solid tomato;
+    border-radius: 40px;
+    padding: 5px;
+}
+
+
+.tooltip-inner {
+    background-color: rgb(13, 153, 13);
+    font-weight: bold;
+}
+
+
+/* de la estrella */
+
+.clasificacion {
+    color: grey;
+    font-size: 50px;
+    visibility: hidden;
+    margin-top: -100px;
+    transition: margin 1s;
+}
+
+.restau:hover .clasificacion{
+   visibility: visible;
+   margin-top: -5px;
+}
+
+/* starts */
+
