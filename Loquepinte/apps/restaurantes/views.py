@@ -110,7 +110,7 @@ def registro_usuario(request):
             password = formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password) # con esto se autenfica ahora se hace el login
             login(request, user)
-            return render(request, "principal.html")
+            return render(request, "restaurantes/principal.html")
         else:
             return render(request, "registration/error_registro.html")
     return render(request, 'registration/registrar.html', data)

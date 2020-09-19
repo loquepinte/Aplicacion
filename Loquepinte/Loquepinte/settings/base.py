@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 """ aca pongo donde se redirige"""
 LOGIN_REDIRECT_URL= "/principal/"
-LOGOUT_REDIRECT_URL="/accounts/login"
+LOGOUT_REDIRECT_URL="/principal/"
 
 # Application definition
 
