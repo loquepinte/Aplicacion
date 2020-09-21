@@ -33,7 +33,7 @@
                         <a class="nav-link" href="../principal/">Restaurantes</a>
                     </li>
                     <li class="nav-item active">
-                        {% block content %}<a class="nav-link" href="#">El viejo Café</a>{% endblock %}
+                        {% block content %}<a class="nav-link" href="#">La Petite</a>{% endblock %}
                     </li>
                 </ul>
                 <!-- registro/login -->
@@ -61,14 +61,13 @@
     <div class="row">
         <!-- NOMBRE Y DIRECCION -->
         <div class="col-sm-6 py-4 d-flex flex-column text-center">
-            <h1 style="font-size: 48pt;">El Viejo Café</h1>
+            <h1 style="font-size: 48pt;">La Petite</h1>
             <i class="fas fa-map-marker-alt"></i>
-            <h4>Carlos Pellegrini 101</h4>
+            <h4>Marcelo T. de Alvear 80</h4>
             <h6>Resistencia - Chaco</h6>
             <h2>Acerca de:</h2>
-            <p>Este es un icónico restaurante y bar de la ciudad de Resistencia Ubicado en el centro
-                a 1 cuadra de la plaza principal, muy conocido por la historia
-                del perro fernando, que cuenta la leyenda que iba todos los días a tomarse un café!.
+            <p>Restaurante ubicado enfrente de la plaza principal de Resistencia, excelente para ir de paseo a disfrutar
+                algo!
             </p>
         </div>
         <!-- IMAGENES DEL RESTAURANTE -->
@@ -76,13 +75,16 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active text-center">
-                        <img src="../static/img/restaurante_1/imagen1.png"">
+                        <img src="../static/img/restaurante_1/img1.png"">
                     </div>
                     <div class=" carousel-item text-center">
-                        <img src="../static/img/restaurante_1/imagen2.png">
+                        <img src="../static/img/restaurante_1/img2.png">
                     </div>
                     <div class="carousel-item text-center">
-                        <img src="../static/img/restaurante_1/imagen3.png">
+                        <img src="../static/img/restaurante_1/img3.png">
+                    </div>
+                    <div class="carousel-item text-center">
+                        <img src="../static/img/restaurante_1/img4.png">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -143,7 +145,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">                    
+                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">
                     <div id="control2" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active text-center">
@@ -241,9 +243,12 @@
                 <p>⏰ <b>Domingo:</b> 06-14hs</p>
 
                 <!-- DELIVERY DISPONIBLE -->
-                <img src="../static/img/deliveryNot.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+                <img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
                     title="📞 Pegame un llamado pibe!">
-                <h3><i>No cuenta con delivery</i>🙁</h3>
+                <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i
+                        class="fas fa-check-circle" style="color: lightgreen;"></i></h3>
+                <img src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+                    title="😉 Buscame en Pedidos Ya!">
                 {% endblock %}
             </div>
         </div>
@@ -323,7 +328,7 @@
         <div class="col-sm-4"></div>
         <div class="mapa col-sm-6 d-flex py-2">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d372.1562452237483!2d-58.983934108320604!3d-27.451607147504777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9e59402ff74ed1cd!2sEl%20Viejo%20Caf%C3%A9!5e0!3m2!1ses!2sar!4v1600089875393!5m2!1ses!2sar"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14161.059845578395!2d-59.00090800156956!3d-27.461009352623353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450d8f68261ea1%3A0x54de5880ef5976a7!2sLa%20Petite%20PAtisserie!5e0!3m2!1ses!2sar!4v1600681899969!5m2!1ses!2sar"
                 width="600" height="450" frameborder="0" style="border:1;" allowfullscreen="" aria-hidden="false"
                 tabindex="0"></iframe>
         </div>
@@ -430,7 +435,8 @@
                                 <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
                                 <b>$245</b></li>
 
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Lomitos 🥩</h3>
@@ -452,7 +458,8 @@
                             <li><u>Lomito común pan ciabatta medio</u><br>
                                 <i>Lechuga, tomate y mayonesa.</i><br>
                                 <b>$242</b></li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Pizzas 🍕</h3>
@@ -477,7 +484,8 @@
                             <li><u>Pizza correntina</u><br>
                                 <i>Mozzarella, huevo picado, salsa, aceitunas y orégano.</i><br>
                                 <b>$510</b></li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Papas fritas 🍟</h3>
@@ -489,7 +497,8 @@
                                 <i>(porción grande)</i><br>
                                 <b>$175</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Empanadas 🌮</h3>
@@ -501,7 +510,8 @@
                             <li><u>1/2 docena de empanadas</u><br>
                                 <b>$253</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Sándwiches 🥪</h3>
@@ -533,7 +543,8 @@
                                 <i>Mayonesa, queso, jamón, lechuga, tomate y pollo.</i><br>
                                 <b>$520</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Especialidades 🍝</h3>
@@ -557,7 +568,8 @@
                                 <i>Servidos con salsa a la crema.</i><br>
                                 <b>$300</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Parrilla 🥓</h3>
@@ -585,7 +597,8 @@
                                     tripa gorda, 1 pan.</i><br>
                                 <b>$920</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Bebidas 🍹</h3>
@@ -622,7 +635,8 @@
                             <li><u>Levite 2.25L</u><br>
                                 <b>$250</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Postres 🍨</h3>
