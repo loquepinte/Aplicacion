@@ -1,2 +1,8 @@
+# para que funcione primero tuve que elimiar el cache con el siguiente comando en la bash:
+# git rm -r --cached .
+# git add .
+# git commit -m “.gitignore funciona”
+
+# archivos ignorados, no hace falta colocar ubicación,ya los encuentra automaticamente:
 db.sqlite3
 base.py
