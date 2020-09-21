@@ -95,14 +95,50 @@ San Jose
             </div>
         </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-1"></div>
     <div class="col-sm-4">
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios1"></a>
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios2"></a>
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios3"></a>
+        {% if user.is_authenticated %}
+        <form action=" " method="POST" class="formComentario">{% csrf_token %}
+            <div class="form-group text-center">
+                <div class="row">
+                    <div class="col-sm-8 py-2">
+                        <h5><b>Bienvenido!</b></h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="usuario form-control" name="txt_UsuarioJo"
+                            placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                    </div>
+                </div>
+                <label for="comentario">
+                    <h1>Dejame tu comentario</h1>
+                </label>
+                <textarea class="form-control" name="txt_ComentarioJo" cols="30" rows="10"></textarea>
+                                
+            </div>
+            <div class="form-group text-center">
+                <h6><b>Calificación:</b></h6>
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="estrellas" value="★★★★★">
+                    <label for="radio1" class="stars">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="★★★★">
+                    <label for="radio2" class="stars">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="★★★">
+                    <label for="radio3" class="stars">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="★★">
+                    <label for="radio4" class="stars">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="★">
+                    <label for="radio5" class="stars">★</label>
+                </p>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent">
+        </form>
+        {% else %}
+        <div class="container text-center">
+            <h3>¿Quieres dejar un comentario a este restaurante?</h3>
+            <p>Click para registrarte o iniciar sesión!</p>
+            <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar sesión</b></button></a>
+        </div>
+        {% endif %}
     </div>
 </div>
 <!-- api google maps -->

@@ -6,20 +6,21 @@ body {
     background-attachment: fixed;
 }
 
-form {
-    margin-top: 50px;
+.formComentario {
+    margin-top: 80px;
     background: linear-gradient(rgba(14, 98, 119, 0.2), rgba(253, 212, 77, 0.2));
     color: white;
     text-shadow: 2px 2px 4px rgb(0, 0, 0);
     font-family: 'Roboto Condensed', sans-serif;
-    box-shadow: 8px 8px 25px black;
+    box-shadow: 0px 4px 20px black;
+    border-radius: 20px;
 }
-.btn{
+#botonEnviarComent{
     font-size: 20px;
 }
 
 .usuario {
-    background: linear-gradient(rgba(0, 255, 255, 0.3), rgba(2, 56, 87, 0.3));
+    background: linear-gradient(rgba(149, 2, 76, 0.7), rgba(87, 2, 73, 0.7));
     box-shadow: 2px 2px 10px black;
     font-weight: bolder;
     color: white;

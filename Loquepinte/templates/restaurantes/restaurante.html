@@ -5,13 +5,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Lo que pinte{% endblock %}</title>
+    <title>{% block title %}La Petite{% endblock %}</title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
     <link rel="stylesheet" href="/static/css/restaurante.css">
+    <link rel="stylesheet" href="/static/css/comentario.css">
+    <!-- Smartsupp Live Chat script -->
+    {% if user.is_authenticated %}
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'a3001602eebcab4561b5c91b9660d79d162ce8e1';
+        window.smartsupp || (function (d) {
+            var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+            s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+            c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+            c.src = 'https://www.smartsuppchat.com/loader.js?'; s.parentNode.insertBefore(c, s);
+        })(document);
+    </script>
+    {% endif %}
+
 </head>
 
 <body>
@@ -231,24 +246,25 @@
             <div class="horarios">
                 <h3>Contacto:</h3><img src="../static/img/whatsapp.ico">
                 {% block content4 %}
-                <p><i class="fas fa-mobile-alt px-2"></i>362-4459399</p>
+                <p><i class="fas fa-mobile-alt px-2"></i>362-4432527</p>
                 <!-- HORARIOS DE ATENCION -->
                 <h3>Horarios de Atencion:</h3>
-                <p>⏰ <b>Lunes:</b> 06-14hs</p>
-                <p>⏰ <b>Martes:</b> 06-14hs</p>
-                <p>⏰ <b>Miercoles:</b> 06-14hs</p>
-                <p>⏰ <b>Jueves:</b> 06-14hs</p>
-                <p>⏰ <b>Viernes:</b> 06-14hs</p>
-                <p>⏰ <b>Sabado:</b> 06-14hs</p>
-                <p>⏰ <b>Domingo:</b> 06-14hs</p>
+                <p>⏰ <b>Lunes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Martes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Miercoles:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Jueves:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Viernes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Sabado:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Domingo:</b> 12hs-14.30hs | 20hs-22.30hs</p>
 
                 <!-- DELIVERY DISPONIBLE -->
                 <img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
                     title="📞 Pegame un llamado pibe!">
                 <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i
                         class="fas fa-check-circle" style="color: lightgreen;"></i></h3>
-                <a href="https://www.pedidosya.com.ar/restaurantes/resistencia/la-petite-pellegrini-menu" target="_blank"><img src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
-                    title="😉 Buscame en Pedidos Ya!"></a>
+                <a href="https://www.pedidosya.com.ar/restaurantes/resistencia/la-petite-pellegrini-menu"
+                    target="_blank"><img src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip"
+                        data-placenment="top" title="😉 Buscame en Pedidos Ya!"></a>
                 {% endblock %}
             </div>
         </div>
@@ -256,34 +272,6 @@
 
     <!-- FILA 3 -->
     <!-- COMENTARIOS DE CLIENTES -->
-    <!-- <div class="row" id="comentario">
-    <div class="col-sm-12 text-center">
-      <h1>¿Que te parecio este restaurante?</h1>
-      <p>Deja tu comentario:</p>
-      <form>
-        <textarea name="comentario" cols="80" rows="5"></textarea>
-      </form>
-      <div>
-        <form>
-          <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
-            <label for="radio1">★</label>
-            <input id="radio2" type="radio" name="estrellas" value="4">
-            <label for="radio2">★</label>
-            <input id="radio3" type="radio" name="estrellas" value="3">
-            <label for="radio3">★</label>
-            <input id="radio4" type="radio" name="estrellas" value="2">
-            <label for="radio4">★</label>
-            <input id="radio5" type="radio" name="estrellas" value="1">
-            <label for="radio5">★</label>
-          </p>
-        </form>
-      </div>
-      <div class="py-4">
-        <input type="submit" class="btn btn-warning col-sm-3 py-4" value="Enviar" onclick="valor()">
-      </div>
-    </div>
-  </div> -->
     {% block content2 %}
     <div class="row" id="comentario">
         <div class="col-sm-6">
@@ -313,14 +301,50 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
         <div class="col-sm-4">
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios1"></a>
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios2"></a>
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios3"></a>
+            {% if user.is_authenticated %}
+            <form action=" " method="POST" class="formComentario">{% csrf_token %}
+                <div class="form-group text-center">
+                    <div class="row">
+                        <div class="col-sm-8 py-2">
+                            <h5><b>Bienvenido!</b></h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="usuario form-control" name="txt_Usuario"
+                                placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                        </div>
+                    </div>
+                    <label for="comentario">
+                        <h1>Dejame tu comentario</h1>
+                    </label>
+                    <textarea class="form-control" name="txt_Comentario" cols="30" rows="10"></textarea>
+
+                </div>
+                <div class="form-group text-center">
+                    <h6><b>Calificación:</b></h6>
+                    <p class="clasificacion">
+                        <input id="radio1" type="radio" name="estrellas" value="★★★★★">
+                        <label for="radio1" class="stars">★</label>
+                        <input id="radio2" type="radio" name="estrellas" value="★★★★">
+                        <label for="radio2" class="stars">★</label>
+                        <input id="radio3" type="radio" name="estrellas" value="★★★">
+                        <label for="radio3" class="stars">★</label>
+                        <input id="radio4" type="radio" name="estrellas" value="★★">
+                        <label for="radio4" class="stars">★</label>
+                        <input id="radio5" type="radio" name="estrellas" value="★">
+                        <label for="radio5" class="stars">★</label>
+                    </p>
+                </div>
+                <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent">
+            </form>
+            {% else %}
+            <div class="container text-center">
+                <h3>¿Quieres dejar un comentario a este restaurante?</h3>
+                <p>Click para registrarte o iniciar sesión!</p>
+                <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar sesión</b></button></a>
+            </div>
+            {% endif %}
         </div>
     </div>
     <!-- api google maps -->
