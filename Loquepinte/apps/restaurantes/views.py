@@ -20,7 +20,6 @@ def restaurante(request):
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = Comentario.objects.all().order_by('-id')[:3]
     comentarios = Comentario.objects.all().order_by('-id')
-    
     contexto={
         'comentario':Ultimoscomentarios, 'comentarios':comentarios,
     } 
