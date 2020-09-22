@@ -38,10 +38,18 @@ body {
   background: linear-gradient(rgba(212, 96, 96, 0.8), rgba(194, 127, 127, 0.8));
 }
 
-label {
+.starComentario{
+  color: rgb(224, 211, 86);
+}
+
+#areaComentario{
+  font-size: 30px;
+}
+
+.stars {
     color: grey;
     font-size: 50px;
-  }
+}
 
 input[type="radio"] {
     display: none;
@@ -53,8 +61,8 @@ input[type="radio"] {
     unicode-bidi: bidi-override;
   }
 
-label:hover,
-label:hover~label {
+.stars:hover,
+.stars:hover~.stars {
     color: orange;
   }
 
@@ -116,6 +124,7 @@ input[type="radio"]:checked~label {
   border-radius: 20px;
 }
 
+
 .estrellaColor{
   color: orange;
   font-size: 20px;
@@ -162,7 +171,7 @@ input[type="radio"]:checked~label {
   }
 }
 
-#check1 {
+/* #check1 {
   animation-name: brillo1;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -181,7 +190,7 @@ input[type="radio"]:checked~label {
     filter: brightness(120%) hue-rotate(360deg);
     opacity: 1;
   }
-}
+} */
 
 .titleContamos {
   /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */

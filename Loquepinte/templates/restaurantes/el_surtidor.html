@@ -113,9 +113,11 @@ El Surtidor
                     </div>
                 </div>
                 <label for="comentario">
-                    <h1>Dejame tu comentario</h1>
+                    <div class="starComentario">
+                        <h1>Dejame tu comentario</h1>
+                    </div>
                 </label>
-                <textarea class="form-control" name="txt_ComentarioSur" cols="30" rows="10"></textarea>
+                <textarea class="form-control" id="areaComentario" name="txt_ComentarioSur" cols="30" rows="5"></textarea>
 
             </div>
             <div class="form-group text-center">
@@ -133,7 +135,7 @@ El Surtidor
                     <label for="radio5" class="stars">★</label>
                 </p>
             </div>
-            <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent">
+            <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent" onclick="confirMsj()">
         </form>
         {% else %}
         <div class="container text-center">

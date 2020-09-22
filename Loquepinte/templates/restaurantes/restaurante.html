@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/static/css/estilos.css">
     <link rel="stylesheet" href="/static/css/restaurante.css">
     <link rel="stylesheet" href="/static/css/comentario.css">
+    <script src="/static/js/restaurante.js"></script>
     <!-- Smartsupp Live Chat script -->
     {% if user.is_authenticated %}
     <script type="text/javascript">
@@ -304,7 +305,7 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-4">
             {% if user.is_authenticated %}
-            <form action=" " method="POST" class="formComentario">{% csrf_token %}
+            <form action=" " method="POST" class="formComentario" name="FormComent">{% csrf_token %}
                 <div class="form-group text-center">
                     <div class="row">
                         <div class="col-sm-8 py-2">
@@ -316,9 +317,12 @@
                         </div>
                     </div>
                     <label for="comentario">
-                        <h1>Dejame tu comentario</h1>
+                        <div class="starComentario">
+                            <h1>Dejame tu comentario</h1>
+                        </div>
                     </label>
-                    <textarea class="form-control" name="txt_Comentario" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" id="areaComentario" name="txt_Comentario" cols="30"
+                        rows="5"></textarea>
 
                 </div>
                 <div class="form-group text-center">
@@ -336,13 +340,14 @@
                         <label for="radio5" class="stars">★</label>
                     </p>
                 </div>
-                <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent">
+                <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent" onclick="confirMsj()">
             </form>
             {% else %}
             <div class="container text-center">
                 <h3>¿Quieres dejar un comentario a este restaurante?</h3>
                 <p>Click para registrarte o iniciar sesión!</p>
-                <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar sesión</b></button></a>
+                <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar
+                            sesión</b></button></a>
             </div>
             {% endif %}
         </div>
@@ -429,7 +434,7 @@
     <!--MODAL para Menu -->
     <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content1">
+            <div class="modal-content1" id="menuCompleto">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Menú Completo:</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

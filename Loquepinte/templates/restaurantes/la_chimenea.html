@@ -16,7 +16,8 @@ La Chimenea
         <h4>Av. M. Moreno 870</h4>
         <h6>Resistencia - Chaco</h6>
         <h2>Acerca de:</h2>
-        <p>Este restaurante prepara unas milanesas excelentes y abundantes en donde con una sola milanesa, comen dos personas!; ¿qué esperas para ir?.
+        <p>Este restaurante prepara unas milanesas excelentes y abundantes en donde con una sola milanesa, comen dos
+            personas!; ¿qué esperas para ir?.
         </p>
     </div>
     <!-- IMAGENES DEL RESTAURANTE -->
@@ -62,12 +63,13 @@ La Chimenea
 <p>⏰ <b>Domingo:</b> 11hs-14.30hs | 20hs-23.30hs</p>
 
 <!-- DELIVERY DISPONIBLE -->
-<img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip"
-data-placenment="top" title="📞 Pegame un llamado pibe!">
+<img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+    title="📞 Pegame un llamado pibe!">
 <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i class="fas fa-check-circle"
         style="color: lightgreen;"></i></h3>
-<a href="https://www.pedidosya.com.ar/restaurantes/resistencia/la-chimenea-resistencia-menu" target="_blank"><img src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip"
-data-placenment="top" title="😉 Buscame en Pedidos Ya!"></a>
+<a href="https://www.pedidosya.com.ar/restaurantes/resistencia/la-chimenea-resistencia-menu" target="_blank"><img
+        src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+        title="😉 Buscame en Pedidos Ya!"></a>
 {% endblock %}
 
 {% block content2 %}
@@ -114,10 +116,12 @@ data-placenment="top" title="😉 Buscame en Pedidos Ya!"></a>
                     </div>
                 </div>
                 <label for="comentario">
-                    <h1>Dejame tu comentario</h1>
+                    <div class="starComentario">
+                        <h1>Dejame tu comentario</h1>
+                    </div>
                 </label>
-                <textarea class="form-control" name="txt_ComentarioChi" cols="30" rows="10"></textarea>
-                                
+                <textarea class="form-control" id="areaComentario" name="txt_ComentarioChi" cols="30" rows="5"></textarea>
+
             </div>
             <div class="form-group text-center">
                 <h6><b>Calificación:</b></h6>
@@ -134,7 +138,7 @@ data-placenment="top" title="😉 Buscame en Pedidos Ya!"></a>
                     <label for="radio5" class="stars">★</label>
                 </p>
             </div>
-            <input type="submit" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent">
+            <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent" onclick="confirMsj()">
         </form>
         {% else %}
         <div class="container text-center">
