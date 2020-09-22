@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# sitemap para index posicion
+from django.contrib.sitemaps.views import sitemap
+from apps.restaurantes.sitemaps import StaticViewSitemap
 # aca importamos las vistas creadas de la app
 from apps.restaurantes import views
 from django.contrib.auth import views as auth_views
+
+sitemaps = {
+    'static': StaticViewSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,4 +55,6 @@ urlpatterns = [
     
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
      name='password_reset_complete'),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]
