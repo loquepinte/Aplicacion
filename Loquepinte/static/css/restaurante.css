@@ -218,16 +218,15 @@ input[type="radio"]:checked~label {
   font-style: normal;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   animation-name: aparecerPun;
-  animation-duration: 2s;
+  animation-duration: 3s;
 }
 
 @keyframes aparecerPun {
-  from {filter: brightness(100%);
+  from {
         transform: scale(1.0);
         }
-  to {filter: brightness(110%);
-      transform: scale(1.3) rotateX(360deg);
-      opacity: 0.7;
+  to {
+      transform: scale(1.1) rotateX(360deg) rotateZ(360deg) rotateY(25deg);
       }
 }
 .puntuacion {
