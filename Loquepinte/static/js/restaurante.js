@@ -6,5 +6,3 @@ function confirMsj() {
         document.FormComent.submit();
     }
 }
-
-

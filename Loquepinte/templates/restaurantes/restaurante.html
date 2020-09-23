@@ -119,7 +119,7 @@
     <!-- FILA 2 -->
     <!-- CONTACTO / HORARIOS Y MENU -->
     <div class="row">
-        <div class="col-sm-6 d-flex flex-column px-4" id="menusTab">
+        <div class="col-sm-6 d-flex flex-column px-4 py-4" id="menusTab">
             <ul class="nav nav-pills" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="Promo-tab" data-toggle="pill" href="#Promo" role="tab"
@@ -232,14 +232,30 @@
         <!-- CARACTERISTICAS DEL RESTAURANTE -->
         <div class="col-sm-3 d-flex flex-column py-4 px-4">
             <div class="cuentacon text-center">
-                <h1 class="titleContamos">Contamos con:</h1>
+                <h3 class="puntuacion">Puntuación:</h3>
+                <h3 class="promDecimal">{{promDecimal}}</h3>
+                <p class="califacion">
+                    {% if promedio == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}                                        
+                </p>
+                
+                <h3 class="titleContamos">Contamos con:</h3>
                 <img src="../static/img/check.png" class="img-fluid" id="check1">
                 <img src="../static/img/restaurante_1/caract/Mesas.png" class="img-fluid" id="Mesas">
                 <img src="../static/img/restaurante_1/caract/Music.png" class="img-fluid" id="Music">
                 <img src="../static/img/restaurante_1/caract/Patio.png" class="img-fluid" id="Patio">
                 <img src="../static/img/restaurante_1/caract/Mozo.png" class="img-fluid" id="Mozo">
                 <img src="../static/img/restaurante_1/caract/Baños.png" class="img-fluid" id="Baños">
-                <img src="../static/img/check.png" class="img-fluid" id="check2">
+                <img src="../static/img/check.png" class="img-fluid" id="check2">                
             </div>
         </div>
 
@@ -280,7 +296,7 @@
                 <div class="class text-center">
                     <h1><b>Ultimos comentarios</b></h1>
                 </div>
-                {% if comentario %}
+                {% if comentario %}                
                 {% for coment in comentario %}
                 <hr>
                 <div class="comment" style="border: 2px solid black;">
@@ -289,7 +305,18 @@
                     <div class="comentario5">
                         <p><i>{{ coment.mensaje|linebreaks }}</i></p>
                     </div>
-                    <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
+                    <p>Valoración: <b class="estrellaColor">
+                            {% if coment.valoracion == '1' %}
+                            ★
+                            {% elif coment.valoracion == '2' %}
+                            ★★
+                            {% elif coment.valoracion == '3' %}
+                            ★★★
+                            {% elif coment.valoracion == '4' %}
+                            ★★★★
+                            {% elif coment.valoracion == '5' %}
+                            ★★★★★
+                            {% endif %}</b></p>
                 </div>
                 <hr>
                 {% endfor %}
@@ -328,19 +355,20 @@
                 <div class="form-group text-center">
                     <h6><b>Calificación:</b></h6>
                     <p class="clasificacion">
-                        <input id="radio1" type="radio" name="estrellas" value="★★★★★">
+                        <input id="radio1" type="radio" name="estrellas" value="5">
                         <label for="radio1" class="stars">★</label>
-                        <input id="radio2" type="radio" name="estrellas" value="★★★★">
+                        <input id="radio2" type="radio" name="estrellas" value="4">
                         <label for="radio2" class="stars">★</label>
-                        <input id="radio3" type="radio" name="estrellas" value="★★★">
+                        <input id="radio3" type="radio" name="estrellas" value="3">
                         <label for="radio3" class="stars">★</label>
-                        <input id="radio4" type="radio" name="estrellas" value="★★">
+                        <input id="radio4" type="radio" name="estrellas" value="2">
                         <label for="radio4" class="stars">★</label>
-                        <input id="radio5" type="radio" name="estrellas" value="★">
+                        <input id="radio5" type="radio" name="estrellas" value="1">
                         <label for="radio5" class="stars">★</label>
                     </p>
                 </div>
-                <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent" onclick="confirMsj()">
+                <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent"
+                    onclick="confirMsj()">
             </form>
             {% else %}
             <div class="container text-center">
@@ -392,7 +420,6 @@
 
     <!-- Modal -->
     <!-- para comentarios -->
-    {% block content3 %}
     <div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content1">
@@ -414,7 +441,17 @@
                             <div class="comentario">
                                 <p><i>{{ comentario.mensaje|linebreaks }}</i></p>
                             </div>
-                            <p>Valoración: <b class="estrellaColor">{{comentario.valoracion}}</b></p>
+                            <p>Valoración: <b class="estrellaColor">{% if comentario.valoracion == '1' %}
+                                    ★
+                                    {% elif comentario.valoracion == '2' %}
+                                    ★★
+                                    {% elif comentario.valoracion == '3' %}
+                                    ★★★
+                                    {% elif comentario.valoracion == '4' %}
+                                    ★★★★
+                                    {% elif comentario.valoracion == '5' %}
+                                    ★★★★★
+                                    {% endif %}</b></p>
                             <p align="right">{{ comentario.fecha }}</p>
                         </div>
                         <hr>
@@ -429,8 +466,6 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-
     <!--MODAL para Menu -->
     <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
