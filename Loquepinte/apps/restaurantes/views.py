@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from .models import *
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404 # ademas del render coloco el redirect para redireccionar
 from django.contrib.auth.decorators import login_required # este sirve para obligar que este logeado para ingresar
 from django.contrib.auth import login, authenticate
@@ -83,16 +84,6 @@ def restaurante(request):
             calificacion = request.POST["estrellas"]
         except:
             None
-        # if calificacion == "1":
-        #     calificacion = "★"
-        # elif calificacion == "2":
-        #     calificacion = "★★"
-        # elif calificacion == "3":
-        #     calificacion = "★★★"
-        # elif calificacion == "4":
-        #     calificacion = "★★★★"
-        # elif calificacion == "5":
-        #     calificacion = "★★★★"
         
         comentario = Comentario(usuario=nombre_Usuario, Nombre_restaurant=nombre_Restaurant, mensaje=texto, valoracion=calificacion)
         comentario.save()
@@ -280,10 +271,10 @@ def registro_usuario(request):
             password = formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password) # con esto se autenfica ahora se hace el login
             login(request, user)
-            return render(request, "index.html")
+            return redirect("/principal/")
         else:
-            return render(request, "registration/error_registro.html")
+            messages.warning(request,"Ha introducido mal los valores")
+
     return render(request, 'registration/registrar.html', data)
 
-def error(request):
-    return render(request, "registration/error_registro.html")
+

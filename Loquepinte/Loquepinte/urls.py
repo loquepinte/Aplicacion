@@ -39,7 +39,6 @@ urlpatterns = [
     path('contactar/', views.contactar, name='contactar'),
     path('accounts/', include('django.contrib.auth.urls' )), # esto trae la ruta del login, la del log out, etc
     path('registrar/', views.registro_usuario, name='registro_usuario'),
-    path('error/', views.error, name='error'),
 
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 
         name='password_change_done'),
@@ -57,4 +56,6 @@ urlpatterns = [
      name='password_reset_complete'),
 
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]
