@@ -1,0 +1,20 @@
+body {
+    background: linear-gradient(rgba(93, 9, 121, .3), rgba(155, 35, 234, .7)), url(/static/img/login/bglogin.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.row {
+    margin-top: 220px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.faceLogin{
+    border-radius: 5px;
+}
