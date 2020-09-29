@@ -1,3 +1,5 @@
+{% load socialaccount %}
+{% providers_media_js %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="es-AR">
@@ -22,8 +24,13 @@
             color: white;
         }
 
-        .faceLogin {
-            border-radius: 5px;
+        .faceLogin a{
+            background-color: rgb(61, 90, 152);
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 7px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -51,8 +58,8 @@
                 <input type="submit" value="Registrar" class="btn btn-info py-3">
             </div>
         </form>
-        <div class="py-2"><a href="{% url 'social:begin' 'facebook' %}"><img src="/static/img/login/facebookReg.png"
-                    class="faceLogin"></a></div>
+        <div class="faceLogin text-center"><a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="py-3"><img
+            src="/static/img/login/facebook.png" class="py-4">Registrar con Facebook <img src="/static/img/login/img3.png"></a></div>
         <hr>
         <div><a href="/principal"><button class="btn btn-warning">Volver Atrás</button></a></div>
     </div>

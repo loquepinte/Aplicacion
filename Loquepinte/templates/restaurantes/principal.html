@@ -31,19 +31,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Restaurantes</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tipos de Comida
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Comida Tipica</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Comida Vegana</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Comida Celiaca</a>
-                        </div>
-                    </li>
                 </ul>
                 <!-- registro/login -->
                 <div class="login px-4">
@@ -56,10 +43,6 @@
                     <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
                     {% endif %}
                 </div>
-                <form class="form-inline my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0 px-4" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
     </header>
@@ -166,7 +149,8 @@
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../san_jose/"><img src="/static/img/sanJose.png" class="restaurante"></a>
+            <a href="../san_jose/"><img src="/static/img/sanJose.png" class="restaurante" data-toggle="tooltip"
+                data-placenment="top" title="Mesas al aire libre!"></a>
             <div>
                 <form>
                     <p class="clasificacion">

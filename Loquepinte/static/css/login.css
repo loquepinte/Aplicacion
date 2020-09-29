@@ -15,6 +15,13 @@ a:hover {
     text-decoration: none;
 }
 
-.faceLogin{
-    border-radius: 5px;
+
+.faceLogin a{
+    background-color: rgb(61, 90, 152);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
 }
+

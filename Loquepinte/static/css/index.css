@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 header{
     text-shadow: 3px 0 2px black;
     
@@ -6,16 +8,25 @@ header{
     position: relative;
     transition: 0.5s;
     filter: opacity(.5);
+    border-radius: 50%;
+    transform: scale(0.7);   
+    filter: drop-shadow(0px 2px 2px black);
+    animation-name: aparecer;
+    animation-duration: 0.7s;
 }
   
 .staff:hover{
-    transform: scale(1.1);       
-    filter: opacity(1);
-
+    transform: scale(1.0);       
+    filter: opacity(1);   
 }
+
+
+
+
 .btn {
     box-shadow: 0px 0px 5px 2px #000000;
 }
+
 
 #ingresar {
     transition: 0.5s linear;
@@ -26,4 +37,62 @@ header{
     transform: scale(1.05);
 }
 
+.devs {
+    font-family: 'Indie Flower', cursive;
+    font-variant: small-caps;
+    text-decoration: underline;
+    letter-spacing: 8px;
+    color: #ffffff;
+    text-shadow: 0px 2px 4px rgb(0, 0, 0);
+    background: rgba(0,0,0,0.2);
+    
+}
 
+/* marcos */
+#marcos {
+    animation-name: marcos;
+    animation-duration: 1s;
+}
+
+@keyframes marcos {
+    from {margin-left: -300px;
+        transform: rotateZ(-300deg);
+        filter: blur(3px);}
+    to {margin-left: 0px;}
+}
+
+#marcos:hover {
+    box-shadow: 0px 0px 10px 5px rgb(73, 141, 81);
+}
+
+/* luis */
+#luis {
+    animation-name: luis;
+    animation-duration: 1s;
+}
+@keyframes luis {
+    from {margin-top: -300px; 
+          transform: rotateZ(300deg);
+          filter: blur(3px);}
+    to {margin-top: 0px;}
+}
+
+#luis:hover {
+    box-shadow: 0px 0px 10px 5px rgb(36, 26, 130);
+}
+
+/* milton */
+#milton {
+    animation-name: milton;
+    animation-duration: 1s;
+}
+@keyframes milton{
+    from {margin-right: -300px;
+        transform: rotateZ(300deg);
+        filter: blur(3px);}
+    to {margin-right: 0px;}
+}
+
+#milton:hover {
+    box-shadow: 0px 0px 10px 5px rgb(255, 183,85);
+}
