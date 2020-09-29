@@ -24,13 +24,31 @@
             color: white;
         }
 
-        .faceLogin a{
+        .faceLogin a {
+            font-family: inherit;
             background-color: rgb(61, 90, 152);
             border: 1px solid rgb(0, 0, 0);
             border-radius: 7px;
             color: white;
+            font-family: initial;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 19px;
+            text-decoration: none;
+        }
+
+        .googleLogin a {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 7px;
+            color: rgb(117, 117, 117);
+            font-family: initial;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .googleLogin a:hover {
+            color: rgb(65, 65, 65);
         }
     </style>
 </head>
@@ -58,8 +76,12 @@
                 <input type="submit" value="Registrar" class="btn btn-info py-3">
             </div>
         </form>
-        <div class="faceLogin text-center"><a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="py-3"><img
-            src="/static/img/login/facebook.png" class="py-4">Registrar con Facebook <img src="/static/img/login/img3.png"></a></div>
+        <div class="faceLogin text-center"><a href="{% provider_login_url 'facebook' method='js_sdk' %}"
+                class="py-3"><img src="/static/img/login/facebook.png" class="py-4">Registrar con Facebook <img
+                    src="/static/img/login/img3.png"></a></div>
+        <div class="googleLogin text-center"><a href="{% provider_login_url 'google' method='Oauth2' %}"
+                class="py-3"><img src="/static/img/login/google.png"><b>Registrar con Google</b><img
+                    src="/static/img/login/img4.png"></div>
         <hr>
         <div><a href="/principal"><button class="btn btn-warning">Volver Atrás</button></a></div>
     </div>

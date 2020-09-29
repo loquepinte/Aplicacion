@@ -17,11 +17,27 @@ a:hover {
 
 
 .faceLogin a{
+    font-family: inherit;
     background-color: rgb(61, 90, 152);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 7px;
     color: white;
+    font-family: initial;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 19px;
 }
 
+
+.googleLogin a{  
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    color: rgb(117, 117, 117);    
+    font-family: initial;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.googleLogin a:hover{
+    color: rgb(65, 65, 65);
+}

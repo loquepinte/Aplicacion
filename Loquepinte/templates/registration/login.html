@@ -35,13 +35,17 @@
         <form method="POST">
           {% csrf_token%}
           {{form | crispy}}
-          <div class="text-center py-4">
+          <div class="text-center py-4">            
+            <button class="btn btn-success py-3" type="submit"><b>Iniciar sesión</b></button>
             <a href="/password_reset">
               <p>Olvidaste tu contraseña? Haz click aqui!</p>
             </a>
-            <button class="btn btn-success py-3" type="submit"><b>Iniciar sesión</b></button>
-            <div class="faceLogin text-center"><a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="py-3"><img
-              src="/static/img/login/facebook.png" class="py-4">Ingresar con Facebook <img src="/static/img/login/img3.png"></a></div>
+            <div class="faceLogin text-center"><a href="{% provider_login_url 'facebook' method='js_sdk' %}"
+                class="py-3"><img src="/static/img/login/facebook.png" class="py-3"><b>Ingresar con Facebook</b><img
+                  src="/static/img/login/img3.png"></a></div>
+            <div class="googleLogin text-center"><a href="{% provider_login_url 'google' method='Oauth2' %}"
+                class="py-3"><img src="/static/img/login/google.png"><b>Ingresar con Google</b><img
+                src="/static/img/login/img4.png"></div>
           </div>
         </form>
         <h5>*No tienes cuenta?</h5>
