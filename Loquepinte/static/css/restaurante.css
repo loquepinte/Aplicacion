@@ -38,10 +38,18 @@ body {
   background: linear-gradient(rgba(212, 96, 96, 0.8), rgba(194, 127, 127, 0.8));
 }
 
-label {
+.starComentario{
+  color: rgb(224, 211, 86);
+}
+
+#areaComentario{
+  font-size: 30px;
+}
+
+.stars {
     color: grey;
     font-size: 50px;
-  }
+}
 
 input[type="radio"] {
     display: none;
@@ -53,8 +61,8 @@ input[type="radio"] {
     unicode-bidi: bidi-override;
   }
 
-label:hover,
-label:hover~label {
+.stars:hover,
+.stars:hover~.stars {
     color: orange;
   }
 
@@ -116,6 +124,7 @@ input[type="radio"]:checked~label {
   border-radius: 20px;
 }
 
+
 .estrellaColor{
   color: orange;
   font-size: 20px;
@@ -162,7 +171,7 @@ input[type="radio"]:checked~label {
   }
 }
 
-#check1 {
+/* #check1 {
   animation-name: brillo1;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -181,13 +190,14 @@ input[type="radio"]:checked~label {
     filter: brightness(120%) hue-rotate(360deg);
     opacity: 1;
   }
-}
+} */
 
 .titleContamos {
   /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
   font-family: 'Gabriola', 'Arial';
   font-variant: small-caps;
   background: linear-gradient(rgba(168, 74, 74, 0.5), rgba(206, 133, 133, 0.5));
+  font-size: 50px;
 }
 
 #myTab{
@@ -200,3 +210,30 @@ input[type="radio"]:checked~label {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.califacion {
+  color: grey;
+  font-size: 60px;
+  margin-top: -20px;
+  font-style: normal;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  animation-name: aparecerPun;
+  animation-duration: 3s;
+}
+
+@keyframes aparecerPun {
+  from {
+        transform: scale(1.0);
+        }
+  to {
+      transform: scale(1.1) rotateX(360deg) rotateZ(360deg) rotateY(25deg);
+      }
+}
+.puntuacion {
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-family: 'Gabriola', 'Arial';
+  font-variant: small-caps;
+  background: linear-gradient(rgba(168, 74, 74, 0.5), rgba(206, 133, 133, 0.5));
+  font-size: 50px;  
+}
+

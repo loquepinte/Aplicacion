@@ -1,10 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es-AR">
 
 <head>
-    {% load static %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178686276-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-178686276-1');
+    </script>
+
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="600">
+    <meta name="keywords"
+        content="Loquepinte, restaurantes resistencia, resistencia, restaurante, comida, Que pinta hoy?, donde pinta? , el patron del lomo, el surtidor, la chimenea, nanas de cebollas, san jose, la petite ">
+    <meta name="author" content="Luis Peralta, Marcos Billordo, Milton Yaya">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="2IvaHA-b31nmDUnyQknFtKAmD3x0v0hAMWxvJEkOQeo" />
+    <meta name="Robots" content="all" />
     <title>Lo que pinte </title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -44,18 +60,33 @@
             </div>
         </div>
     </header>
-
-    <div class="row">
-        <div class="col-sm-4 text-center my-4">
-            <a href="https://www.linkedin.com/in/marcos-billordo-gonzalez-9a2a77198/"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>
-        </div>
-        <div class="col-sm-4 text-center">
-            <a href="https://www.linkedin.com/in/luisalejandroperalta/"><img src="/static/img/avatar1.png" class="staff img-fluid"></a>
-        </div>
-        <div class="col-sm-4 text-center">
-            <a href="#"><img src="/static/img/avatar2.png" class="staff img-fluid"></a>
+    <div class="devs row text-center">
+        <div class="col-sm-12">
+            <h3 style="font-size: 50px;">Developers</h3>
         </div>
     </div>
+
+    <div class="devs row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-2 text-center">
+            <a href="https://www.linkedin.com/in/marcos-billordo-gonzalez-9a2a77198/" target="_blank"><img src="/static/img/Marcos2.png"
+                    class="staff img-fluid" id="marcos"  onmouseover="src='/static/img/Marcos1.png';"
+                    onmouseout="src='/static/img/Marcos2.png';"></a>
+        </div>
+        <div class="col-sm-2 text-center">
+            <a href="https://www.linkedin.com/in/luisalejandroperalta/" target="_blank"><img src="/static/img/luis2.png"
+                    class="staff img-fluid" id="luis"  onmouseover="src='/static/img/luis1.png';"
+                    onmouseout="src='/static/img/luis2.png';"></a>
+        </div>
+        <div class="col-sm-2 text-center">
+            <a href="https://www.linkedin.com/in/milton-edgardo-yaya-915470120" target="_blank"><img
+                    src="/static/img/milton2.png" class="staff img-fluid" id="milton"
+                    onmouseover="src='/static/img/milton1.png';"
+                    onmouseout="src='/static/img/milton2.png';"></a>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
     <!-- PIE DE PAGINA -->
     {% include "footer.html" %}
 

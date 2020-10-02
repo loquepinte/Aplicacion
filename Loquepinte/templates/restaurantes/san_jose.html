@@ -16,8 +16,8 @@ San Jose
         <h4>Julio Argentino Roca 15</h4>
         <h6>Resistencia - Chaco</h6>
         <h2>Acerca de:</h2>
-        <p>Este es un clásico restaurante,confitería y bar de la ciudad de Resistencia Ubicado en el centro, enfrente de
-            la plaza principal, muy conocido por sus chipasitos!, ¿lo acompañarías con un café?.
+        <p><b>Este es un clásico restaurante,confitería y bar de la ciudad de Resistencia Ubicado en el centro, enfrente de
+            la plaza principal, muy conocido por sus chipasitos!, ¿lo acompañarías con un café?.</b>
         </p>
     </div>
     <!-- IMAGENES DEL RESTAURANTE -->
@@ -82,7 +82,17 @@ San Jose
                 <div class="comentario5">
                     <p><i>{{ coment.mensaje|linebreaks }}</i></p>
                 </div>
-                <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
+                <p>Valoración: <b class="estrellaColor">{% if coment.valoracion == '1' %}
+                    ★
+                    {% elif coment.valoracion == '2' %}
+                    ★★
+                    {% elif coment.valoracion == '3' %}
+                    ★★★
+                    {% elif coment.valoracion == '4' %}
+                    ★★★★
+                    {% elif coment.valoracion == '5' %}
+                    ★★★★★
+                    {% endif %}</b></p>
             </div>
             <hr>
             {% endfor %}
@@ -95,14 +105,52 @@ San Jose
             </div>
         </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-1"></div>
     <div class="col-sm-4">
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios1"></a>
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios2"></a>
-        <a href="/comentarioJose"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                id="imgComentarios3"></a>
+        {% if user.is_authenticated %}
+        <form action=" " method="POST" class="formComentario" name="FormComent">{% csrf_token %}
+            <div class="form-group text-center">
+                <div class="row">
+                    <div class="col-sm-8 py-2">
+                        <h5><b>Bienvenido!</b></h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="usuario form-control" name="txt_UsuarioJo"
+                            placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                    </div>
+                </div>
+                <label for="comentario">
+                    <div class="starComentario">
+                        <h1>Dejame tu comentario</h1>
+                    </div>
+                </label>
+                <textarea class="form-control" id="areaComentario" name="txt_ComentarioJo" cols="30" rows="5"></textarea>
+
+            </div>
+            <div class="form-group text-center">
+                <h6><b>Calificación:</b></h6>
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="estrellas" value="5">
+                    <label for="radio1" class="stars">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="4">
+                    <label for="radio2" class="stars">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3" class="stars">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="2">
+                    <label for="radio4" class="stars">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="1">
+                    <label for="radio5" class="stars">★</label>
+                </p>
+            </div>
+            <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent" onclick="confirMsj()">
+        </form>
+        {% else %}
+        <div class="container text-center">
+            <h3>¿Quieres dejar un comentario a este restaurante?</h3>
+            <p>Click para registrarte o iniciar sesión!</p>
+            <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar sesión</b></button></a>
+        </div>
+        {% endif %}
     </div>
 </div>
 <!-- api google maps -->

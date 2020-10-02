@@ -28,24 +28,38 @@ SECRET_KEY = '#4qv6_*p836%j+apa*8@mu(vxi6*#qid$a!w(@($4!@gi_=3yg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-""" aca pongo donde se redirige"""
+# SOCIAL_AUTH_FACEBOOK_KEY = '697191497535329'
+# SOCIAL_AUTH_FACEBOOK_SECRET = '2f7c8031ad5ad58b2c1d2dd42f5f85da'
+
+
+""" Acá ingreso donde se redirige"""
 LOGIN_REDIRECT_URL= "/principal/"
-LOGOUT_REDIRECT_URL="/principal/"
+LOGOUT_REDIRECT_URL="/accounts/login"
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "sslserver",
     'crispy_forms',
     'apps.restaurantes',
+    'django.contrib.sitemaps',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',    
+    'social_django',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'Loquepinte.urls'
@@ -76,6 +91,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
             ],
         },
     },
@@ -144,3 +162,15 @@ EMAIL_HOST_PASSWORD= "INFORMATORIO2020"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.facebook.FacebookOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID=1

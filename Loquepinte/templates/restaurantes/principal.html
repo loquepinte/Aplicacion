@@ -5,6 +5,12 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Loquepinte, restaurantes resistencia, resistencia, restaurante, comida, Que pinta hoy?, donde pinta? , el patron del lomo, el surtidor, la chimenea, nanas de cebollas, san jose, la petite ">
+    <meta name="author" content="Luis Peralta, Marcos Billordo, Milton Yaya">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="2IvaHA-b31nmDUnyQknFtKAmD3x0v0hAMWxvJEkOQeo" />
+    <meta name="Robots" content="all" />
     <title>Lo que pinte</title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -12,59 +18,6 @@
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
     <link rel="stylesheet" href="/static/css/principal.css">
-    <style>
-        .BotonLogin {
-            font-family: Arial;
-            color: #ffffff;
-            font-size: 20px;
-            padding: 8px;
-            border-radius: 15px;
-            box-shadow: 2px 1px 5px #666666;
-            text-shadow: 2px 2px 4px #666666;
-            border: solid #d91c71 0px;
-            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
-            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
-        }
-
-        .BotonLogin:hover {
-            background: #e62097;
-        }
-
-        .BotonRegistro {
-            font-family: Arial;
-            color: #ffffff;
-            font-size: 20px;
-            padding: 8px;
-            border-radius: 15px;
-            box-shadow: 2px 1px 5px #666666;
-            text-shadow: 2px 2px 4px #666666;
-            border: solid #d91c71 0px;
-            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
-            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
-        }
-
-        .BotonRegistro:hover {
-            background: #e62097;
-        }
-
-        .BotonLogout {
-            font-family: Arial;
-            color: #ffffff;
-            font-size: 18px;
-            padding: 8px;
-            border-radius: 15px;
-            box-shadow: 2px 1px 5px #666666;
-            text-shadow: 2px 2px 4px #666666;
-            border: solid #d91c71 0px;
-            background: -webkit-gradient(linear, 0 0, 0 100%, from(#fc3f94), to(#fc0574));
-            background: -moz-linear-gradient(top, #fc3f94, #fc0574);
-        }
-
-        .BotonLogout:hover {
-            background: #e62097;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -84,19 +37,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Restaurantes</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tipos de Comida
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Comida Tipica</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Comida Vegana</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Comida Celiaca</a>
-                        </div>
-                    </li>
                 </ul>
                 <!-- registro/login -->
                 <div class="login px-4">
@@ -109,10 +49,6 @@
                     <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
                     {% endif %}
                 </div>
-                <form class="form-inline my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Restaurante" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0 px-4" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
     </header>
@@ -123,15 +59,22 @@
     </div>
     <div class="row">
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../restaurante/"><img src="/static/img/viejoCafe.png" class="restaurante"></a>
+            <a href="../restaurante/"><img src="/static/img/laPetite.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
             <!-- Boton para calificar el restaurante -->
             <div>
                 <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5">★</label>
+                    {% if promedio1 == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio1 == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio1 == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio1 == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio1 == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
                 </p>
             </div>
         </div>
@@ -140,11 +83,17 @@
                     data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5">★</label>
+                    {% if promedio2 == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio2 == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio2 == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio2 == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio2 == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
                 </p>
             </div>
         </div>
@@ -153,11 +102,17 @@
                     data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5">★</label>
+                    {% if promedio3 == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio3 == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio3 == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio3 == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio3 == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
                 </p>
             </div>
         </div>
@@ -166,36 +121,56 @@
                     data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5">★</label>
+                    {% if promedio4 == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio4 == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio4 == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio4 == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio4 == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
                 </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../nanas/"><img src="/static/img/nanasDeCebollas.png" class="restaurante"></a>
+            <a href="../nanas/"><img src="/static/img/nanasDeCebollas.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Cuenta con delivery!"></a>
             <div>
                 <p class="clasificacion">
-                    <label for="radio1" class="star1" style="color: orange;">★</label>
-                    <label for="radio2" class="star2" style="color: orange;">★</label>
-                    <label for="radio3" class="star3" style="color: orange;">★</label>
-                    <label for="radio4" class="star4" style="color: orange;">★</label>
-                    <label for="radio5" class="star5">★</label>
+                    {% if promedio5 == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio5 == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio5 == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio5 == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio5 == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
                 </p>
             </div>
         </div>
         <div class="restau col-sm-4 text-center py-4">
-            <a href="../san_jose/"><img src="/static/img/sanJose.png" class="restaurante"></a>
+            <a href="../san_jose/"><img src="/static/img/sanJose.png" class="restaurante" data-toggle="tooltip"
+                    data-placenment="top" title="Mesas al aire libre!"></a>
             <div>
                 <form>
                     <p class="clasificacion">
-                        <label for="radio1" class="star1" style="color: orange;">★</label>
-                        <label for="radio2" class="star2" style="color: orange;">★</label>
-                        <label for="radio3" class="star3" style="color: orange;">★</label>
-                        <label for="radio4" class="star4" style="color: orange;">★</label>
-                        <label for="radio5" class="star5">★</label>
+                        {% if promedio6 == 1 %}
+                        <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                        {% elif promedio6 == 2 %}
+                        <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                        {% elif promedio6 == 3 %}
+                        <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                        {% elif promedio6 == 4 %}
+                        <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                        {% elif promedio6 == 5 %}
+                        <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                        {% endif %}
                     </p>
                 </form>
             </div>

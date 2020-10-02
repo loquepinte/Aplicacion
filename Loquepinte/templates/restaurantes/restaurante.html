@@ -5,13 +5,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Lo que pinte{% endblock %}</title>
+    <meta name="keywords"
+        content="Loquepinte, restaurantes resistencia, resistencia, restaurante, comida, Que pinta hoy?, donde pinta? , el patron del lomo, el surtidor, la chimenea, nanas de cebollas, san jose, la petite ">
+    <meta name="author" content="Luis Peralta, Marcos Billordo, Milton Yaya">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="2IvaHA-b31nmDUnyQknFtKAmD3x0v0hAMWxvJEkOQeo" />
+    <meta name="Robots" content="all" />
+    <title>{% block title %}La Petite{% endblock %}</title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d5e8dba652.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/estilos.css">
     <link rel="stylesheet" href="/static/css/restaurante.css">
+    <link rel="stylesheet" href="/static/css/comentario.css">
+    <script src="/static/js/restaurante.js"></script>
+    <!-- Smartsupp Live Chat script -->
+    {% if user.is_authenticated %}
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'a3001602eebcab4561b5c91b9660d79d162ce8e1';
+        window.smartsupp || (function (d) {
+            var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+            s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+            c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+            c.src = 'https://www.smartsuppchat.com/loader.js?'; s.parentNode.insertBefore(c, s);
+        })(document);
+    </script>
+    {% endif %}
+
 </head>
 
 <body>
@@ -33,7 +55,7 @@
                         <a class="nav-link" href="../principal/">Restaurantes</a>
                     </li>
                     <li class="nav-item active">
-                        {% block content %}<a class="nav-link" href="#">El viejo Café</a>{% endblock %}
+                        {% block content %}<a class="nav-link" href="#">La Petite</a>{% endblock %}
                     </li>
                 </ul>
                 <!-- registro/login -->
@@ -47,10 +69,6 @@
                     <a href="{% url 'registro_usuario'  %}"><button class="BotonRegistro">Registrarse</button></a>
                     {% endif %}
                 </div>
-                <form class="form-inline my-2 my-lg-0 px-2">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Comida" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
             </div>
         </nav>
         <div>
@@ -61,14 +79,14 @@
     <div class="row">
         <!-- NOMBRE Y DIRECCION -->
         <div class="col-sm-6 py-4 d-flex flex-column text-center">
-            <h1 style="font-size: 48pt;">El Viejo Café</h1>
+            <h1 style="font-size: 48pt;">La Petite</h1>
             <i class="fas fa-map-marker-alt"></i>
-            <h4>Carlos Pellegrini 101</h4>
+            <h4>Marcelo T. de Alvear 80</h4>
             <h6>Resistencia - Chaco</h6>
             <h2>Acerca de:</h2>
-            <p>Este es un icónico restaurante y bar de la ciudad de Resistencia Ubicado en el centro
-                a 1 cuadra de la plaza principal, muy conocido por la historia
-                del perro fernando, que cuenta la leyenda que iba todos los días a tomarse un café!.
+            <p><b>Restaurante ubicado enfrente de la plaza principal de Resistencia, excelente para ir de paseo a
+                    disfrutar
+                    algo!</b>
             </p>
         </div>
         <!-- IMAGENES DEL RESTAURANTE -->
@@ -76,13 +94,16 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active text-center">
-                        <img src="../static/img/restaurante_1/imagen1.png"">
+                        <img src="../static/img/restaurante_1/img1.png"">
                     </div>
                     <div class=" carousel-item text-center">
-                        <img src="../static/img/restaurante_1/imagen2.png">
+                        <img src="../static/img/restaurante_1/img2.png">
                     </div>
                     <div class="carousel-item text-center">
-                        <img src="../static/img/restaurante_1/imagen3.png">
+                        <img src="../static/img/restaurante_1/img3.png">
+                    </div>
+                    <div class="carousel-item text-center">
+                        <img src="../static/img/restaurante_1/img4.png">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -101,7 +122,7 @@
     <!-- FILA 2 -->
     <!-- CONTACTO / HORARIOS Y MENU -->
     <div class="row">
-        <div class="col-sm-6 d-flex flex-column px-4" id="menusTab">
+        <div class="col-sm-6 d-flex flex-column px-4 py-4" id="menusTab">
             <ul class="nav nav-pills" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="Promo-tab" data-toggle="pill" href="#Promo" role="tab"
@@ -143,7 +164,7 @@
                     </div>
                 </div>
 
-                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">                    
+                <div class="tab-pane fade show" id="Comida" role="tabpanel" aria-labelledby="Comida-tab">
                     <div id="control2" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active text-center">
@@ -214,7 +235,23 @@
         <!-- CARACTERISTICAS DEL RESTAURANTE -->
         <div class="col-sm-3 d-flex flex-column py-4 px-4">
             <div class="cuentacon text-center">
-                <h1 class="titleContamos">Contamos con:</h1>
+                <h3 class="puntuacion">Puntuación:</h3>
+                <h3 class="promDecimal">{{promDecimal}}</h3>
+                <p class="califacion">
+                    {% if promedio == 1 %}
+                    <label for="radio1" class="star1" style="color: orange;">★</label>★★★★
+                    {% elif promedio == 2 %}
+                    <label for="radio2" class="star2" style="color: orange;">★★</label>★★★
+                    {% elif promedio == 3 %}
+                    <label for="radio3" class="star3" style="color: orange;">★★★</label>★★
+                    {% elif promedio == 4 %}
+                    <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
+                    {% elif promedio == 5 %}
+                    <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
+                    {% endif %}
+                </p>
+
+                <h3 class="titleContamos">Contamos con:</h3>
                 <img src="../static/img/check.png" class="img-fluid" id="check1">
                 <img src="../static/img/restaurante_1/caract/Mesas.png" class="img-fluid" id="Mesas">
                 <img src="../static/img/restaurante_1/caract/Music.png" class="img-fluid" id="Music">
@@ -229,21 +266,25 @@
             <div class="horarios">
                 <h3>Contacto:</h3><img src="../static/img/whatsapp.ico">
                 {% block content4 %}
-                <p><i class="fas fa-mobile-alt px-2"></i>362-4459399</p>
+                <p><i class="fas fa-mobile-alt px-2"></i>362-4432527</p>
                 <!-- HORARIOS DE ATENCION -->
                 <h3>Horarios de Atencion:</h3>
-                <p>⏰ <b>Lunes:</b> 06-14hs</p>
-                <p>⏰ <b>Martes:</b> 06-14hs</p>
-                <p>⏰ <b>Miercoles:</b> 06-14hs</p>
-                <p>⏰ <b>Jueves:</b> 06-14hs</p>
-                <p>⏰ <b>Viernes:</b> 06-14hs</p>
-                <p>⏰ <b>Sabado:</b> 06-14hs</p>
-                <p>⏰ <b>Domingo:</b> 06-14hs</p>
+                <p>⏰ <b>Lunes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Martes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Miercoles:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Jueves:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Viernes:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Sabado:</b> 12hs-14.30hs | 20hs-22.30hs</p>
+                <p>⏰ <b>Domingo:</b> 12hs-14.30hs | 20hs-22.30hs</p>
 
                 <!-- DELIVERY DISPONIBLE -->
-                <img src="../static/img/deliveryNot.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
+                <img src="../static/img/delivery.png" class="img-fluid" data-toggle="tooltip" data-placenment="top"
                     title="📞 Pegame un llamado pibe!">
-                <h3><i>No cuenta con delivery</i>🙁</h3>
+                <h3><i class="fas fa-check-circle" style="color: lightgreen;"></i>Cuenta con delivery!<i
+                        class="fas fa-check-circle" style="color: lightgreen;"></i></h3>
+                <a href="https://www.pedidosya.com.ar/restaurantes/resistencia/la-petite-pellegrini-menu"
+                    target="_blank"><img src="../static/img/pedidos_ya.png" class="img-fluid" data-toggle="tooltip"
+                        data-placenment="top" title="😉 Buscame en Pedidos Ya!"></a>
                 {% endblock %}
             </div>
         </div>
@@ -251,34 +292,6 @@
 
     <!-- FILA 3 -->
     <!-- COMENTARIOS DE CLIENTES -->
-    <!-- <div class="row" id="comentario">
-    <div class="col-sm-12 text-center">
-      <h1>¿Que te parecio este restaurante?</h1>
-      <p>Deja tu comentario:</p>
-      <form>
-        <textarea name="comentario" cols="80" rows="5"></textarea>
-      </form>
-      <div>
-        <form>
-          <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5">
-            <label for="radio1">★</label>
-            <input id="radio2" type="radio" name="estrellas" value="4">
-            <label for="radio2">★</label>
-            <input id="radio3" type="radio" name="estrellas" value="3">
-            <label for="radio3">★</label>
-            <input id="radio4" type="radio" name="estrellas" value="2">
-            <label for="radio4">★</label>
-            <input id="radio5" type="radio" name="estrellas" value="1">
-            <label for="radio5">★</label>
-          </p>
-        </form>
-      </div>
-      <div class="py-4">
-        <input type="submit" class="btn btn-warning col-sm-3 py-4" value="Enviar" onclick="valor()">
-      </div>
-    </div>
-  </div> -->
     {% block content2 %}
     <div class="row" id="comentario">
         <div class="col-sm-6">
@@ -295,7 +308,18 @@
                     <div class="comentario5">
                         <p><i>{{ coment.mensaje|linebreaks }}</i></p>
                     </div>
-                    <p>Valoración: <b class="estrellaColor">{{coment.valoracion}}</b></p>
+                    <p>Valoración: <b class="estrellaColor">
+                            {% if coment.valoracion == '1' %}
+                            ★
+                            {% elif coment.valoracion == '2' %}
+                            ★★
+                            {% elif coment.valoracion == '3' %}
+                            ★★★
+                            {% elif coment.valoracion == '4' %}
+                            ★★★★
+                            {% elif coment.valoracion == '5' %}
+                            ★★★★★
+                            {% endif %}</b></p>
                 </div>
                 <hr>
                 {% endfor %}
@@ -308,14 +332,55 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
         <div class="col-sm-4">
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios1"></a>
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios2"></a>
-            <a href="/comentario"><img src="../static/img/restaurante_1/calificacion.png" class="img-fluid"
-                    id="imgComentarios3"></a>
+            {% if user.is_authenticated %}
+            <form action=" " method="POST" class="formComentario" name="FormComent">{% csrf_token %}
+                <div class="form-group text-center">
+                    <div class="row">
+                        <div class="col-sm-8 py-2">
+                            <h5><b>Bienvenido!</b></h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" class="usuario form-control" name="txt_Usuario"
+                                placeholder="Nombre de Usuario" value="{{ user.username }}" readonly=»readonly»>
+                        </div>
+                    </div>
+                    <label for="comentario">
+                        <div class="starComentario">
+                            <h1>Dejame tu comentario</h1>
+                        </div>
+                    </label>
+                    <textarea class="form-control" id="areaComentario" name="txt_Comentario" cols="30"
+                        rows="5"></textarea>
+
+                </div>
+                <div class="form-group text-center">
+                    <h6><b>Calificación:</b></h6>
+                    <p class="clasificacion">
+                        <input id="radio1" type="radio" name="estrellas" value="5">
+                        <label for="radio1" class="stars">★</label>
+                        <input id="radio2" type="radio" name="estrellas" value="4">
+                        <label for="radio2" class="stars">★</label>
+                        <input id="radio3" type="radio" name="estrellas" value="3">
+                        <label for="radio3" class="stars">★</label>
+                        <input id="radio4" type="radio" name="estrellas" value="2">
+                        <label for="radio4" class="stars">★</label>
+                        <input id="radio5" type="radio" name="estrellas" value="1">
+                        <label for="radio5" class="stars">★</label>
+                    </p>
+                </div>
+                <input type="button" class="btn btn-primary btn-block py-4" value="Enviar" id="botonEnviarComent"
+                    onclick="confirMsj()">
+            </form>
+            {% else %}
+            <div class="container text-center">
+                <h3>¿Quieres dejar un comentario a este restaurante?</h3>
+                <p>Click para registrarte o iniciar sesión!</p>
+                <a href="{% url 'login'  %}"><button class="btn btn-outline-success py-4"><b>Iniciar
+                            sesión</b></button></a>
+            </div>
+            {% endif %}
         </div>
     </div>
     <!-- api google maps -->
@@ -323,7 +388,7 @@
         <div class="col-sm-4"></div>
         <div class="mapa col-sm-6 d-flex py-2">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d372.1562452237483!2d-58.983934108320604!3d-27.451607147504777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9e59402ff74ed1cd!2sEl%20Viejo%20Caf%C3%A9!5e0!3m2!1ses!2sar!4v1600089875393!5m2!1ses!2sar"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14161.059845578395!2d-59.00090800156956!3d-27.461009352623353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450d8f68261ea1%3A0x54de5880ef5976a7!2sLa%20Petite%20PAtisserie!5e0!3m2!1ses!2sar!4v1600681899969!5m2!1ses!2sar"
                 width="600" height="450" frameborder="0" style="border:1;" allowfullscreen="" aria-hidden="false"
                 tabindex="0"></iframe>
         </div>
@@ -358,7 +423,6 @@
 
     <!-- Modal -->
     <!-- para comentarios -->
-    {% block content3 %}
     <div class="modal fade" id="comentariosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content1">
@@ -380,7 +444,17 @@
                             <div class="comentario">
                                 <p><i>{{ comentario.mensaje|linebreaks }}</i></p>
                             </div>
-                            <p>Valoración: <b class="estrellaColor">{{comentario.valoracion}}</b></p>
+                            <p>Valoración: <b class="estrellaColor">{% if comentario.valoracion == '1' %}
+                                    ★
+                                    {% elif comentario.valoracion == '2' %}
+                                    ★★
+                                    {% elif comentario.valoracion == '3' %}
+                                    ★★★
+                                    {% elif comentario.valoracion == '4' %}
+                                    ★★★★
+                                    {% elif comentario.valoracion == '5' %}
+                                    ★★★★★
+                                    {% endif %}</b></p>
                             <p align="right">{{ comentario.fecha }}</p>
                         </div>
                         <hr>
@@ -395,12 +469,10 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-
     <!--MODAL para Menu -->
     <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content1">
+            <div class="modal-content1" id="menuCompleto">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Menú Completo:</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -430,7 +502,8 @@
                                 <i>Lechuga, tomate, mayonesa, jamón, queso y huevo.</i><br>
                                 <b>$245</b></li>
 
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Lomitos 🥩</h3>
@@ -452,7 +525,8 @@
                             <li><u>Lomito común pan ciabatta medio</u><br>
                                 <i>Lechuga, tomate y mayonesa.</i><br>
                                 <b>$242</b></li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Pizzas 🍕</h3>
@@ -477,7 +551,8 @@
                             <li><u>Pizza correntina</u><br>
                                 <i>Mozzarella, huevo picado, salsa, aceitunas y orégano.</i><br>
                                 <b>$510</b></li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Papas fritas 🍟</h3>
@@ -489,7 +564,8 @@
                                 <i>(porción grande)</i><br>
                                 <b>$175</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Empanadas 🌮</h3>
@@ -501,7 +577,8 @@
                             <li><u>1/2 docena de empanadas</u><br>
                                 <b>$253</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Sándwiches 🥪</h3>
@@ -533,7 +610,8 @@
                                 <i>Mayonesa, queso, jamón, lechuga, tomate y pollo.</i><br>
                                 <b>$520</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Especialidades 🍝</h3>
@@ -557,7 +635,8 @@
                                 <i>Servidos con salsa a la crema.</i><br>
                                 <b>$300</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Parrilla 🥓</h3>
@@ -585,7 +664,8 @@
                                     tripa gorda, 1 pan.</i><br>
                                 <b>$920</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Bebidas 🍹</h3>
@@ -622,7 +702,8 @@
                             <li><u>Levite 2.25L</u><br>
                                 <b>$250</b>
                             </li>
-                        </ul><hr size="2px" color="white" />
+                        </ul>
+                        <hr size="2px" color="white" />
 
                         <ul>
                             <h3>Postres 🍨</h3>

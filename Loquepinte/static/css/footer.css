@@ -1,0 +1,23 @@
+#NosModal {
+    background-color: rgba(96, 163, 51, 0.9);
+    box-shadow: 0px 0px 15px #cdff7c;
+    border-radius: 20px;            
+}
+#resModal{
+    background-color: rgba(163, 51, 94, 0.9);
+    box-shadow: 0px 0px 15px #cdff7c;
+    border-radius: 20px;    
+}
+#listaRes a{
+    color: rgb(158, 158, 158);
+    text-align: center;
+    transition: 2s;
+}
+#listaRes:hover a{            
+    color: rgb(255, 255, 255);
+}
+footer {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;    
+}
