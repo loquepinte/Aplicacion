@@ -56,7 +56,7 @@ def principal(request):
     return render(request, "restaurantes/principal.html",contexto)
 
 def restaurante(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
 
     # Para mostrar los comentarios:
@@ -91,7 +91,7 @@ def restaurante(request):
     return render(request, "restaurantes/restaurante.html", contexto)
 
 def el_surtidor(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = ComentarioSurtidor.objects.all().order_by('-id')[:3]
     comentarios = ComentarioSurtidor.objects.all().order_by('-id')
@@ -121,7 +121,7 @@ def el_surtidor(request):
     return render(request, "restaurantes/el_surtidor.html", contexto)
 
 def el_patron(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = ComentarioLomo.objects.all().order_by('-id')[:3]
     comentarios = ComentarioLomo.objects.all().order_by('-id')
@@ -151,7 +151,7 @@ def el_patron(request):
     return render(request, "restaurantes/el_patron.html", contexto)
 
 def la_chimenea(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = ComentarioChimenea.objects.all().order_by('-id')[:3]
     comentarios = ComentarioChimenea.objects.all().order_by('-id')
@@ -181,7 +181,7 @@ def la_chimenea(request):
     return render(request, "restaurantes/la_chimenea.html", contexto)
 
 def nanas(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = ComentarioNanas.objects.all().order_by('-id')[:3]
     comentarios = ComentarioNanas.objects.all().order_by('-id')
@@ -211,7 +211,7 @@ def nanas(request):
     return render(request, "restaurantes/nanas.html", contexto)
     
 def san_jose(request):
-    '''Este función retorna la lista de comentarios de nuestra base de datos
+    '''Esta función retorna la lista de comentarios de nuestra base de datos
     y los ordena de mayor a menor, trayendo solo los ultimos 3 ids'''
     Ultimoscomentarios = ComentarioJose.objects.all().order_by('-id')[:3]
     comentarios = ComentarioJose.objects.all().order_by('-id')

@@ -5,6 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Loquepinte, restaurantes resistencia, resistencia, restaurante, comida, Que pinta hoy?, donde pinta? , el patron del lomo, el surtidor, la chimenea, nanas de cebollas, san jose, la petite ">
+    <meta name="author" content="Luis Peralta, Marcos Billordo, Milton Yaya">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="2IvaHA-b31nmDUnyQknFtKAmD3x0v0hAMWxvJEkOQeo" />
+    <meta name="Robots" content="all" />
     <title>{% block title %}La Petite{% endblock %}</title>
     <link rel="icon" href="/static/img/icon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -78,8 +84,9 @@
             <h4>Marcelo T. de Alvear 80</h4>
             <h6>Resistencia - Chaco</h6>
             <h2>Acerca de:</h2>
-            <p><b>Restaurante ubicado enfrente de la plaza principal de Resistencia, excelente para ir de paseo a disfrutar
-                algo!</b>
+            <p><b>Restaurante ubicado enfrente de la plaza principal de Resistencia, excelente para ir de paseo a
+                    disfrutar
+                    algo!</b>
             </p>
         </div>
         <!-- IMAGENES DEL RESTAURANTE -->
@@ -241,9 +248,9 @@
                     <label for="radio4" class="star4" style="color: orange;">★★★★</label>★
                     {% elif promedio == 5 %}
                     <label for="radio5" class="star5" style="color: orange;">★★★★★</label>
-                    {% endif %}                                        
+                    {% endif %}
                 </p>
-                
+
                 <h3 class="titleContamos">Contamos con:</h3>
                 <img src="../static/img/check.png" class="img-fluid" id="check1">
                 <img src="../static/img/restaurante_1/caract/Mesas.png" class="img-fluid" id="Mesas">
@@ -251,7 +258,7 @@
                 <img src="../static/img/restaurante_1/caract/Patio.png" class="img-fluid" id="Patio">
                 <img src="../static/img/restaurante_1/caract/Mozo.png" class="img-fluid" id="Mozo">
                 <img src="../static/img/restaurante_1/caract/Baños.png" class="img-fluid" id="Baños">
-                <img src="../static/img/check.png" class="img-fluid" id="check2">                
+                <img src="../static/img/check.png" class="img-fluid" id="check2">
             </div>
         </div>
 
@@ -292,7 +299,7 @@
                 <div class="class text-center">
                     <h1><b>Ultimos comentarios</b></h1>
                 </div>
-                {% if comentario %}                
+                {% if comentario %}
                 {% for coment in comentario %}
                 <hr>
                 <div class="comment" style="border: 2px solid black;">
